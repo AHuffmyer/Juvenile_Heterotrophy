@@ -1,0 +1,1069 @@
+---
+title: Effects of nutritional and thermal regimes on juvenile coral performance and energetic status  
+author: "Ariana S Huffmyer, Colton Johnson, Ashleigh Epps, Ruth Gates, Judith Lemus"
+date: '2019'
+output:
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_depth: 6
+    toc_float: yes
+  pdf_document:
+    keep_tex: yes
+---
+##Setup
+
+Set up workspace, set options, and load required packages.
+```{r, echo=TRUE, show=FALSE}
+rm(list=ls(all=TRUE)) 
+```
+
+```{r setup, echo=TRUE}
+knitr::opts_chunk$set(root.dir = "~/Juvenile_Heterotrophy",warning=FALSE, message=FALSE)
+```
+
+```{r, echo=FALSE, results=FALSE, messages=FALSE}
+library("reshape") #reshape data
+library("plotrix") #functions in tapply
+library("ggplot2") #plotting
+library("reshape2") #reshape data
+library("dplyr")  #splitting, applying, and combining data
+library("plyr")  #splitting, applying, and combining data
+library("pscl") 
+library("plotrix") #plotting
+library("gridExtra") #arrange plots for output
+library("car") #levenes test
+library("exactRankTests")
+library("lsmeans")
+library("ggbiplot")
+library("vegan") #nmds
+library("effects")
+library("blmeco") #overdispersion tests
+library("multcomp") 
+library("multcompView")
+library("vegan") #calculating distance matrices
+library("survival") #Kaplan-Meier Survivorship Curves
+library("survminer")  #Kaplan-Meier Survivorship Curves
+library("betareg") #beta regressions
+library("coin") #rank testing
+library("mvtnorm")
+library("glmmADMB") #additional glm distributions
+library("PMCMR")
+library("scales")
+library("MuMIn")
+library("glmmTMB")
+library("lme4") #linear mixed modeling
+library("lmerTest") #Adds p-value calculations to lme4 models
+library("ggsignif") #add significance values to ggplots
+library("HH") #post-hoc figures
+library("MASS")
+library("FSA")
+library("emmeans") #post-hoc tests
+library("cowplot") #plotting
+library("magick") #plotting images with plots
+library("tidyverse")
+library("coxme") #add random effects to coxph model
+library("factoextra")
+library("ggfortify")
+```
+ 
+##Authors    
+
+Author contributions: A Huffmyer designed study, conducted experiment, collected and analyzed data, and wrote manuscript. C Johnson conducted the experiment and collected data. A Epps collected and analyzed data. R Gates and J Lemus assisted with designing the study and provided laboratory space, resources, and funding.  
+
+##Analysis Overview  
+
+1. Temperature Treatments
+2. Settlement  
+3. Survivorship  
+4. Growth  
+5. Confocal Data Manipulation
+6. Confocal Tissue Thickness  
+7. Confocal Symbiont Fluorescence  
+
+All variables were analyzed with the appropriate class of linear mixed effect models with signficance calculated using Type II ANOVA tests with Satterthwaite approximation.  
+
+## Methodology Overview
+
+Juvenile corals were exposed to temperature treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these conditioning treatments for 30 days. Growth and survivorship was measured during the conditioning period. Over the course of the conditioning period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece).
+
+*See manuscript for detailed methodology and treatment summary information*
+
+##1. Temperature Treatments  
+
+Temperature treatments were controlled using the Apex Neptune Aquacontroller platform in a 12-tank indoor controlled mesocosm system. Data are recorded in the Apex Aquacontroller system every 15 minutes and Apex temperature probes are calibrated every 3-7 days with a digital thermometer. Temperature data are loaded, summarized, and displayed in the figures below as a time series and 24-hour temperature cycles.  
+
+Load temperature data from Apex files and generate figure with: 
+
+1. Time series of temperature data with mean treatment temperatures specified by color. 
+2. Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the conditioning period. 
+
+```{r, restults=FALSE}
+physical<-read.csv("Data/ConditioningTemps.csv", header=T, na.strings="NA")
+physical$DateTime <- as.POSIXct(physical$DateTime, format="%m/%d/%y %H:%M")
+
+#subset temperature measurements by complete cases in the conditioning period
+temps<-physical[complete.cases(physical$Temperature), ]
+
+
+Temps1 <- ddply(temps, c("DateTime", "Treatment"), summarise,
+                   N    = length(Temperature[!is.na(Temperature)]),
+                   mean = mean(Temperature, na.rm=TRUE),
+                   sd   = sd(Temperature, na.rm=TRUE),
+                   se   = sd / sqrt(6), 
+                   max = max(Temperature, na.rm=TRUE),
+                   lower = mean-se, 
+                   upper = mean+se
+                   )
+
+#set color palette
+cols <- c("Ambient" = "#606060","Cool" = "#0099FF")
+
+TimeSeries<-ggplot(Temps1, aes(x = DateTime, y = mean, fill=Treatment, color=Treatment)) + 
+  geom_line(aes(color = Treatment), size = .5) +
+  scale_color_manual(values = cols, breaks=c("Cool", "Ambient")) +
+  scale_fill_manual(values = cols, breaks=c("Cool", "Ambient")) +
+  ylab("Temperature (°C)")+
+  xlab("Date")+
+  geom_ribbon(aes(ymin=Temps1$lower, ymax=Temps1$upper), linetype=2, alpha=0.4, color=NA) +
+  theme_classic()+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size=16, color="black", face="bold")) +
+  theme(axis.text.x = element_text())+
+  theme(legend.title = element_text(face="bold"))+
+  theme(plot.margin = unit(c(0.1, 0.5, 0.1, 0.1), "cm")) + #t, r, b, l
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  theme(legend.position="top")+
+  theme(axis.text = element_text(size=16, color="black"))
+
+Conditioning1 <- ddply(temps, c("Minutes", "Treatment"), summarise,
+                   N    = length(Temperature[!is.na(Temperature)]),
+                   mean = mean(Temperature, na.rm=TRUE),
+                   sd   = sd(Temperature, na.rm=TRUE),
+                   se   = sd / sqrt(6), 
+                   max = max(Temperature, na.rm=TRUE),
+                   lower = mean-se, 
+                   upper = mean+se
+                   )
+
+ConditioningDay<-ggplot(Conditioning1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
+  geom_line(aes(color = Treatment), size = .5) +
+  scale_color_manual(values = c("#606060", "#0099FF")) +
+  scale_fill_manual(values = c("#606060", "#0099FF")) +
+  theme_classic() +
+  geom_ribbon(aes(ymin=Conditioning1$lower, ymax=Conditioning1$upper), linetype=2, alpha=0.4, color=NA) +
+  ylab("Temperature (°C)")+
+  scale_x_continuous(breaks=c(0, 720, 1440), labels=c("0:00", "12:00", "24:00")) +
+  xlab("Time of Day") +
+  theme(legend.position="none")+
+  theme(legend.title = element_text(face="bold"))+
+  theme(text = element_text(size = 16, color="black"))+
+  theme(plot.margin = unit(c(1, 1, 0.1, 1), "cm")) + #t, r, b, l
+  theme(axis.title = element_text(size = 16, color="black", face="bold"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  theme(axis.text = element_text(size=16, color="black"))
+
+#subset to display high values, including both the first and second high temperature period, not ramping days
+
+tempplots<-plot_grid(TimeSeries, ConditioningDay, labels = c("A", "B"), ncol=2, nrow=1, rel_widths = c(1.5, 1), label_size = 20)
+
+ggsave(filename="Figures/TempPlot.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
+ggsave(filename="Figures/TempPlot.png", plot=tempplots, dpi=300, width=13, height=6, units="in")
+```
+
+![Temperature Treatments](Figures/TempPlot.png)  
+
+##2. Settlement
+
+Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.  
+
+```{r, restults=FALSE}
+settle<-read.csv("Data/Settlement.csv", header=T, na.strings="NA")
+settle$Cohort<-as.factor(settle$Cohort)
+settle$Tank<-as.factor(settle$Tank)
+
+#create binomial vector
+attach(settle)
+y<-cbind(Success, Failure)
+```
+
+
+Analyze effect of temperature treatment on settlement success with plug nested within tank and cohort as random effects. Cohort indicates day larvae were released over the 4-day collection period.  
+
+`setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial)`
+
+Determine significance of treatment using Type III Anova analysis.  
+
+```{r, results=TRUE}
+#mixed model with tank and cohort as random effects
+setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial, REML=F)
+Anova(setmod, type="II") #non sign at p=0.5719
+```
+
+Results indicate that temperature was not a significant driver of settlement at p=0.5691. Generate summary of model and check assumptions of residual normality.  
+
+```{r, results=TRUE}
+setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial)
+summary(setmod) 
+qqPlot(residuals(setmod, type="deviance"))
+```
+
+Residuals appear normal. Check for overdispersion using the blmeco package: `dispersion_glmer(setmod)`    
+```{r, results=TRUE}
+dispersion_glmer(setmod)
+```
+Value is less than 1.008, which is less than the threshold considered acceptable (1.4) in the package description.   
+
+There is no effect of treatment on settlement rates. Cohort will remain a random effect in future measurements as it produced variation in this model.   
+
+Generate summary of settlement in each temperature treatment.  
+```{r, results=TRUE}
+settle$prop<-settle$Success/settle$Larvae
+
+Settlement <- ddply(settle, c("Treatment"), summarise,
+                   N    = length(prop[!is.na(prop)]),
+                   mean = mean(prop, na.rm=TRUE),
+                   sd   = sd(prop, na.rm=TRUE),
+                   se   = sd / sqrt(N), 
+                   max = max(prop, na.rm=TRUE)
+)
+knitr::kable(Settlement)
+```
+
+*Conclusions*  
+1. Temperature did not influence settlement rate of larvae during 24-hour period in which settlement took place.   
+
+2. We can assume settlement rate and therefore total settlement was likely equal across temperature treatments.  
+
+
+##3. Survivorship  
+
+Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for Kaplan Meier analyses ("censor") across multiple timepoints during the 30-day treatment period. Data are examined as Kaplan-Meier survivorship curves and analyzed using Cox Proportional Hazards mixed models with temperature and nutrition as main effects and plug nested within tank and cohort as random effects.
+
+```{r, results=FALSE}
+#load data
+KM<-read.csv("Data/Survivorship.csv", header=TRUE, sep=",", na.strings="NA")
+
+print(levels(KM$Temperature))  ##Levels are ambient, then cool - which is correct
+print(levels(KM$Nutrition)) ##Needs to be reordered with No Heterotrophy first
+
+KM$Nutrition <- relevel(KM$Nutrition, ref = "No Heterotrophy")
+print(levels(KM$Nutrition))
+```
+
+Survivorship data is analyzed using a Cox Proportional Hazards model with random effects: `cox1<-coxph(Surv(Days,Censor)~Nutrition*Temperature, data=KM)`
+
+```{r, results=TRUE}
+#survivorship models
+#temperature and nutrition as fixed effects
+cox1<-coxph(Surv(Days,Censor)~Nutrition + Temperature + Nutrition:Temperature, data=KM)
+```
+
+Note that p values generated in this summary are not used as p values are calcuated with a Type II ANOVA. Tests show a significnat effect of temperature on survivorship with a coef of 0.82979 in the cool treatment, indicating that the risk of mortality is approx. 17% lower in cool temperature as compared to ambient.  
+
+```{r, results=TRUE}
+summary(cox1)
+lmerTest::anova(cox1, type=2)
+```
+
+As there is no significant effect of nutritional treatment in the hazards model, we display the survivorship curves separated by Temperature and Nutritional treatment separately. The Kaplan-Meier curves show the separation in survivorship by temperature treatment and the lack of difference by nutritional treatment. Note that the difference in survivorship is small (approx 5%), but significant as indicated by model above. 
+
+```{r, results=FALSE}
+#Fit survivorship function for temperature
+fitKM3 <- survfit(Surv(Days, Censor) ~ Temperature, type = "kaplan-meier", conf.type="log", data = KM)
+
+#plot survivorship curves for temperature
+survplotKM3<- ggsurvplot(fitKM3, conf.int=TRUE,  pval = FALSE, pval.size=8, test.for.trend = FALSE, main = "Bulk Plugs Survivorship", xlab = "Time (Days)", ylab = "Survival Probability", palette = c("#A0A0A0", "#0099FF"), title="", legend="top", legend.title=" ", surv.scale="percent", font.x=c(20,"bold"), font.tickslab=c(20), font.y=c(20,"bold"), font.title=c(20,"bold"), ylim=c(0,1), font.legend=c(20), font.axis=c(20), legend.lab=c("Ambient", "Cool"))
+
+splots<-list()
+splots[[1]]<-survplotKM3
+surv1<-arrange_ggsurvplots(splots, print=TRUE, ncol=1, nrow=1)
+ggsave(filename="Figures/surv1.png", plot=surv1, dpi=300, width=8, height=8, units="in")
+```
+
+```{r, results=FALSE}
+# fit survivorship function for nutrition
+fitKM4 <- survfit(Surv(Days, Censor) ~ Nutrition, type = "kaplan-meier", conf.type="log", data = KM, na.action=na.omit)
+
+#plot survivorship curves for nutrition
+survplotKM4<- ggsurvplot(fitKM4, conf.int=TRUE,  pval = FALSE, pval.size=8, test.for.trend = FALSE, xlab = "Time (Days)", ylab = "Survival Probability", palette = c("orange", "purple"), title="", legend="top", legend.title=" ", surv.scale="percent", font.x=c(20,"bold"), font.tickslab=c(20), font.y=c(20,"bold"), font.title=c(20,"bold"), ylim=c(0,1), font.legend=c(20), font.axis=c(20), legend.lab=c("Heterotrophy", "No Heterotrophy"), margin=c(0.1,0.1,1,0.1))
+
+splots<-list()
+splots[[1]]<-survplotKM4
+surv2<-arrange_ggsurvplots(splots, print=TRUE, ncol=1, nrow=1)
+ggsave(filename="Figures/surv2.png", plot=surv2, dpi=300, width=8, height=8, units="in")
+```
+
+```{r, results=FALSE, fig.show="hide", results="hide"}
+splots<-list()
+splots[[1]]<-survplotKM3
+splots[[2]]<-survplotKM4
+survplotsALL<-arrange_ggsurvplots(splots, print=TRUE, ncol=2, nrow=1)
+ggsave(filename="Figures/survALL.png", plot=survplotsALL, dpi=300, width=13, height=8, units="in")
+
+detach("package:survminer", unload=TRUE)
+```
+
+Summary of survivorship in table below for temperature treatments. 
+
+```{r, results=TRUE}
+SurvSummary2 <- ddply(KM, c("Days","Temperature", "Nutrition"), summarise,
+                N    = length(Survivorship[!is.na(Survivorship)]),
+                mean = mean(Survivorship, na.rm=TRUE),
+                sd   = sd(Survivorship, na.rm=TRUE),
+                se   = sd / sqrt(N)
+)
+knitr::kable(SurvSummary2)
+```
+
+
+*Conclusions*  
+1. Survivorship was not different by nutritional treatment or the interaction of nutrition or temperature.  
+2. Survivorship was significantly higher in the cool temperature treatment.  
+
+
+##4. Growth    
+
+Growth data is collected as planar surface area of each juvenile at the start and end of the conditioning period (approx. 30 days).  
+
+Data was collected and analyzed by C. Johnson and A. Epps from photographs taken of 10-15 plugs from each tank, taken with a scale bar for size reference. Data analyzed in ImageJ/Fiji software.  
+
+Growth rate is calculated as the change in planar surface area normalized to starting size per day (% growth per day).
+
+Here, data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the conditioning period, fusion status will be incorporated as a random effect ("Fused.Final"). Data will be analyzed for both fused and non-fused juvenile colonies, as approximately 50% of dataset are fused individuals and should be included. Although not included here, future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
+
+As growth is measured by photographs, this is the only dataset in which we can verify fusion status. Physiology data was collected on randomly selected plugs, which did not have photograph records from the start of the experiment.  
+
+```{r, results=FALSE}
+#load data
+growth<-read.csv("Data/Growth.csv", header=TRUE, sep=",", na.strings="NA")
+growth$Tank<-as.factor(growth$Tank)
+growth$Colony.ID<-as.factor(growth$Colony.ID)
+growth$Cohort<-as.factor(growth$Cohort)
+
+print(levels(growth$Temperature))  ##Levels are ambient, then cool - which is correct
+print(levels(growth$Nutrition)) ##Needs to be reordered with No Heterotrophy first
+
+##reorder the levels
+growth$Nutrition <- relevel(growth$Nutrition, ref = "No Heterotrophy")
+print(levels(growth$Nutrition))
+
+#check for incomplete rows
+r<-which(is.na(growth$Area.Final), arr.ind=TRUE)
+growth <- growth[-r, ]
+```
+
+First, calculate % growth per day in planar surface area for each juvenile examine for normality.  
+
+```{r, results=FALSE}
+growth$Planar<-((growth$Area.Final-growth$Area.Initial)/growth$Area.Initial)/(growth$Days)
+qqPlot(growth$Planar)
+```
+
+Data is non-normally distributed, so we conduct a transformation. A quarter root transformation assists in meeting normality assumptions. Check normality of model residuals below during analysis below.    
+
+```{r, results=TRUE}
+growth$tPlanar<-(growth$Planar)^(1/4)
+qqPlot(growth$tPlanar)
+```
+
+Growth rate is analyzed using lmer mixed effects model (not repeated measures).  
+Fixed Effects: Nutrition and temperature  
+Random Effects: Tank, cohort, fusion status  
+Significance determined using Type III ANOVA function.  
+
+`modelGrowth=lmer(tPlanar~Nutrition * Temperature + (1|Fusion) + (1|Tank) + (1|Cohort), data=growth)`
+
+```{r, results=TRUE}
+modelGrowth1=lmer(tPlanar~Nutrition + Temperature + Nutrition:Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth, REML=F)
+lmerTest::anova(modelGrowth1, type=2)
+```
+
+Check for homogeneity of variance using the Levene's test (passes) in the car package and normality of residuals. Residuals appear to be normal, but with some very slight deviance at tails of qqplot.    
+
+```{r, results=TRUE}
+modelGrowth=lmer(tPlanar~Nutrition + Temperature + Nutrition:Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth)
+summary(modelGrowth)
+leveneTest(growth$tPlanar~growth$Nutrition*growth$Temperature)
+qqPlot(residuals(modelGrowth1))
+```
+
+Perform Tukey post hoc analysis using emmeans function in the emmeans package.  
+```{r, results=TRUE}
+emm = emmeans(modelGrowth, ~ Temperature * Nutrition, adjust="tukey")
+#letter display
+cld(emm)
+```
+
+Generate a plot of non-transformed data to view growth rate between treatment groups. First, generate a summary table of proportion growth per day for each treatment.  
+
+```{r, results=TRUE}
+#multiply by 100 to obtain percentages for display
+growth$graph<-growth$Planar*100
+
+GrowthPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
+                   N    = length(graph[!is.na(graph)]),
+                   mean = mean(graph, na.rm=TRUE),
+                   sd   = sd(graph, na.rm=TRUE),
+                   se   = sd / sqrt(N), 
+                   max = max(graph, na.rm=TRUE)
+)
+knitr::kable(GrowthPlanar)
+```
+
+```{r, results=TRUE}
+Growth1b<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, fill=Nutrition)) +
+  scale_fill_manual(values=c("purple", "orange"))+
+  geom_bar(stat="identity", position=position_dodge(), color="black")+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=0.05, size=0.7, position=position_dodge(0.9))+
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("% planar extension", " day" ^-1)))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,4.5)+
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  geom_text(x=1.78, y=2.5, label="AB", size=8) +
+  geom_text(x=0.78, y=2, label="B", size=8) +
+  geom_text(x=2.23, y=4.1, label="A", size=8) +
+  geom_text(x=1.23, y=3.6, label="A", size=8)
+Growth1b
+
+ggsave("Figures/Rate_Growth_temp.pdf", plot=Growth1b, height=8, width=9, units = c("in"), dpi=500) #output figure
+```
+
+Dot plot.  
+```{r, results=TRUE}
+#create function for standard error
+Growth2<-ggplot(data=growth, aes(x=Nutrition, y=graph, fill=Temperature)) +
+  scale_fill_manual(values=c("#A0A0A0", "#0099FF"))+
+  geom_boxplot(width=0.75, position=position_dodge(0.9))+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.9), dotsize=0.3, color="black")+
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("% planar extension", " day" ^-1)))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,30)+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Nutrition") +
+  geom_text(x=0.78, y=26.5, label="AB", size=8) +
+  geom_text(x=1.23, y=26.5, label="B", size=8) +
+  geom_text(x=1.78, y=26.5, label="A", size=8) +
+  geom_text(x=2.23, y=26.5, label="A", size=8);Growth2
+
+
+ggsave("Figures/Rate_Growth_Dots.pdf", plot=Growth2, height=8, width=9, units = c("in"), dpi=500) #output figure
+```
+
+Dot plot by temperature treatment.  
+```{r, results=TRUE}
+#create function for standard error
+Growth3<-ggplot(data=growth, aes(x=Temperature, y=graph, fill=Nutrition)) +
+  scale_fill_manual(values=c("purple", "orange"))+
+  geom_boxplot(width=0.75, position=position_dodge(0.9))+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.9), dotsize=0.3, color="black")+
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("% planar extension", " day" ^-1)))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,30)+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  geom_text(x=0.78, y=26.5, label="AB", size=8) +
+  geom_text(x=1.23, y=26.5, label="A", size=8) +
+  geom_text(x=1.78, y=26.5, label="B", size=8) +
+  geom_text(x=2.23, y=26.5, label="A", size=8);Growth3
+
+
+ggsave("Figures/Rate_Growth_Dots_Temp.pdf", plot=Growth3, height=8, width=9, units = c("in"), dpi=500) #output figure
+```
+
+*Conclusions*  
+1. Growth was significantly higher in heterotrophic feeding treatment. There was no effect of temperature.  
+
+##5. Confocal Data Manipulation  
+
+Tissue thickness and symbiont densities are measured using Laser Scanning Confocal Microscopy as described in Huffmyer et al. (in prep). Detailed methods available in supplementary material.  
+
+Raw data sets are inputted and manipulated to calculate the following based on:   
+(1) Average Channel 2 (Red) symbiont intensity per spat sample  
+(2) Average Channel 1 (Green) tissue thickness per spat sample  
+
+```{r, results=FALSE}
+#load data set for fluorescence (symbionts)
+fluorescence<-read.csv("Data/Fluorescence.csv", header=TRUE, sep=",", na.strings="NA")
+
+#load data set for tissue thickness 
+zstack<-read.csv("Data/Thickness.csv", header=TRUE, sep=",", na.strings="NA")
+
+#load data set for colony area
+area<-read.csv("Data/Area.csv", header=TRUE, sep=",", na.strings="NA")
+
+#calculate average intensity values for symbionts
+glow <- aggregate(fluorescence$Symbiont.Intensity, by=list(fluorescence$Sample, fluorescence$Tissue), FUN=mean)
+glow <- rename(glow, c("Group.1"="Sample", "Group.2"="Tissue","x"="Symbiont.Intensity"))
+
+#calculate average tissue intensity values and merge into glow datasheet
+glow2 <- aggregate(fluorescence$Tissue.Intensity, by=list(fluorescence$Sample, fluorescence$Tissue), FUN=mean)
+glow2 <- rename(glow2, c("Group.1"="Sample", "Group.2"="Tissue","x"="Tissue.Intensity"))
+
+#calculate a colony mean value for symbionts and add into dataset
+meanglow<-aggregate(glow$Symbiont.Intensity, by=list(glow$Sample), FUN=mean)
+meanglow<-rename(meanglow, c("Group.1"="Sample", "x"="Symbiont.Intensity"))
+meanglow$Tissue<-c("Colony")
+meanglow$Tissue<-as.factor(meanglow$Tissue)
+
+meanglow2<-aggregate(glow2$Tissue.Intensity, by=list(glow2$Sample), FUN=mean)
+meanglow2<-rename(meanglow2, c("Group.1"="Sample", "x"="Tissue.Intensity"))
+meanglow2$Tissue<-c("Colony")
+meanglow2$Tissue<-as.factor(meanglow2$Tissue)
+
+glow<-rbind.fill(glow, meanglow)
+glow2<-rbind.fill(glow2, meanglow2)
+
+#merge together
+glow$Tissue.Intensity<-glow2$Tissue.Intensity
+
+#remove incomplete rows
+glow<-glow[complete.cases(glow), ]
+
+#summarize average values for tissue thickness 
+thickness <- aggregate(zstack$Thickness, by=list(zstack$Sample, zstack$Tissue), FUN=mean)
+thickness <-rename(thickness, c("Group.1"="Sample", "Group.2"="Tissue","x"="Thickness"))
+
+#calculate a colony mean value for thickness and add into datasheet
+meanz<-aggregate(thickness$Thickness, by=list(thickness$Sample), FUN=mean)
+meanz<-rename(meanz, c("Group.1"="Sample", "x"="Thickness"))
+meanz$Tissue<-c("Colony")
+meanz$Tissue<-as.factor(meanz$Tissue)
+
+thickness<-rbind.fill(thickness, meanz)
+#remove incomplete rows
+thickness<-thickness[complete.cases(thickness), ]
+```
+
+Datasheets are assembled into a master data frame for analysis and includes all identifying information.  
+
+```{r, results=FALSE}
+
+#match thickness and glow by sample and tissue 
+#create identifier column
+thickness$ID<-paste(thickness$Sample, thickness$Tissue)
+glow$ID<-paste(glow$Sample, glow$Tissue)
+
+#merge values into one spreadsheet
+
+thickness$Symbiont.Intensity<-glow$Symbiont.Intensity[match(thickness$ID, glow$ID)]
+thickness$Tissue.Intensity<-glow$Tissue.Intensity[match(thickness$ID, glow$ID)]
+thickness$Plug<-zstack$Plug[match(thickness$Sample, zstack$Sample)]
+thickness$Spat<-zstack$Spat[match(thickness$Sample, zstack$Sample)]
+thickness$Polyps<-zstack$Polyps[match(thickness$Sample, zstack$Sample)]
+thickness$Cohort<-zstack$Cohort[match(thickness$Sample, zstack$Sample)]
+thickness$Temperature<-zstack$Temperature[match(thickness$Sample, zstack$Sample)]
+thickness$Nutrition<-zstack$Nutrition[match(thickness$Sample, zstack$Sample)]
+thickness$Treatment<-zstack$Treatment[match(thickness$Sample, zstack$Sample)]
+thickness$Tank<-zstack$Tank[match(thickness$Sample, zstack$Sample)]
+
+#merge in area for each spat
+thickness$Area<-area$Area[match(thickness$Sample, area$Sample)]
+
+#call new data frame by new name and change cohort and tank to factors
+confocal<-thickness
+confocal$Cohort<-as.factor(confocal$Cohort)
+confocal$Tank<-as.factor(confocal$Tank)
+```
+
+**Calibrate LSCM fluorescence values as described in Huffmyer et al. in prep:**  
+
+LSCM collects symbiont cell density data as the intensity of "red" chlorophyll fluorescence as specified in LSCM settings. This value can be calibrated to a % Relative Intensity value, by using the Red InSpeck fluorescent microbead kits.  
+
+Calibration equation for juvenile *P. acuta*: (Red Intensity Value + 79.395) / 24.301  
+
+Here we also calculate the ratio of red:green fluorescence (symbiont:host) for exploration and analysis below.   
+
+```{r, results=FALSE}
+confocal$Red<-(confocal$Symbiont.Intensity+79.395)/24.301
+confocal$Ratio<-(confocal$Symbiont.Intensity/confocal$Tissue.Intensity)
+confocal$Green<-(confocal$Tissue.Intensity-38.045)/257.71
+
+#remove individual colony with outlier surface area of 22 (about 10 higher than all others)
+q <- with(confocal, which(Area>20, arr.ind=TRUE))
+confocal <- confocal[-q, ]
+
+#export master data frame
+write.csv(confocal, file="Data/Master_Confocal.csv")
+```
+
+Create subsets of data by tissue type, as these will be analyzed separately.  
+
+```{r, results=FALSE}
+colony<-subset(confocal, Tissue=="Colony", select=c(Sample, Tissue, Thickness, ID, Symbiont.Intensity, Tissue.Intensity, Plug, Spat, Cohort, Temperature, Nutrition, Treatment, Tank, Area, Red, Green, Ratio))
+polyp<-subset(confocal, Tissue=="Polyp", select=c(Sample, Tissue, Thickness, ID, Symbiont.Intensity, Tissue.Intensity, Plug, Spat, Cohort, Temperature, Nutrition, Treatment, Tank, Area, Red, Green, Ratio))
+connecting<-subset(confocal, Tissue=="Connecting", select=c(Sample, Tissue, Thickness, ID, Symbiont.Intensity, Tissue.Intensity, Plug, Spat, Cohort, Temperature, Nutrition, Treatment, Tank, Area, Red, Green, Ratio))
+
+#create data frame for all characteristics
+colony$PolypThickness<-polyp$Thickness[match(colony$Sample, polyp$Sample)]
+colony$PolypRed<-polyp$Red[match(colony$Sample, polyp$Sample)]
+colony$ConnectThickness<-connecting$Thickness[match(colony$Sample, polyp$Sample)]
+colony$ConnectRed<-connecting$Red[match(colony$Sample, polyp$Sample)]
+```
+
+
+##6. Confocal Tissue Thickness 
+
+Using the "Master_Confocal" data frame and tissue subsets, we first analyze tissue thickness measured by confocal LSM.  
+
+```{r, results=FALSE}
+print(levels(colony$Temperature))  ##Levels are ambient, then cool - which is correct
+print(levels(colony$Nutrition)) ##Needs to be reordered with No Heterotrophy first
+
+##reorder the levels
+colony$Nutrition <- relevel(colony$Nutrition, ref = "No Heterotrophy")
+print(levels(colony$Nutrition))
+```
+
+**Examine Data for Normality** 
+
+*Colony Level*
+```{r, results=TRUE}
+qqPlot(colony$Thickness)
+```
+
+Thickness data is normal at the colony level.  
+
+**Analysis of Tissue Thickness**  
+
+As data is continuous and normally distributed, we will analyze the data with lmer() as a linear mixed effects model.  
+
+Temperature and Nutrition are main effects. Cohort and plug nested within tank as random effects as multiple individuals were measured on the same plug.  
+
+`thick1<-lmer(Thickness~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)`  
+`thick1a<-lmer(Thickness~Temperature+Nutrition+Temperature:Nutrition + (1|Cohort) + (1|Tank/Plug), data=colony)`
+
+First, determine whether area of juvenile (planar area) should be incorporated as a covariate using model selection on the following models:  
+
+`thick1<-lmer(Thickness~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)`  
+`thick1a<-lmer(Thickness~Temperature+Nutrition+Temperature:Nutrition + (1|Cohort) + (1|Tank/Plug), data=colony)`
+`thick1b<-lmer(Thickness~Temperature * Nutrition * Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)`
+
+```{r, results=TRUE}
+thick1<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
+thick1a<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
+thick1b<-lmer(Thickness~Temperature * Nutrition * Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
+model.sel(thick1, thick1a, thick1b)
+```
+
+Area is an additive covariate with tissue thickness, as indicated by model selection, and will be incorporated into models.  
+
+```{r, results=TRUE}
+thick1<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
+lmerTest::anova(thick1, type=2)
+```
+
+Check homogeneity of variances assumption with Levene's Test - passes. View summary of model.  
+```{r, results=TRUE}
+thickModel<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)
+leveneTest(colony$Thickness~colony$Nutrition*colony$Temperature)
+summary(thickModel)
+```
+
+Conduct post-hoc anaysis of tissue thickness data.  
+```{r, results=TRUE}
+emm = emmeans(thickModel, ~ Temperature * Nutrition, adjust="tukey")
+#letter display
+cld(emm)
+```
+
+Summarize tissue thickness in a table and plot.  
+
+```{r, results=TRUE}
+ThickTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
+                   N    = length(Thickness[!is.na(Thickness)]),
+                   mean = mean(Thickness, na.rm=TRUE),
+                   sd   = sd(Thickness, na.rm=TRUE),
+                   se   = sd / sqrt(N), 
+                   max = max(Thickness, na.rm=TRUE)
+)
+knitr::kable(ThickTable)
+```
+
+  
+```{r, results=TRUE}
+Thick1<-ggplot(data=ThickTable, aes(x=Nutrition, y=mean, fill=Temperature)) +
+  scale_fill_manual(values=c("#A0A0A0", "#0099FF"))+
+  geom_bar(stat="identity", position=position_dodge(), color="black")+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=0.05, size=0.7, position=position_dodge(0.9))+
+  geom_text(x=0.78, y=560, label="B", size=6, color="black") +  
+  geom_text(x=2.23, y=730, label="A", size=6, color="black") + 
+  geom_text(x=1.78, y=740, label="A", size=6, color="black") + 
+  geom_text(x=1.23, y=640, label="AB", size=6, color="black") + 
+  theme_classic()+
+  ylim(0,750) +
+  theme(text = element_text(size = 18, color="black"))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 12, color="black"))+
+  theme(legend.text=element_text(size=18))+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  theme(legend.position="none")+
+  theme(legend.title=element_text(face="bold"))+
+  ylab(expression(bold(paste("Tissue Thickness (", mu, "m)")))) +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  xlab("Nutrition")
+Thick1
+
+ggsave("Figures/Thickness.pdf", plot=Thick1, height=8, width=10, units = c("in"), dpi=300) #output figure
+```
+
+Dot plot.  
+```{r, results=TRUE}
+#create function for standard error
+Thick2<-ggplot(data=colony, aes(x=Nutrition, y=Thickness, fill=Temperature)) +
+  scale_fill_manual(values=c("#A0A0A0", "#0099FF"))+
+  geom_boxplot(width=0.75)+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.75), dotsize=0.5, color="black")+
+  #stat_summary(fun.y=mean, geom="point", shape=18,
+                 #size=7, color="black", position=position_dodge(0.9)) +
+  theme_classic()+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 18, color="black"))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(legend.position = "none")+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  ylab(expression(bold(paste("Tissue Thickness (", mu, "m)")))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=18))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,1000) +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Nutrition") +
+  geom_text(x=0.81, y=710, label="B", size=6, color="black") +  
+  geom_text(x=2.19, y=875, label="A", size=6, color="black") + 
+  geom_text(x=1.81, y=960, label="A", size=6, color="black") + 
+  geom_text(x=1.19, y=765, label="AB", size=6, color="black");Thick2
+
+
+ggsave("Figures/Thickness_Dots.pdf", plot=Thick2, height=8, width=6, units = c("in"), dpi=300) #output figure
+```
+
+Dot plot by temperature.  
+```{r, results=TRUE}
+
+Thick3<-ggplot(data=colony, aes(x=Temperature, y=Thickness, fill=Nutrition)) +
+  scale_fill_manual(values=c("purple", "orange"))+
+  geom_boxplot(width=0.75)+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.75), dotsize=0.5, color="black")+
+  #stat_summary(fun.y=mean, geom="point", shape=18,
+                 #size=7, color="black", position=position_dodge(0.9)) +
+  theme_classic()+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 18, color="black"))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(legend.position = "none")+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  ylab(expression(bold(paste("Tissue Thickness (", mu, "m)")))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=18))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,1000) +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  geom_text(x=1.81, y=710, label="B", size=6, color="black") +  
+  geom_text(x=1.19, y=875, label="A", size=6, color="black") + 
+  geom_text(x=2.19, y=960, label="A", size=6, color="black") + 
+  geom_text(x=0.81, y=765, label="AB", size=6, color="black");Thick3
+
+
+ggsave("Figures/Thickness_Dots_Temp.pdf", plot=Thick3, height=8, width=6, units = c("in"), dpi=300) #output figure
+```
+
+*Conclusions*  
+
+1. There was a significant postive effect of surface area on tissue thickness, indicating tissue biomass accumulates as juveniles extend planar surface area.  
+2. There was a significant interactive effect of nutrition and heterotrophy, with thicker tissues in heterotrophically fed groups and thicker tissues in cool temperature in the absence of heterotrophy.  
+
+##7. Confocal Fluorescence
+
+Using the confocal data frame we analyze symbiont chlorophyll fluorescence measured by confocal LSCM.  
+
+```{r, results=TRUE}
+qqPlot(colony$Red)
+```
+
+Data for symbiont fluorescence is normal averaged over each juvenile colony.  
+
+As data is continuous and normally distributed, we will analyze the data with lmer() as a linear mixed effects model. 
+
+Using Temperature and Nutrition as main effects with Area as a continuous covariate; cohort, plug nested within tank as random effects.
+
+Compare models with tissue thickness and surface area as continuous covariates with symbiont fluorescence and compare model selection with model.sel.  
+
+`red0<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + (1|Cohort) + (1|Tank/Plug), data=colony)`
+`red1<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)`
+`red2<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Thickness + (1|Cohort) + (1|Tank/Plug), data=colony)`
+`red3<-lmer(Red~Temperature*Nutrition*Thickness + (1|Cohort) + (1|Tank/Plug), data=colony)`
+`red4<-lmer(Red~Temperature*Nutrition*Area + (1|Cohort) + (1|Tank/Plug), data=colony)`
+
+```{r, results=TRUE}
+red0<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + (1|Cohort) + (1|Tank/Plug), data=colony)
+red1<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)
+red2<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Thickness + (1|Cohort) + (1|Tank/Plug), data=colony)
+red3<-lmer(Red~Temperature*Nutrition*Thickness + (1|Cohort) + (1|Tank/Plug), data=colony)
+red4<-lmer(Red~Temperature*Nutrition*Area + (1|Cohort) + (1|Tank/Plug), data=colony)
+model.sel(red0, red1, red2, red3, red4)
+#red 1 has much higher AIC value
+```
+
+As `red1<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)` had the lowest AIC value and carried 100% of weight, area will be incorporated as a continuous covariate with symbiont fluorescence, as done with tissue thickness.
+
+```{r, results=TRUE}
+red1<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
+lmerTest::anova(red1, type=2)
+```
+
+View summary of model.    
+```{r, results=TRUE}
+RedModel<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony)
+summary(RedModel)
+```
+
+Test for homogeneity of variances - passes. Test normality of residuals - passes.  
+```{r, results=TRUE}
+leveneTest(colony$Red~colony$Temperature*colony$Nutrition)
+qqPlot(residuals(RedModel))
+```
+
+Conduct Tukey post-hoc test in emmeans package.  
+```{r, results=TRUE}
+?cld
+```
+
+Summarize symbiont fluorescence (%RI) in a table and plot.   
+
+```{r, results=TRUE}
+RedTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
+                   N    = length(Red[!is.na(Red)]),
+                   mean = mean(Red, na.rm=TRUE),
+                   sd   = sd(Red, na.rm=TRUE),
+                   se   = sd / sqrt(N), 
+                   max = max(Red, na.rm=TRUE)
+)
+knitr::kable(RedTable)
+```
+
+```{r, results=TRUE}
+Red1<-ggplot(data=RedTable, aes(x=Nutrition, y=mean, fill=Temperature)) +
+  scale_fill_manual(values=c("#A0A0A0", "#0099FF"))+
+  geom_bar(stat="identity", position=position_dodge(), color="black")+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=0.05, size=0.7, position=position_dodge(0.9))+
+  geom_text(x=1.78, y=37.5, label="C", size=6, color="black") +  
+  geom_text(x=1.23, y=32, label="AB", size=6, color="black") +  
+  geom_text(x=0.78, y=28.5, label="A", size=6, color="black") +  
+  geom_text(x=2.23, y=33, label="BC", size=6, color="black") + 
+  theme_classic()+
+  ylim(0,40)+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(legend.text=element_text(size=18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 12, color="black"))+
+  theme(legend.position="none")+
+  theme(legend.title=element_text(face="bold"))+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  ylab(expression(bold(paste("Symbiont Fluorescence (% RI)")))) +
+  xlab("Nutrition")
+Red1
+
+ggsave("Figures/Red.pdf", plot=Red1, height=10, width=12, units = c("in"), dpi=300) #output figure
+```
+
+Make dot plot.  
+```{r, results=TRUE}
+Red2<-ggplot(data=colony, aes(x=Nutrition, y=Red, fill=Temperature)) +
+  scale_fill_manual(values=c("#A0A0A0", "#0099FF"))+
+  geom_boxplot(width=0.75)+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.75), dotsize=0.5, color="black")+
+  geom_text(x=1.81, y=44, label="C", size=6, color="black") +  
+  geom_text(x=1.19, y=38, label="AB", size=6, color="black") +  
+  geom_text(x=0.81, y=35, label="A", size=6, color="black") +  
+  geom_text(x=2.19, y=39, label="BC", size=6, color="black") + 
+  theme_classic()+
+  ylim(0,50)+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(legend.text=element_text(size=18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 18, color="black"))+
+  theme(legend.position="none")+
+  theme(legend.title=element_text(face="bold"))+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  ylab(expression(bold(paste("Symbiodiniaceae Fluorescence (% RI)")))) +
+  xlab("Nutrition")
+Red2
+
+ggsave("Figures/Red_dots.pdf", plot=Red2, height=8, width=6, units = c("in"), dpi=300) #output figure
+```
+
+Make dot plot by temperature.  
+```{r, results=TRUE}
+Red3<-ggplot(data=colony, aes(x=Temperature, y=Red, fill=Nutrition)) +
+  scale_fill_manual(values=c("purple", "orange"))+
+  geom_boxplot(width=0.75)+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.75), dotsize=0.5, color="black")+
+  geom_text(x=2.19, y=44, label="C", size=6, color="black") +  
+  geom_text(x=0.81, y=38, label="AB", size=6, color="black") +  
+  geom_text(x=1.81, y=35, label="A", size=6, color="black") +  
+  geom_text(x=1.19, y=39, label="BC", size=6, color="black") + 
+  theme_classic()+
+  ylim(0,50)+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(legend.text=element_text(size=18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 18, color="black"))+
+  theme(legend.position="right")+
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  theme(legend.title=element_text(face="bold"))+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  ylab(expression(bold(paste("Symbiodiniaceae Fluorescence (% RI)")))) +
+  xlab("Temperature")
+Red3
+
+ggsave("Figures/Red_dots_temp.pdf", plot=Red3, height=8, width=8, units = c("in"), dpi=300) #output figure
+```
+
+*Conclusions*  
+1. There was a significant negative effect of surface area on symbiont fluorescence. This may indicate that symbiont communities become more dispersed in tissue as the juvenile colony grows.  
+2. There was a significant interactive effect of temperature and nutrition on symbiont fluorescence. In the absence of heterotrophy cool temperature had a trend for higher fluorescence with the opposite trend occuring in the presence of heterotrophy.  
+
+##8. PCA Analysis  
+
+To view response metrics (tissue thickness and symbiont fluoresence) and their covariate (surface area) in relation to each other, we construct a Principle Components Analysis and analyze the groupings by treatments with a PERMANOVA in the vegan package.  
+
+First, construct a PCA at the colony level with tissue thickness, symbiont fluorescence, and surface area.  Plot indicates the explained variance of each PCA component.  
+```{r, results=TRUE}
+pca<-colony[c("Sample", "Thickness", "Temperature", "Nutrition", "Area", "Red", "PolypThickness", "PolypRed", "ConnectThickness", "ConnectRed")]
+#assign binary values to temperature = 1 is cool, 2 is ambient, assign binary values to nutrition = 1 is hetero, 2 is no hetero
+pca$Treatment<-paste(pca$Temperature, pca$Nutrition)
+pca$Ambient[pca$Temperature=="Cool"] <- 1
+pca$Ambient[pca$Temperature=="Ambient"] <- 2
+pca$NoHeterotrophy[pca$Nutrition=="No Heterotrophy"] <- 2
+pca$NoHeterotrophy[pca$Nutrition=="Heterotrophy"] <- 1
+
+pca<-pca[complete.cases(pca),]
+
+colony.pca<-prcomp(pca[c(2,6,5)],scale=TRUE, center=TRUE) #12,13
+summary(colony.pca)
+
+fviz_eig(colony.pca)
+```
+
+Generate results of (1) eigen values,  (2) coordinates, (3) contributions to the PCA, (4) and quality of representation.    
+```{r,results=TRUE}
+eig.val <- get_eigenvalue(colony.pca)
+eig.val
+
+res.var <- get_pca_var(colony.pca)
+res.var$coord          # Coordinates
+res.var$contrib        # Contributions to the PCs
+res.var$cos2           # Quality of representation 
+```
+
+```{r, results=FALSE}
+pcaPlot1<-ggplot2::autoplot(colony.pca, data=pca, frame.colour="Treatment", loadings=TRUE,  colour="Treatment", loadings.label.colour="black", loadings.colour="black", loadings.label=FALSE, frame=TRUE, frame.type="norm", loadings.label.size=5, loadings.label.vjust=-1) + 
+  scale_colour_manual(values=c("#606060","#E0E0E0", "#0066CC","#99CCFF")) +
+  scale_fill_manual(values=c("#606060","#E0E0E0", "#0066CC","#99CCFF")) + 
+  xlim(-0.4,0.4) +
+  #geom_text(x=0.16, y=0.08, label="No Heterotrophy", size=6) +
+  geom_text(x=-0.07, y=0.21, label="Surface Area", size=6) +
+  geom_text(x=-0.15, y=0.06, label="Tissue Thickness", size=6) +
+  geom_text(x=-0.14, y=-0.17, label="Symbiont Fluorescence", size=6) +
+  #geom_text(x=0.11, y=-0.15, label="Ambient Temperature", size=6) +
+  theme(legend.text = element_text(size=18), 
+        legend.title = element_text(size=18, face="bold"), 
+        axis.text = element_text(size=18), 
+        axis.title = element_text(size=18,  face="bold"))
+
+pcaPlot1$layers[[2]]$aes_params$size <- 1
+
+ggsave("Figures/PCA.pdf", plot=pcaPlot1, height=8, width=12, units = c("in"), dpi=300) #output figure
+```
+
+Generate final figure of response variables including PCA.    
+```{r, results=FALSE}
+confocalfig1<-plot_grid(Thick3, Red3, pcaPlot1, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(0.8,1.25 ,1.5), label_size = 20, label_y=1, align="h")
+
+ggsave(filename="Figures/confocalfig1.png", plot=confocalfig1, dpi=500, width=20, height=6, units="in")
+
+photo2 <- cowplot::ggdraw() + cowplot::draw_image("Figures/Color_corrected.jpg", scale = 1)
+photo <- cowplot::ggdraw() + cowplot::draw_image("Figures/confocalfig1.png", scale = 1)
+
+confocalfinal<-plot_grid(photo, photo2, labels = c(""), ncol=1, nrow=2, rel_heights= c(1,0.8), rel_widths = c(1,1), align="h")
+
+ggsave(filename="Figures/confocalfinal.png", plot=confocalfinal, dpi=500, width=10, height=6, units="in")
+```
+
+
+![Physiological Responses](Figures/confocalfinal.png)    
+
+
+Finally, conduct PERMANOVA with vegan package.  
+
+```{r, results=FALSE}
+require(vegan)
+
+# PCA
+data_vegan <- pca[c(2,5,6)]
+vegan_colony <- scale(data_vegan)
+```
+
+```{r, results=TRUE}
+# PerMANOVA - partitioning the euclidean distance matrix by nutrition & temp
+adonis1<-adonis2(vegan_colony ~ Nutrition * Temperature, data = pca, method='eu', perm=1000)
+summary(adonis1)
+adonis1
+```
+
+*Conclusions*  
+
+1. PERMANOVA test indicates there is a significant interactive effect of nutrition and temperature.  
+2. PC1 primarily is driven by differences in tissue thickness.  
+3. PC2 is driven by differences in surface area and symbiont fluorescence, which are negatively correlated with each other.  
+4. In a multi-dimensional space, interactive effects are present, as seen in analysis of individual variables.  
+
