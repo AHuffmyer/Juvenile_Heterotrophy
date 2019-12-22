@@ -19,7 +19,11 @@ rm(list=ls(all=TRUE))
 ```
 
 ```{r setup, echo=TRUE}
-knitr::opts_chunk$set(root.dir = "~/Juvenile_Heterotrophy",warning=FALSE, message=FALSE)
+knitr::opts_chunk$set(root.dir = "~/R",warning=FALSE, message=FALSE)
+```
+
+```{r, echo=FALSE, results=FALSE}
+getwd()
 ```
 
 ```{r, echo=FALSE, results=FALSE, messages=FALSE}
@@ -35,7 +39,6 @@ library("gridExtra") #arrange plots for output
 library("car") #levenes test
 library("exactRankTests")
 library("lsmeans")
-library("ggbiplot")
 library("vegan") #nmds
 library("effects")
 library("blmeco") #overdispersion tests
@@ -47,7 +50,6 @@ library("survminer")  #Kaplan-Meier Survivorship Curves
 library("betareg") #beta regressions
 library("coin") #rank testing
 library("mvtnorm")
-library("glmmADMB") #additional glm distributions
 library("PMCMR")
 library("scales")
 library("MuMIn")
@@ -66,7 +68,7 @@ library("coxme") #add random effects to coxph model
 library("factoextra")
 library("ggfortify")
 ```
- 
+
 ##Authors    
 
 Author contributions: A Huffmyer designed study, conducted experiment, collected and analyzed data, and wrote manuscript. C Johnson conducted the experiment and collected data. A Epps collected and analyzed data. R Gates and J Lemus assisted with designing the study and provided laboratory space, resources, and funding.  
@@ -378,7 +380,7 @@ Significance determined using Type III ANOVA function.
 
 ```{r, results=TRUE}
 modelGrowth1=lmer(tPlanar~Nutrition + Temperature + Nutrition:Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth, REML=F)
-lmerTest::anova(modelGrowth1, type=2)
+anova(modelGrowth1, type=2)
 ```
 
 Check for homogeneity of variance using the Levene's test (passes) in the car package and normality of residuals. Residuals appear to be normal, but with some very slight deviance at tails of qqplot.    
@@ -501,6 +503,113 @@ Growth3<-ggplot(data=growth, aes(x=Temperature, y=graph, fill=Nutrition)) +
 
 ggsave("Figures/Rate_Growth_Dots_Temp.pdf", plot=Growth3, height=8, width=9, units = c("in"), dpi=500) #output figure
 ```
+
+Produce graphs with growth on quarter root scale to reflect model analyses.  
+
+```{r, results=TRUE}
+#multiply by 100 to obtain percentages for display
+growth$graph<-growth$Planar*100
+
+GrowthQtPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
+                   N    = length(tPlanar[!is.na(tPlanar)]),
+                   mean = mean(tPlanar, na.rm=TRUE),
+                   sd   = sd(tPlanar, na.rm=TRUE),
+                   se   = sd / sqrt(N), 
+                   max = max(tPlanar, na.rm=TRUE)
+)
+knitr::kable(GrowthQtPlanar)
+```
+
+```{r, results=TRUE}
+Growth1bQT<-ggplot(data=GrowthQtPlanar, aes(x=Temperature, y=mean, fill=Nutrition)) +
+  scale_fill_manual(values=c("purple", "orange"))+
+  geom_bar(stat="identity", position=position_dodge(), color="black")+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=0.05, size=0.7, position=position_dodge(0.9))+
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("planar extension", " day" ^(1/4))))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,0.5)+
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  geom_text(x=1.78, y=2.5, label="AB", size=8) +
+  geom_text(x=0.78, y=2, label="B", size=8) +
+  geom_text(x=2.23, y=4.1, label="A", size=8) +
+  geom_text(x=1.23, y=3.6, label="A", size=8)
+Growth1bQT
+
+ggsave("Figures/QT_Growth_temp.pdf", plot=Growth1bQT, height=8, width=9, units = c("in"), dpi=500) #output figure
+```
+
+Dot plot.  
+```{r, results=TRUE}
+#create function for standard error
+Growth2QT<-ggplot(data=growth, aes(x=Nutrition, y=tPlanar, fill=Temperature)) +
+  scale_fill_manual(values=c("#A0A0A0", "#0099FF"))+
+  geom_boxplot(width=0.75, position=position_dodge(0.9))+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.9), dotsize=0.3, color="black")+
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("planar extension", " day" ^(1/4))))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,1)+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Nutrition") +
+  geom_text(x=0.78, y=26.5, label="AB", size=8) +
+  geom_text(x=1.23, y=26.5, label="B", size=8) +
+  geom_text(x=1.78, y=26.5, label="A", size=8) +
+  geom_text(x=2.23, y=26.5, label="A", size=8);Growth2QT
+
+
+ggsave("Figures/QT_Growth_Dots.pdf", plot=Growth2QT, height=8, width=9, units = c("in"), dpi=500) #output figure
+```
+
+Dot plot by temperature treatment.  
+```{r, results=TRUE}
+#create function for standard error
+Growth3QT<-ggplot(data=growth, aes(x=Temperature, y=tPlanar, fill=Nutrition)) +
+  scale_fill_manual(values=c("purple", "orange"))+
+  geom_boxplot(width=0.75, position=position_dodge(0.9))+
+  geom_dotplot(binaxis='y', stackdir='center', 
+               position=position_dodge(0.9), dotsize=0.3, color="black")+
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("(planar extension", " day"^-1,")"^(1/4))))) + 
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  ylim(0,1)+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  geom_text(x=0.78, y=0.8, label="AB", size=8) +
+  geom_text(x=1.23, y=0.8, label="A", size=8) +
+  geom_text(x=1.78, y=0.8, label="B", size=8) +
+  geom_text(x=2.23, y=0.8, label="A", size=8);Growth3QT
+
+
+ggsave("Figures/QT_Growth_Dots_Temp.pdf", plot=Growth3QT, height=8, width=9, units = c("in"), dpi=500) #output figure
+```
+
 
 *Conclusions*  
 1. Growth was significantly higher in heterotrophic feeding treatment. There was no effect of temperature.  
@@ -681,7 +790,7 @@ Area is an additive covariate with tissue thickness, as indicated by model selec
 
 ```{r, results=TRUE}
 thick1<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
-lmerTest::anova(thick1, type=2)
+anova(thick1, type=2)
 ```
 
 Check homogeneity of variances assumption with Levene's Test - passes. View summary of model.  
@@ -848,7 +957,7 @@ As `red1<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohor
 
 ```{r, results=TRUE}
 red1<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + Area + (1|Cohort) + (1|Tank/Plug), data=colony, REML=F)
-lmerTest::anova(red1, type=2)
+anova(red1, type=2)
 ```
 
 View summary of model.    
@@ -865,7 +974,9 @@ qqPlot(residuals(RedModel))
 
 Conduct Tukey post-hoc test in emmeans package.  
 ```{r, results=TRUE}
-?cld
+emm = emmeans(RedModel, ~ Temperature * Nutrition, adjust="tukey")
+#letter display
+cld(emm)
 ```
 
 Summarize symbiont fluorescence (%RI) in a table and plot.   
@@ -1025,9 +1136,9 @@ pcaPlot1$layers[[2]]$aes_params$size <- 1
 ggsave("Figures/PCA.pdf", plot=pcaPlot1, height=8, width=12, units = c("in"), dpi=300) #output figure
 ```
 
-Generate final figure of response variables including PCA.    
+Generate final figure of response variables. Do not include PCA as it does not add more information than univariate responses.      
 ```{r, results=FALSE}
-confocalfig1<-plot_grid(Thick3, Red3, pcaPlot1, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(0.8,1.25 ,1.5), label_size = 20, label_y=1, align="h")
+confocalfig1<-plot_grid(Thick3, Red3, labels = c("A", "B"), ncol=2, nrow=1, rel_heights= c(1,1), rel_widths = c(1,1.25), label_size = 20, label_y=1, align="h")
 
 ggsave(filename="Figures/confocalfig1.png", plot=confocalfig1, dpi=500, width=20, height=6, units="in")
 
