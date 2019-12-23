@@ -1,6 +1,6 @@
 ---
 title: Effects of nutritional and thermal regimes on juvenile coral performance and energetic status  
-author: "Ariana S Huffmyer, Colton Johnson, Ashleigh Epps, Ruth Gates, Judith Lemus"
+author: "Ariana S Huffmyer, Colton Johnson, Ashleigh Epps, Judith Lemus, Ruth Gates"
 date: '2019'
 output:
   html_document:
@@ -11,7 +11,7 @@ output:
   pdf_document:
     keep_tex: yes
 ---
-##Setup
+## Setup
 
 Set up workspace, set options, and load required packages.
 ```{r, echo=TRUE, show=FALSE}
@@ -69,11 +69,11 @@ library("factoextra")
 library("ggfortify")
 ```
 
-##Authors    
+## Authors    
 
 Author contributions: A Huffmyer designed study, conducted experiment, collected and analyzed data, and wrote manuscript. C Johnson conducted the experiment and collected data. A Epps collected and analyzed data. R Gates and J Lemus assisted with designing the study and provided laboratory space, resources, and funding.  
 
-##Analysis Overview  
+## Analysis Overview  
 
 1. Temperature Treatments
 2. Settlement  
@@ -91,7 +91,7 @@ Juvenile corals were exposed to temperature treatment conditions for 30 days in 
 
 *See manuscript for detailed methodology and treatment summary information*
 
-##1. Temperature Treatments  
+## 1. Temperature Treatments  
 
 Temperature treatments were controlled using the Apex Neptune Aquacontroller platform in a 12-tank indoor controlled mesocosm system. Data are recorded in the Apex Aquacontroller system every 15 minutes and Apex temperature probes are calibrated every 3-7 days with a digital thermometer. Temperature data are loaded, summarized, and displayed in the figures below as a time series and 24-hour temperature cycles.  
 
@@ -177,7 +177,7 @@ ggsave(filename="Figures/TempPlot.png", plot=tempplots, dpi=300, width=13, heigh
 
 ![Temperature Treatments](Figures/TempPlot.png)  
 
-##2. Settlement
+## 2. Settlement
 
 Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.  
 
@@ -240,7 +240,7 @@ knitr::kable(Settlement)
 2. We can assume settlement rate and therefore total settlement was likely equal across temperature treatments.  
 
 
-##3. Survivorship  
+## 3. Survivorship  
 
 Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for Kaplan Meier analyses ("censor") across multiple timepoints during the 30-day treatment period. Data are examined as Kaplan-Meier survivorship curves and analyzed using Cox Proportional Hazards mixed models with temperature and nutrition as main effects and plug nested within tank and cohort as random effects.
 
@@ -267,7 +267,7 @@ Note that p values generated in this summary are not used as p values are calcua
 
 ```{r, results=TRUE}
 summary(cox1)
-lmerTest::anova(cox1, type=2)
+anova(cox1, type=2)
 ```
 
 As there is no significant effect of nutritional treatment in the hazards model, we display the survivorship curves separated by Temperature and Nutritional treatment separately. The Kaplan-Meier curves show the separation in survivorship by temperature treatment and the lack of difference by nutritional treatment. Note that the difference in survivorship is small (approx 5%), but significant as indicated by model above. 
@@ -326,7 +326,7 @@ knitr::kable(SurvSummary2)
 2. Survivorship was significantly higher in the cool temperature treatment.  
 
 
-##4. Growth    
+## 4. Growth    
 
 Growth data is collected as planar surface area of each juvenile at the start and end of the conditioning period (approx. 30 days).  
 
@@ -614,7 +614,7 @@ ggsave("Figures/QT_Growth_Dots_Temp.pdf", plot=Growth3QT, height=8, width=9, uni
 *Conclusions*  
 1. Growth was significantly higher in heterotrophic feeding treatment. There was no effect of temperature.  
 
-##5. Confocal Data Manipulation  
+## 5. Confocal Data Manipulation  
 
 Tissue thickness and symbiont densities are measured using Laser Scanning Confocal Microscopy as described in Huffmyer et al. (in prep). Detailed methods available in supplementary material.  
 
@@ -724,7 +724,7 @@ q <- with(confocal, which(Area>20, arr.ind=TRUE))
 confocal <- confocal[-q, ]
 
 #export master data frame
-write.csv(confocal, file="Data/Master_Confocal.csv")
+write.csv(confocal, file="Output/Master_Confocal.csv")
 ```
 
 Create subsets of data by tissue type, as these will be analyzed separately.  
@@ -742,7 +742,7 @@ colony$ConnectRed<-connecting$Red[match(colony$Sample, polyp$Sample)]
 ```
 
 
-##6. Confocal Tissue Thickness 
+## 6. Confocal Tissue Thickness 
 
 Using the "Master_Confocal" data frame and tissue subsets, we first analyze tissue thickness measured by confocal LSM.  
 
@@ -921,7 +921,7 @@ ggsave("Figures/Thickness_Dots_Temp.pdf", plot=Thick3, height=8, width=6, units 
 1. There was a significant postive effect of surface area on tissue thickness, indicating tissue biomass accumulates as juveniles extend planar surface area.  
 2. There was a significant interactive effect of nutrition and heterotrophy, with thicker tissues in heterotrophically fed groups and thicker tissues in cool temperature in the absence of heterotrophy.  
 
-##7. Confocal Fluorescence
+## 7. Confocal Fluorescence
 
 Using the confocal data frame we analyze symbiont chlorophyll fluorescence measured by confocal LSCM.  
 
@@ -1083,60 +1083,8 @@ ggsave("Figures/Red_dots_temp.pdf", plot=Red3, height=8, width=8, units = c("in"
 1. There was a significant negative effect of surface area on symbiont fluorescence. This may indicate that symbiont communities become more dispersed in tissue as the juvenile colony grows.  
 2. There was a significant interactive effect of temperature and nutrition on symbiont fluorescence. In the absence of heterotrophy cool temperature had a trend for higher fluorescence with the opposite trend occuring in the presence of heterotrophy.  
 
-##8. PCA Analysis  
 
-To view response metrics (tissue thickness and symbiont fluoresence) and their covariate (surface area) in relation to each other, we construct a Principle Components Analysis and analyze the groupings by treatments with a PERMANOVA in the vegan package.  
-
-First, construct a PCA at the colony level with tissue thickness, symbiont fluorescence, and surface area.  Plot indicates the explained variance of each PCA component.  
-```{r, results=TRUE}
-pca<-colony[c("Sample", "Thickness", "Temperature", "Nutrition", "Area", "Red", "PolypThickness", "PolypRed", "ConnectThickness", "ConnectRed")]
-#assign binary values to temperature = 1 is cool, 2 is ambient, assign binary values to nutrition = 1 is hetero, 2 is no hetero
-pca$Treatment<-paste(pca$Temperature, pca$Nutrition)
-pca$Ambient[pca$Temperature=="Cool"] <- 1
-pca$Ambient[pca$Temperature=="Ambient"] <- 2
-pca$NoHeterotrophy[pca$Nutrition=="No Heterotrophy"] <- 2
-pca$NoHeterotrophy[pca$Nutrition=="Heterotrophy"] <- 1
-
-pca<-pca[complete.cases(pca),]
-
-colony.pca<-prcomp(pca[c(2,6,5)],scale=TRUE, center=TRUE) #12,13
-summary(colony.pca)
-
-fviz_eig(colony.pca)
-```
-
-Generate results of (1) eigen values,  (2) coordinates, (3) contributions to the PCA, (4) and quality of representation.    
-```{r,results=TRUE}
-eig.val <- get_eigenvalue(colony.pca)
-eig.val
-
-res.var <- get_pca_var(colony.pca)
-res.var$coord          # Coordinates
-res.var$contrib        # Contributions to the PCs
-res.var$cos2           # Quality of representation 
-```
-
-```{r, results=FALSE}
-pcaPlot1<-ggplot2::autoplot(colony.pca, data=pca, frame.colour="Treatment", loadings=TRUE,  colour="Treatment", loadings.label.colour="black", loadings.colour="black", loadings.label=FALSE, frame=TRUE, frame.type="norm", loadings.label.size=5, loadings.label.vjust=-1) + 
-  scale_colour_manual(values=c("#606060","#E0E0E0", "#0066CC","#99CCFF")) +
-  scale_fill_manual(values=c("#606060","#E0E0E0", "#0066CC","#99CCFF")) + 
-  xlim(-0.4,0.4) +
-  #geom_text(x=0.16, y=0.08, label="No Heterotrophy", size=6) +
-  geom_text(x=-0.07, y=0.21, label="Surface Area", size=6) +
-  geom_text(x=-0.15, y=0.06, label="Tissue Thickness", size=6) +
-  geom_text(x=-0.14, y=-0.17, label="Symbiont Fluorescence", size=6) +
-  #geom_text(x=0.11, y=-0.15, label="Ambient Temperature", size=6) +
-  theme(legend.text = element_text(size=18), 
-        legend.title = element_text(size=18, face="bold"), 
-        axis.text = element_text(size=18), 
-        axis.title = element_text(size=18,  face="bold"))
-
-pcaPlot1$layers[[2]]$aes_params$size <- 1
-
-ggsave("Figures/PCA.pdf", plot=pcaPlot1, height=8, width=12, units = c("in"), dpi=300) #output figure
-```
-
-Generate final figure of response variables. Do not include PCA as it does not add more information than univariate responses.      
+Generate final figure of response variables. 
 ```{r, results=FALSE}
 confocalfig1<-plot_grid(Thick3, Red3, labels = c("A", "B"), ncol=2, nrow=1, rel_heights= c(1,1), rel_widths = c(1,1.25), label_size = 20, label_y=1, align="h")
 
@@ -1152,29 +1100,4 @@ ggsave(filename="Figures/confocalfinal.png", plot=confocalfinal, dpi=500, width=
 
 
 ![Physiological Responses](Figures/confocalfinal.png)    
-
-
-Finally, conduct PERMANOVA with vegan package.  
-
-```{r, results=FALSE}
-require(vegan)
-
-# PCA
-data_vegan <- pca[c(2,5,6)]
-vegan_colony <- scale(data_vegan)
-```
-
-```{r, results=TRUE}
-# PerMANOVA - partitioning the euclidean distance matrix by nutrition & temp
-adonis1<-adonis2(vegan_colony ~ Nutrition * Temperature, data = pca, method='eu', perm=1000)
-summary(adonis1)
-adonis1
-```
-
-*Conclusions*  
-
-1. PERMANOVA test indicates there is a significant interactive effect of nutrition and temperature.  
-2. PC1 primarily is driven by differences in tissue thickness.  
-3. PC2 is driven by differences in surface area and symbiont fluorescence, which are negatively correlated with each other.  
-4. In a multi-dimensional space, interactive effects are present, as seen in analysis of individual variables.  
 
