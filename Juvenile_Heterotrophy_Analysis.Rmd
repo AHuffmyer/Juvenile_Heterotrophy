@@ -1066,7 +1066,7 @@ Red3<-ggplot(data=colony, aes(x=Temperature, y=Red, fill=Nutrition)) +
   theme(legend.text=element_text(size=18))+
   theme(axis.text = element_text(size = 18, color="black"))+
   theme(axis.text.x = element_text(size = 18, color="black"))+
-  theme(legend.position="right")+
+  theme(legend.position="none")+
   scale_x_discrete(limits=c("Cool", "Ambient"))+
   theme(legend.title=element_text(face="bold"))+
   theme(axis.title = element_text(size = 18, color="black", face="bold"))+
@@ -1079,18 +1079,49 @@ Red3
 ggsave("Figures/Red_dots_temp.pdf", plot=Red3, height=8, width=8, units = c("in"), dpi=300) #output figure
 ```
 
+Plot relationship between tissue thickness and Symbiodiniaceae densities.  
+
+```{r, results=TRUE, warning=FALSE}
+Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) + 
+  geom_point(aes(color=Nutrition, shape=Temperature), size=3) +
+   scale_color_manual(name="Nutrition",
+                    values=c("purple", "orange"), 
+                    labels=c("No Heterotrophy", "Heterotrophy"))+
+  scale_shape_manual(values = c(19,21))+
+  geom_smooth(color="black", method=lm, se=FALSE, size=2)+
+  theme_classic()+
+  geom_text(x=800, y=20, label="r=0.50, p<0.01", size=6, color="black") +
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.title = element_text(size = 18, face="bold"))+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  ylab("Symbiodiniaceae Fluorescence (% RI)") +
+  xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))));Cor1
+
+ggsave("Figures/Correlation.pdf", plot=Cor1, height=8, width=10, units = c("in"), dpi=300) #output figure
+
+```
+
+Test for correlation between these two factors.  
+
+```{r, results=TRUE}
+cor.test(colony$Red, colony$Thickness, method=c("pearson"))
+```
+
 *Conclusions*  
 1. There was a significant negative effect of surface area on symbiont fluorescence. This may indicate that symbiont communities become more dispersed in tissue as the juvenile colony grows.  
 2. There was a significant interactive effect of temperature and nutrition on symbiont fluorescence. In the absence of heterotrophy cool temperature had a trend for higher fluorescence with the opposite trend occuring in the presence of heterotrophy.  
+3. There was a positive relationship between tissue thickness and symbiont fluorescence.  
 
 
 Generate final figure of response variables. 
 ```{r, results=FALSE}
-confocalfig1<-plot_grid(Thick3, Red3, labels = c("A", "B"), ncol=2, nrow=1, rel_heights= c(1,1), rel_widths = c(1,1.25), label_size = 20, label_y=1, align="h")
+confocalfig1<-plot_grid(Thick3, Red3, Cor1, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(1,1,1.25), label_size = 20, label_y=1, align="h")
 
 ggsave(filename="Figures/confocalfig1.png", plot=confocalfig1, dpi=500, width=20, height=6, units="in")
 
-photo2 <- cowplot::ggdraw() + cowplot::draw_image("Figures/Color_corrected.jpg", scale = 1)
+photo2 <- cowplot::ggdraw() + cowplot::draw_image("Figures/Color_correctedDG.jpg", scale = 1)
 photo <- cowplot::ggdraw() + cowplot::draw_image("Figures/confocalfig1.png", scale = 1)
 
 confocalfinal<-plot_grid(photo, photo2, labels = c(""), ncol=1, nrow=2, rel_heights= c(1,0.8), rel_widths = c(1,1), align="h")
@@ -1099,5 +1130,5 @@ ggsave(filename="Figures/confocalfinal.png", plot=confocalfinal, dpi=500, width=
 ```
 
 
-![Physiological Responses](Figures/confocalfinal.png)    
+![Physiological Responses](Figures/confocalfinal.png) 
 
