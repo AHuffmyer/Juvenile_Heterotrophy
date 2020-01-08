@@ -1,0 +1,376 @@
+---
+title: "Juvenile Heterotrophy: Thermal Tolerance" 
+author: "Ariana S Huffmyer, Colton Johnson, Ashleigh Epps, Ruth Gates, Judith Lemus"
+date: '2019'
+output:
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_depth: 6
+    toc_float: yes
+  pdf_document:
+    keep_tex: yes
+---
+##Setup
+
+Set up workspace, set options, and load required packages.
+```{r, echo=TRUE, show=FALSE}
+rm(list=ls(all=TRUE)) 
+```
+
+```{r, echo=FALSE, results=FALSE}
+getwd()
+```
+
+```{r, echo=FALSE, results=FALSE, messages=FALSE}
+library("reshape") #reshape data
+library("plotrix") #functions in tapply
+library("ggplot2") #plotting
+library("reshape2") #reshape data
+library("dplyr")  #splitting, applying, and combining data
+library("plyr")  #splitting, applying, and combining data
+library("pscl") 
+library("plotrix") #plotting
+#library("gridExtra") #arrange plots for output
+library("car") #levenes test
+library("lsmeans")
+library("nlme")
+library("effects")
+library("blmeco") #overdispersion tests
+#library("multcomp") 
+#library("multcompView")
+#library("vegan") #calculating distance matrices
+library("survival") #Kaplan-Meier Survivorship Curves
+library("survminer")  #Kaplan-Meier Survivorship Curves
+library("betareg") #beta regressions
+#library("exactRankTests") #rank testing
+#library("mvtnorm")
+#library("glmmADMB") #additional glm distributions
+#library("PMCMR")
+library("lmtest")
+library("scales")
+library("MuMIn")
+#library("glmmTMB")
+library("lme4") #linear mixed modeling
+library("lmerTest") #Adds p-value calculations to lme4 models
+#library("ggsignif") #add significance values to ggplots
+#library("HH") #post-hoc figures
+#library("MASS")
+#library("FSA")
+library("emmeans") #post-hoc tests
+library("cowplot") #plotting
+library("magick") #plotting images with plots
+library("tidyverse")
+```
+
+##Analysis Overview  
+
+1. Stress Test Temperature Treatments: 30 days
+2. Stress Test Temperature Treatments: 1 year
+2. 30-day Thermal Tolerance: Survivorship  
+3. 1-year Survivorship
+4. 1-year Thermal Tolerance: Survivorship
+5. 1-year Thermal Tolerance: Confocal
+6. 1-year Thermal Tolerance: Pigmentation
+
+##1. Temperature Treatments: 30 days  
+
+Temperature treatments were controlled using the Apex Neptune Aquacontroller platform in a 12-tank indoor controlled mesocosm system. Data are recorded in the Apex Aquacontroller system every 15 minutes and Apex temperature probes are calibrated every 3-7 days with a digital thermometer. Temperature data are loaded, summarized, and displayed in the figures below as a time series and 24-hour temperature cycles.  
+
+Load temperature data from Apex files and generate figure with:
+
+Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days. 
+
+```{r, restults=FALSE}
+physical<-read.csv("Data/AllTemps.csv", header=T, na.strings="NA")
+physical$DateTime <- as.POSIXct(physical$DateTime, format="%m/%d/%y %H:%M")
+
+#subset temperature measurements
+#cow plot, git_legend to smooth plot with legend 
+temps<-physical[complete.cases(physical$Temperature), ]
+
+Temps1 <- ddply(temps, c("DateTime", "Treatment"), summarise,
+                   N    = length(Temperature[!is.na(Temperature)]),
+                   mean = mean(Temperature, na.rm=TRUE),
+                   sd   = sd(Temperature, na.rm=TRUE),
+                   se   = sd / sqrt(6), 
+                   max = max(Temperature, na.rm=TRUE),
+                   lower = mean-se, 
+                   upper = mean+se
+                   )
+
+#set color palette
+cols <- c("Ambient" = "#606060","Cool" = "#0099FF","High" = "#FF3333")
+
+TimeSeries<-ggplot(Temps1, aes(x = DateTime, y = mean, fill=Treatment, color=Treatment)) + 
+  geom_line(aes(color = Treatment), size = .5) +
+  scale_color_manual(values = cols, breaks=c("Cool", "Ambient", "High")) +
+  scale_fill_manual(values = cols, breaks=c("Cool", "Ambient", "High")) +
+  ylab("Temperature (°C)")+
+  xlab("Date")+
+  geom_ribbon(aes(ymin=Temps1$lower, ymax=Temps1$upper), linetype=2, alpha=0.4, color=NA) +
+  geom_vline(xintercept=as.numeric(Temps1$DateTime[6200]), linetype="dashed", 
+                color = "black", size=0.75) +
+  geom_vline(xintercept=as.numeric(Temps1$DateTime[12004]), linetype="dotted", 
+                color = "black", size=0.75) +
+  theme_classic()+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size=16, color="black", face="bold")) +
+  theme(axis.text.x = element_text())+
+  theme(legend.title = element_text(face="bold"))+
+  theme(plot.margin = unit(c(0.1, 0.1, 0.1, 0.1), "cm")) + #t, r, b, l
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  theme(legend.position="top")+
+  theme(axis.text = element_text(size=16, color="black"))
+
+conditiontemps<-subset(temps, Phase=="Conditioning", c(DateTime, Phase, Minutes, Tank, Temperature, Treatment))
+
+Conditioning1 <- ddply(conditiontemps, c("Minutes", "Treatment"), summarise,
+                   N    = length(Temperature[!is.na(Temperature)]),
+                   mean = mean(Temperature, na.rm=TRUE),
+                   sd   = sd(Temperature, na.rm=TRUE),
+                   se   = sd / sqrt(6), 
+                   max = max(Temperature, na.rm=TRUE),
+                   lower = mean-se, 
+                   upper = mean+se
+                   )
+
+ConditioningDay<-ggplot(Conditioning1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
+  geom_line(aes(color = Treatment), size = .5) +
+  scale_color_manual(values = c("#606060", "#0099FF")) +
+  scale_fill_manual(values = c("#606060", "#0099FF")) +
+  theme_classic() +
+  geom_ribbon(aes(ymin=Conditioning1$lower, ymax=Conditioning1$upper), linetype=2, alpha=0.4, color=NA) +
+  ylab("Temperature (°C)")+
+  scale_x_continuous(breaks=c(0, 720, 1440), labels=c("0:00", "12:00", "24:00")) +
+  xlab("Time of Day") +
+  ylim(24.5,31.5)+
+  theme(legend.position="none")+
+  theme(legend.title = element_text(face="bold"))+
+  theme(text = element_text(size = 16, color="black"))+
+  theme(plot.margin = unit(c(1, 0.1, 0.1, 1), "cm")) + #t, r, b, l
+  theme(axis.title = element_text(size = 16, color="black", face="bold"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  theme(axis.text = element_text(size=16, color="black"))
+
+
+stresstemps<-subset(temps, Phase=="Stress", c(DateTime, Phase, Minutes, Tank, Temperature, Treatment))
+substress1 <- filter(stresstemps, DateTime > as.POSIXct("2017-07-15 09:00:00"))
+substress2 <- filter(substress1, DateTime < as.POSIXct("2017-07-20 10:00:00"))
+substress3 <- filter(stresstemps, DateTime > as.POSIXct("2017-07-29 12:00:00"))
+stresssubset<-bind_rows(substress1, substress2, substress3)
+
+Stress1 <- ddply(stresssubset, c("Minutes", "Treatment"), summarise,
+                   N    = length(Temperature[!is.na(Temperature)]),
+                   mean = mean(Temperature, na.rm=TRUE),
+                   sd   = sd(Temperature, na.rm=TRUE),
+                   se   = sd / sqrt(6), 
+                   max = max(Temperature, na.rm=TRUE),
+                   lower = mean-se, 
+                   upper = mean+se
+                   )
+
+#subset to display high values, including both the first and second high temperature period, not ramping days
+
+StressDay<-ggplot(Stress1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
+  geom_line(aes(color = Treatment), size = .5) +
+  scale_color_manual(values = c("#606060", "#FF3333")) +
+  scale_fill_manual(values = c("#606060", "#FF3333")) +
+  theme_classic() +
+  geom_ribbon(aes(ymin=Stress1$lower, ymax=Stress1$upper), linetype=2, alpha=0.4, color=NA) +
+  ylab("Temperature (°C)")+
+  xlab("Time of Day") +
+  ylim(24.5,31.5)+
+  scale_x_continuous(breaks=c(0, 720, 1440), labels=c("0:00", "12:00", "24:00")) +
+  theme(legend.position="none")+
+  theme(legend.title = element_text(face="bold"))+
+  theme(text = element_text(size = 16, color="black"))+
+  theme(axis.title = element_text(size = 16, color="black", face="bold"))+
+  theme(plot.margin = unit(c(1, 0.1, 0.1, 1), "cm")) + #t, r, b, l
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  theme(axis.text = element_text(size=16, color="black"))
+
+right_row <- plot_grid(ConditioningDay, StressDay, labels = c('B', 'C'), nrow=2, ncol=1, label_size = 20)
+tempplots<-plot_grid(TimeSeries, right_row, labels = c("A", ""), ncol=2, nrow=1, rel_widths = c(2.6, 1), label_size = 20)
+
+ggsave(filename="Figures/CondTemp.png", plot=ConditioningDay, dpi=300, width=8, height=8, units="in")
+
+ggsave(filename="Figures/StressTemp.png", plot=StressDay, dpi=300, width=8, height=8, units="in")
+
+ggsave(filename="Figures/TempPlot.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
+ggsave(filename="Figures/TempPlot.png", plot=tempplots, dpi=300, width=13, height=6, units="in")
+```
+
+##2. Temperature Treatments: 1 year
+##3. 30-day Thermal Tolerance: Survivorship   
+
+**Survivorship**  
+
+Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test.  Survivorship is recorded as "Success" (number alive) and "Failure" (number dead) and analyzed using a binomial mixed model.  
+
+Fixed effects: Conditioning temperature treatment, nutritional treatment, stress test temperature treatment   
+Random effects: Plug nested with tank, cohort.
+
+Load in survivorship data, examine structure, and create binomial vector of Success/Failure.  
+
+```{r, results=TRUE}
+thermal<-read.csv("Data/stress_30day.csv", header=T)
+thermal$Stress.Tank<-as.factor(thermal$Stress.Tank)
+thermal$Rear.Tank<-as.factor(thermal$Rear.Tank)
+thermal$Cohort<-as.factor(thermal$Cohort)
+```
+
+Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial Juveniles - Juveniles at that timepoint) called "Failures". 
+
+```{r, results=FALSE}
+#create binomial vector
+attach(thermal)
+x<-cbind(Juveniles, Failures)
+```
+
+Analyze effect of day, conditioning, nutritional, and stress temperature treatment on survivorship with plug nested within tank and cohort as random effects. Conduct backwards model selection on the full model:  
+
+```{r, results=FALSE}
+stressmod<-glmer(x~Stress.Temp*Rear.Temp*Nutrition*Day + (1|Stress.Tank/Plug) + (1|Cohort), family=binomial)
+
+summary(stressmod)
+Anova(stressmod)
+
+dispersion_glmer(stressmod) #no overdispersion
+```
+
+Plot results of binomial model of survivorship.  
+
+```{r, results=TRUE}
+thermal$group<-paste(thermal$Rear.Temp, "-", thermal$Nutrition)
+
+stressmod2<-glmer(x ~ group * Day + (1|Stress.Tank/Plug) + (1|Cohort), family=binomial, data=thermal, subset=c(Stress.Temp=="High")) 
+
+eff.stress2 <- predictorEffect(c("Day"), stressmod2)
+stress.effects2<-plot(eff.stress2,
+                   lines=list(multiline=TRUE, 
+                              col=c("gray", "gray", "blue", "blue"), 
+                              lty=c(1, 2, 1, 2)), 
+                   confint=list(style="bands", alpha=0.1), 
+                   lwd=4,
+                   axes=list(y=list(lim=c(0, 1))),
+                   type="response", 
+                   ylab=expression(bold("Prob(Survivorship)")), 
+                   legend.position="top",
+                   xlab=expression(bold("Day")),
+                   main="High",
+                   lattice=list(key.args=list(space="none",
+                                              border=FALSE, 
+                                              cex=1,
+                                            title=expression(bold("High")))));stress.effects2
+```
+
+
+```{r, results=TRUE}
+stressmod3<-glmer(x ~ group * Day + (1|Stress.Tank/Plug) + (1|Cohort), family=binomial, data=thermal, subset=c(Stress.Temp=="Control")) 
+
+eff.stress3 <- predictorEffect(c("Day"), stressmod3)
+stress.effects3<-plot(eff.stress3,
+                   lines=list(multiline=TRUE, 
+                              col=c("darkgray", "darkgray", "blue", "blue"), 
+                              lty=c(1, 2, 1, 2)), 
+                   confint=list(style="bands", alpha=0.1), 
+                   lwd=4,
+                   axes=list(y=list(lim=c(0, 1))),
+                   type="response", 
+                   ylab=expression(bold("Prob(Survivorship)")), 
+                   legend.position="top",
+                   xlab=expression(bold("Day")), 
+                   main="Control",
+                   lattice=list(key.args=list(space="none",
+                                              border=FALSE, 
+                                              title=expression(bold("Control")),
+                                              cex=1, 
+                                              cex.title=1)));stress.effects3
+
+stress_figs_30days<-plot_grid(stress.effects3, stress.effects2, ncol=2, nrow=1, rel_heights= c(1,1), rel_widths = c(1,1), label_size = 20, label_y=1, align="h");stress_figs_30days
+
+ggsave(filename="Figures/stress_figs_30days.png", plot=stress_figs_30days, dpi=300, width=20, height=8, units="in")
+
+detach(thermal)
+```
+
+
+Summary of total survivorship included below. Survivorship calculated as proportion of number alive at the end of the stress test on each plug.  
+
+```{r, results=TRUE}
+thermal$Surv<-(thermal$Juveniles)/(thermal$Failures+thermal$Juveniles)
+
+Stress.Summary <- ddply(thermal, c("Day","Stress.Temp", "Rear.Temp", "Nutrition"), summarise,
+                        N    = length(Surv[!is.na(Surv)]),
+                        mean = mean(Surv, na.rm=TRUE),
+                        sd   = sd(Surv, na.rm=TRUE),
+                        se   = sd / sqrt(N)
+)
+
+knitr::kable(Stress.Summary)
+```
+
+
+
+##4. 1-year Survivorship 
+
+
+##5. 1-year Thermal Tolerance: Survivorship  
+
+Load data of number of juveniles alive on each plug at the start and end of a 3-week stress.  
+
+```{r, results=TRUE}
+surv_year<-read.csv("Data/stress_1year.csv", header=T)
+```
+
+```{r, results=FALSE}
+#create binomial vector
+attach(surv_year)
+x<-cbind(Success, Failure)
+```
+
+Conduct binomial model analysis of survivorship, using glm as there are no random effects.  
+
+```{r, results=TRUE}
+stress_year_mod<-glm(x~StressTemp*RearingTemp*Nutrition, family=binomial, data=surv_year)
+stress_year_mod
+summary(stress_year_mod)
+plot(allEffects(stress_year_mod))
+```
+
+Plot model effects.  
+
+```{r, results=TRUE}
+surv_year$group<-paste(surv_year$Nutrition, "-", surv_year$RearingTemp)
+stress_year_mod2<-glm(x ~ StressTemp * Nutrition, family=binomial, data=surv_year) 
+
+eff.stress.yr1 <- predictorEffect(c("StressTemp"), stress_year_mod2)
+stress.year.eff3<-plot(eff.stress.yr1,
+                   lines=list(multiline=TRUE, 
+                              col=c("orange", "purple"), 
+                              lty=c(1, 1)), 
+                   confint=list(style="none", alpha=0.1), 
+                   lwd=4,
+                   axes=list(y=list(lim=c(0, 1))),
+                   type="response", 
+                   ylab=expression(bold("Prob(Survivorship)")), 
+                   legend.position="top",
+                   xlab=expression(bold("Stress Temperature")), 
+                   main="Juvenile Age: 1 Year",
+                   lattice=list(key.args=list(space="none",
+                                              border=FALSE, 
+                                              title=expression(bold("Nutrition")),
+                                              cex=1, 
+                                              cex.title=1)));stress.year.eff3
+
+stress_figs_1year<-plot_grid(stress.year.eff3, ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h");stress_figs_1year
+
+ggsave(filename="Figures/stress_figs_1year.png", plot=stress_figs_1year, dpi=300, width=8, height=8, units="in")
+
+detach(surv_year)
+```
+
