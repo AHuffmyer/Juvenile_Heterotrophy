@@ -11,7 +11,7 @@ output:
   pdf_document:
     keep_tex: yes
 ---
-##Setup
+# Setup
 
 Set up workspace, set options, and load required packages.
 ```{r, echo=TRUE, show=FALSE}
@@ -63,17 +63,16 @@ library("magick") #plotting images with plots
 library("tidyverse")
 ```
 
-##Analysis Overview  
+# Analysis Overview  
 
 1. Stress Test Temperature Treatments: 30 days
 2. Stress Test Temperature Treatments: 1 year
-2. 30-day Thermal Tolerance: Survivorship  
-3. 1-year Survivorship
-4. 1-year Thermal Tolerance: Survivorship
-5. 1-year Thermal Tolerance: Confocal
-6. 1-year Thermal Tolerance: Pigmentation
+3. 30-day Thermal Tolerance: Survivorship  
+4. 1-year Survivorship
+5. 1-year Thermal Tolerance: Survivorship
+6. 1-year Thermal Tolerance: Confocal
 
-##1. Temperature Treatments: 30 days  
+# 1. Temperature Treatments: 30 days  
 
 Temperature treatments were controlled using the Apex Neptune Aquacontroller platform in a 12-tank indoor controlled mesocosm system. Data are recorded in the Apex Aquacontroller system every 15 minutes and Apex temperature probes are calibrated every 3-7 days with a digital thermometer. Temperature data are loaded, summarized, and displayed in the figures below as a time series and 24-hour temperature cycles.  
 
@@ -204,8 +203,8 @@ ggsave(filename="Figures/TempPlot.pdf", plot=tempplots, dpi=300, width=13, heigh
 ggsave(filename="Figures/TempPlot.png", plot=tempplots, dpi=300, width=13, height=6, units="in")
 ```
 
-##2. Temperature Treatments: 1 year
-##3. 30-day Thermal Tolerance: Survivorship   
+# 2. Temperature Treatments: 1 year  
+# 3. 30-day Thermal Tolerance: Survivorship   
 
 **Survivorship**  
 
@@ -316,12 +315,13 @@ knitr::kable(Stress.Summary)
 
 
 
-##4. 1-year Survivorship 
+# 4. 1-year Survivorship 
 
 
-##5. 1-year Thermal Tolerance: Survivorship  
 
-Load data of number of juveniles alive on each plug at the start and end of a 3-week stress.  
+# 5. 1-year Thermal Tolerance: Survivorship  
+
+Load data of number of juveniles alive on each plug at the start and end of a 3-week stress.   
 
 ```{r, results=TRUE}
 surv_year<-read.csv("Data/stress_1year.csv", header=T)
@@ -374,3 +374,6 @@ ggsave(filename="Figures/stress_figs_1year.png", plot=stress_figs_1year, dpi=300
 detach(surv_year)
 ```
 
+
+
+# 6. 1-year Thermal Tolerance: Confocal

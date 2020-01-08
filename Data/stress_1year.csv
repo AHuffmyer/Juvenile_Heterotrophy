@@ -1,0 +1,134 @@
+Plug,RearingTank,StressTank,Nutrition,RearingTemp,StressTemp,StartJuvs,EndJuvs,Success,Failure
+A037,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A042,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A049,T17,T17,Heterotrophy,Cool,Control,1,0,0,1
+A051,T17,T17,Heterotrophy,Cool,Control,2,2,2,0
+A066,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A147,T17,T17,Heterotrophy,Cool,Control,3,2,2,1
+A164,T17,T18,Heterotrophy,Cool,Control,1,1,1,0
+A170,T17,T17,Heterotrophy,Cool,Control,2,2,2,0
+A367,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A372,T17,T17,Heterotrophy,Cool,Control,2,2,2,0
+A378,T17,T18,Heterotrophy,Cool,Control,1,1,1,0
+A379,T17,T17,Heterotrophy,Cool,Control,2,2,2,0
+A383,T17,T17,Heterotrophy,Cool,Control,2,1,1,1
+A384,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A387,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A389,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A392,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A443,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A500,T17,T17,Heterotrophy,Cool,Control,2,2,2,0
+A501,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A519,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A530,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A536,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A538,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A605,T17,T17,Heterotrophy,Cool,Control,1,0,0,1
+A610,T17,T17,Heterotrophy,Cool,Control,1,0,0,1
+A666,T17,T17,Heterotrophy,Cool,Control,1,0,0,1
+BLANK,T17,T17,Heterotrophy,Cool,Control,1,1,1,0
+A366,T17,T18,Heterotrophy,Cool,Control,1,1,1,0
+A065,T18,T18,Heterotrophy,Ambient,Control,1,0,0,1
+A072,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A077,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A078,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A080,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A089,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+A112,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+A175,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+A261,T18,T18,Heterotrophy,Ambient,Control,3,3,3,0
+A288,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A362,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+A364,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A439,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A441,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+A466,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+A567,T18,T18,Heterotrophy,Ambient,Control,1,0,0,1
+A683,T18,T18,Heterotrophy,Ambient,Control,1,0,0,1
+B31,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+B67,T18,T18,Heterotrophy,Ambient,Control,3,3,3,0
+BLANK,T18,T18,Heterotrophy,Ambient,Control,2,0,0,2
+BLANK,T18,T17,Heterotrophy,Ambient,Control,1,1,1,0
+BLANK,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+BLANK,T18,T18,Heterotrophy,Ambient,Control,2,2,2,0
+BLANK,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+BLANK,T18,T18,Heterotrophy,Ambient,Control,1,1,1,0
+A191B,T20,T20,No Heterotrophy,Cool,Control,1,1,1,0
+A409,T20,T20,No Heterotrophy,Cool,Control,1,1,1,0
+A418,T20,T20,No Heterotrophy,Cool,Control,1,0,0,1
+A561,T20,T20,No Heterotrophy,Cool,Control,2,2,2,0
+B1,T20,T20,No Heterotrophy,Cool,Control,2,2,2,0
+B61,T20,T20,No Heterotrophy,Cool,Control,1,1,1,0
+BLANK,T20,T20,No Heterotrophy,Cool,Control,1,1,1,0
+BLANK,T20,T20,No Heterotrophy,Cool,Control,2,2,2,0
+BLANK,T20,T20,No Heterotrophy,Cool,Control,1,1,1,0
+A057,T19,T19,No Heterotrophy,Ambient,Control,2,2,2,0
+A095,T19,T19,No Heterotrophy,Ambient,Control,1,1,1,0
+A097,T19,T19,No Heterotrophy,Ambient,Control,2,1,1,1
+A285,T19,T19,No Heterotrophy,Ambient,Control,1,1,1,0
+A404,T19,T19,No Heterotrophy,Ambient,Control,2,2,2,0
+BLANK,T19,T19,No Heterotrophy,Ambient,Control,2,2,2,0
+BLANK,T19,T19,No Heterotrophy,Ambient,Control,1,1,1,0
+A046,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A137,T17,T24,Heterotrophy,Cool,High,2,2,2,0
+A138,T17,T24,Heterotrophy,Cool,High,1,0,0,1
+A161,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A168,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A373,T17,T24,Heterotrophy,Cool,High,2,2,2,0
+A377,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A385,T17,T24,Heterotrophy,Cool,High,2,1,1,1
+A386,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A388,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A397,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A493,T17,T24,Heterotrophy,Cool,High,2,2,2,0
+A503,T17,T24,Heterotrophy,Cool,High,1,0,0,1
+A512,T17,T24,Heterotrophy,Cool,High,2,0,0,2
+A514,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A609,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A612,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A613,T17,T24,Heterotrophy,Cool,High,1,0,0,1
+A626,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A758,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A760,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+B51,T17,T24,Heterotrophy,Cool,High,1,0,0,1
+B66,T17,T24,Heterotrophy,Cool,High,1,0,0,1
+B87,T17,T24,Heterotrophy,Cool,High,1,0,0,1
+BLANK,T17,T24,Heterotrophy,Cool,High,1,1,1,0
+A164,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A173,T18,T23,Heterotrophy,Ambient,High,2,2,2,0
+A294,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A299,T18,T23,Heterotrophy,Ambient,High,2,1,1,1
+A300,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A358,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A438,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A460,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A464,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A574,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A576,T18,T23,Heterotrophy,Ambient,High,2,1,1,1
+A774,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A942,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+B18,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+B19,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+B21,T18,T23,Heterotrophy,Ambient,High,1,0,0,1
+B29,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+B65,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+B69,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+B83,T18,T23,Heterotrophy,Ambient,High,1,0,0,1
+B86,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+BLANK1,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+BLANK3,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+BLANK4,T18,T23,Heterotrophy,Ambient,High,1,1,1,0
+A186,T20,T22,No Heterotrophy,Cool,High,1,1,1,0
+A191,T20,T22,No Heterotrophy,Cool,High,1,1,1,0
+A192,T20,T22,No Heterotrophy,Cool,High,1,0,0,1
+A343,T20,T22,No Heterotrophy,Cool,High,1,1,1,0
+A408,T20,T22,No Heterotrophy,Cool,High,1,1,1,0
+A414,T20,T22,No Heterotrophy,Cool,High,1,1,1,0
+A638,T20,T22,No Heterotrophy,Cool,High,1,1,1,0
+B8,T20,T22,No Heterotrophy,Cool,High,1,0,0,1
+A127,T19,T21,No Heterotrophy,Ambient,High,1,0,0,1
+A274,T19,T21,No Heterotrophy,Ambient,High,1,0,0,1
+A547,T19,T21,No Heterotrophy,Ambient,High,1,0,0,1
+A600,T19,T21,No Heterotrophy,Ambient,High,1,1,1,0
+BLANK,T19,T21,No Heterotrophy,Ambient,High,2,0,0,2
+BLANK,T19,T21,No Heterotrophy,Ambient,High,1,0,0,1

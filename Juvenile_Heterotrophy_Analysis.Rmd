@@ -255,7 +255,8 @@ KM$Nutrition <- relevel(KM$Nutrition, ref = "No Heterotrophy")
 print(levels(KM$Nutrition))
 ```
 
-Survivorship data is analyzed using a Cox Proportional Hazards model with random effects: `cox1<-coxph(Surv(Days,Censor)~Nutrition*Temperature, data=KM)`
+
+Survivorship data is analyzed using a Cox Proportional Hazards model: `cox1<-coxph(Surv(Days,Censor)~Nutrition*Temperature, data=KM)`
 
 ```{r, results=TRUE}
 #survivorship models
