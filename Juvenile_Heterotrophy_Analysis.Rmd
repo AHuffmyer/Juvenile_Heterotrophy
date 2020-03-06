@@ -11,9 +11,9 @@ output:
   pdf_document:
     keep_tex: yes
 ---
-## Setup
+## Setup  
 
-Set up workspace, set options, and load required packages.
+Set up workspace, set options, and load required packages.  
 ```{r, echo=TRUE, show=FALSE}
 rm(list=ls(all=TRUE)) 
 ```
@@ -73,20 +73,20 @@ library("ggfortify")
 
 Author contributions: A Huffmyer designed study, conducted experiment, collected and analyzed data, and wrote manuscript. C Johnson conducted the experiment and collected data. A Epps collected and analyzed data. R Gates and J Lemus assisted with designing the study and provided laboratory space, resources, and funding.  
 
-## Study Overview
+## Study Overview  
 
 *Methodology overview*  
 
-Juvenile corals were exposed to temperature treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these conditioning treatments for 30 days. Growth and survivorship was measured during the conditioning period. Over the course of the conditioning period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece).
+Juvenile corals were exposed to temperature treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these conditioning treatments for 30 days. Growth and survivorship was measured during the conditioning period. Over the course of the conditioning period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece).  
 
-*See manuscript for detailed methodology and treatment summary information*
+*See manuscript for detailed methodology and treatment summary information*  
 
 ## 1. Temperature Treatments  
 
 ### *Temperature on the natural reef*  
 
 NOAA Moku o Loe station #51207, Pacific Islands Ocean Observing System  
-Retrieved from: https://www.ndbc.noaa.gov/station_page.php?station=mokh1 
+Retrieved from: https://www.ndbc.noaa.gov/station_page.php?station=mokh1   
 
 First, examine NOAA temperature data collected from the Moku o Loe station in March 2017 and June 2017 for comparison to treatment conditions during conditioning period. March provides a comparison to the "cool" treatment, while June offers a comparison to the "ambient" treatment.      
  
@@ -132,7 +132,7 @@ Load temperature data from Apex files and generate figure with:
 Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days.  
 
 ```{r, restults=FALSE}
-physical<-read.csv("Data/AllTemps.csv", header=T, na.strings="NA")
+physical<-read.csv("Data/Temperature.csv", header=T, na.strings="NA")
 physical$DateTime <- as.POSIXct(physical$DateTime, format="%m/%d/%y %H:%M")
 
 #subset temperature measurements
@@ -249,11 +249,10 @@ tempplots<-plot_grid(TimeSeries, right_row, labels = c("A", ""), ncol=2, nrow=1,
 
 #ggsave(filename="Figures/StressTemp.png", plot=StressDay, dpi=300, width=8, height=8, units="in")
 
-ggsave(filename="Figures/TempPlot.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
-#ggsave(filename="Figures/TempPlot.png", plot=tempplots, dpi=300, width=13, height=6, units="in")
+ggsave(filename="Figures/TemperatureFigure.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
 ```
 
-![Temperature Treatments](Figures/TempPlot.png)  
+![Temperature Treatments](Figures/TemperatureFigure.pdf)  
 
 As the thermal stress profile occured in a dual-stress event due to an interruption in the experimental system, we calculate the number of total degree heating days accumlated by the end of the stress test.  
 
@@ -288,7 +287,7 @@ sum(DHD$Diff)
 Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.  
 
 ```{r, restults=FALSE}
-settle<-read.csv("Data/Settlement.csv", header=T, na.strings="NA")
+settle<-read.csv("Data/Larval_Settlement.csv", header=T, na.strings="NA")
 settle$Cohort<-as.factor(settle$Cohort)
 settle$Tank<-as.factor(settle$Tank)
 
@@ -352,7 +351,7 @@ Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~7
 
 ```{r, results=FALSE}
 #load data
-KM<-read.csv("Data/Survivorship.csv", header=TRUE, sep=",", na.strings="NA")
+KM<-read.csv("Data/PreStress_Survivorship.csv", header=TRUE, sep=",", na.strings="NA")
 
 print(levels(KM$Temperature))  ##Levels are ambient, then cool - which is correct
 print(levels(KM$Nutrition)) ##Needs to be reordered with No Heterotrophy first
@@ -379,7 +378,7 @@ anova(cox1, type=2)
 
 As there is no significant effect of nutritional treatment in the hazards model, we display the survivorship curves separated by Temperature and Nutritional treatment separately. The Kaplan-Meier curves show the separation in survivorship by temperature treatment and the lack of difference by nutritional treatment. Note that the difference in survivorship is small (approx 5%), but significant as indicated by model above. 
 
-```{r, results=FALSE}
+```{r, results=FALSE, fig.show="hide", results="hide"}
 #Fit survivorship function for temperature
 fitKM3 <- survfit(Surv(Days, Censor) ~ Temperature, type = "kaplan-meier", conf.type="log", data = KM)
 
@@ -397,7 +396,7 @@ surv1<-arrange_ggsurvplots(splots, print=TRUE, ncol=1, nrow=1)
 #ggsave(filename="Figures/surv1.png", plot=surv1, dpi=300, width=8, height=8, units="in")
 ```
 
-```{r, results=FALSE}
+```{r, results=FALSE, fig.show="hide", results="hide"}
 # fit survivorship function for nutrition
 fitKM4 <- survfit(Surv(Days, Censor) ~ Nutrition, type = "kaplan-meier", conf.type="log", data = KM, na.action=na.omit)
 
@@ -424,10 +423,12 @@ splots<-list()
 splots[[1]]<-survplotKM3
 splots[[2]]<-survplotKM4
 survplotsALL<-arrange_ggsurvplots(splots, print=TRUE, ncol=2, nrow=1)
-ggsave(filename="Figures/survival_figure.png", plot=survplotsALL, dpi=300, width=13, height=8, units="in")
+ggsave(filename="Figures/PreStressSurvivalFigure.png", plot=survplotsALL, dpi=300, width=13, height=8, units="in")
 
 detach("package:survminer", unload=TRUE)
 ```
+
+![Survival during pre-stress period.](Figures/PreStressSurvivalFigure.png)  
 
 Summary of survivorship in table below for temperature treatments. 
 
@@ -461,7 +462,7 @@ As growth is measured by photographs, this is the only dataset in which we can v
 
 ```{r, results=FALSE}
 #load data
-growth<-read.csv("Data/Growth.csv", header=TRUE, sep=",", na.strings="NA")
+growth<-read.csv("Data/Colony_Growth.csv", header=TRUE, sep=",", na.strings="NA")
 growth$Tank<-as.factor(growth$Tank)
 growth$Colony.ID<-as.factor(growth$Colony.ID)
 growth$Cohort<-as.factor(growth$Cohort)
@@ -641,11 +642,11 @@ Growth3QT<-ggplot(data=growth, aes(x=Temperature, y=tPlanar, fill=Nutrition)) +
   ylim(0,1)+
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
   theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
-  xlab("Temperature") +
-  geom_text(x=0.78, y=0.8, label="AB", size=8) +
-  geom_text(x=1.23, y=0.8, label="A", size=8) +
-  geom_text(x=1.78, y=0.8, label="B", size=8) +
-  geom_text(x=2.23, y=0.8, label="A", size=8);Growth3QT
+  xlab("Temperature");Growth3QT
+  #geom_text(x=0.78, y=0.8, label="AB", size=8) +
+  #geom_text(x=1.23, y=0.8, label="A", size=8) +
+  #geom_text(x=1.78, y=0.8, label="B", size=8) +
+  #geom_text(x=2.23, y=0.8, label="A", size=8)
 
 #ggsave("Figures/QT_Growth_Dots_Temp.pdf", plot=Growth3QT, height=8, width=9, units = c("in"), dpi=500) #output figure
 ```
@@ -663,13 +664,13 @@ Raw data sets are inputted and manipulated to calculate the following based on:
 
 ```{r, results=FALSE}
 #load data set for fluorescence (symbionts)
-fluorescence<-read.csv("Data/Fluorescence.csv", header=TRUE, sep=",", na.strings="NA")
+fluorescence<-read.csv("Data/Symbiont_Fluorescence.csv", header=TRUE, sep=",", na.strings="NA")
 
 #load data set for tissue thickness 
-zstack<-read.csv("Data/Thickness.csv", header=TRUE, sep=",", na.strings="NA")
+zstack<-read.csv("Data/Tissue_Thickness.csv", header=TRUE, sep=",", na.strings="NA")
 
 #load data set for colony area
-area<-read.csv("Data/Area.csv", header=TRUE, sep=",", na.strings="NA")
+area<-read.csv("Data/Colony_Area.csv", header=TRUE, sep=",", na.strings="NA")
 
 #calculate average intensity values for symbionts
 glow <- aggregate(fluorescence$Symbiont.Intensity, by=list(fluorescence$Sample, fluorescence$Tissue), FUN=mean)
@@ -878,7 +879,7 @@ Thick3<-ggplot(data=colony, aes(x=Temperature, y=Thickness, fill=Nutrition)) +
   geom_text(x=1.5, y=25, label="p(Interaction)=0.03", size=6, color="black");Thick3
 
 
-ggsave("Figures/Thickness_Dots_Temp.pdf", plot=Thick3, height=8, width=6, units = c("in"), dpi=300) #output figure
+ggsave("Figures/Thickness_Figure.pdf", plot=Thick3, height=8, width=6, units = c("in"), dpi=300) #output figure
 ```
 
 *Conclusions*  
@@ -964,12 +965,12 @@ Red3<-ggplot(data=colony, aes(x=Temperature, y=Red, fill=Nutrition)) +
   ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
   xlab("Temperature");Red3
 
-ggsave("Figures/Red_dots_temp.pdf", plot=Red3, height=8, width=8, units = c("in"), dpi=300) #output figure
+ggsave("Figures/Fluorescence_Figure.pdf", plot=Red3, height=8, width=8, units = c("in"), dpi=300) #output figure
 ```
 
 
 
-###**Relationship between thickness and fluorescence**  
+### **Relationship between thickness and fluorescence**  
 
 Display Pearson correlation between these two factors. 
 
@@ -996,7 +997,7 @@ Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) +
   ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
   xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))));Cor1
 
-ggsave("Figures/Correlation.pdf", plot=Cor1, height=8, width=10, units = c("in"), dpi=300) #output figure
+ggsave("Figures/Correlation_Physiology_Figure.pdf", plot=Cor1, height=8, width=10, units = c("in"), dpi=300) #output figure
 
 ```
 
@@ -1019,18 +1020,18 @@ Generate final figure of response variables.
 ```{r, results=FALSE}
 confocalfig1<-plot_grid(Thick3, Red3, Cor1, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(1,1,1.25), label_size = 20, label_y=1, align="h")
 
-ggsave(filename="Figures/confocalfig1.png", plot=confocalfig1, dpi=500, width=20, height=6, units="in")
+ggsave(filename="Figures/Physiology_fig1.png", plot=confocalfig1, dpi=500, width=20, height=6, units="in")
 
 photo2 <- cowplot::ggdraw() + cowplot::draw_image("Figures/Juvenile_Photos.jpg", scale = 1)
-photo <- cowplot::ggdraw() + cowplot::draw_image("Figures/confocalfig1.png", scale = 1)
+photo <- cowplot::ggdraw() + cowplot::draw_image("Figures/Physiology_fig1.png", scale = 1)
 
 confocalfinal<-plot_grid(photo, photo2, labels = c(""), ncol=1, nrow=2, rel_heights= c(1,0.8), rel_widths = c(1,1), align="h")
 
-ggsave(filename="Figures/confocalfinal.png", plot=confocalfinal, dpi=300, width=10, height=6, units="in")
+ggsave(filename="Figures/Physiology_Figure.png", plot=confocalfinal, dpi=300, width=10, height=6, units="in")
 ```
 
 
-![Physiological Responses](Figures/confocalfinal.png) 
+![Physiological Responses](Figures/Physiology_Figure.png) 
 
 
 ## 8. Thermal Stress Survivorship  
@@ -1045,10 +1046,11 @@ Random effects: Plug nested with tank, cohort.
 Load in survivorship data, examine structure, and create binomial vector of Success/Failure.   
 
 ```{r, results=TRUE}
-thermal<-read.csv("Data/stress_30day.csv", header=T)
+thermal<-read.csv("Data/Stress_Survival.csv", header=T)
 thermal$Stress.Tank<-as.factor(thermal$Stress.Tank)
 thermal$Rear.Tank<-as.factor(thermal$Rear.Tank)
 thermal$Cohort<-as.factor(thermal$Cohort)
+thermal$Nutrition<-relevel(thermal$Nutrition, ref = "No Heterotrophy")
 
 #calculation of survivorship by proportion
 thermal$Surv<-(thermal$Juveniles)/(thermal$Failures+thermal$Juveniles)
@@ -1108,7 +1110,7 @@ stress.effects2<-plot(eff.stress2,
                                               border=FALSE, 
                                               cex=1.5,
                                               cex.title=1.5,
-                                              title=expression(bold("Treatments")))));stress.effects2
+                                              title=expression(bold("Treatments")))))
 ```
  
 
@@ -1133,15 +1135,16 @@ stress.effects3<-plot(eff.stress3,
                                               border=FALSE, 
                                               title=expression(bold("Control")),
                                               cex=1, 
-                                              cex.title=1)));stress.effects3
+                                              cex.title=1)))
  
 stress_figs_30days<-plot_grid(stress.effects3, stress.effects2, labels = c("Control", "High"), ncol=2, nrow=1, rel_heights= c(1,1), rel_widths = c(0.75,1), label_size = 20, label_y=1, align="h")
 
-ggsave(filename="Figures/stress_figs_30days.png", plot=stress_figs_30days, dpi=300, width=20, height=8, units="in")
+ggsave(filename="Figures/Stress_Survival_OverTime.png", plot=stress_figs_30days, dpi=300, width=20, height=8, units="in")
 
 detach(thermal)
 ```
 
+![Stress survival over 30-day period in control and high temperatures.](Figures/Stress_Survival_OverTime.png)   
  
 Summary of total survivorship included below at the end of the thermal stress test.   
 
@@ -1217,10 +1220,12 @@ stress.effectsFINAL<-ggdraw(stress.effectsFINAL) +
               ggplot2::annotate("text", 
                                 x = 0.5, y = .7, # x and y coordinates of the text
                                 label = "p(Stress Temperature x Nutrition)=0.004", size = 6, color="black")
-stress.effectsFINAL
 
 stress_figs_end<-plot_grid(stress.effectsFINAL, labels = c(""), ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h")
 
-ggsave(filename="Figures/stress_fig_end.png", plot=stress_figs_end, dpi=300, width=7, height=10, units="in")
+ggsave(filename="Figures/Stress_Survival_Total.png", plot=stress_figs_end, dpi=300, width=7, height=10, units="in")
+          
 ```
 
+
+![Stress survival over 30-day period in control and high temperatures.](Figures/Stress_Survival_Total.png)   
