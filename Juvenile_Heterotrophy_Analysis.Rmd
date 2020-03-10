@@ -89,7 +89,7 @@ NOAA Moku o Loe station #51207, Pacific Islands Ocean Observing System
 Retrieved from: https://www.ndbc.noaa.gov/station_page.php?station=mokh1   
 
 First, examine NOAA temperature data collected from the Moku o Loe station in March 2017 and June 2017 for comparison to treatment conditions during conditioning period. March provides a comparison to the "cool" treatment, while June offers a comparison to the "ambient" treatment.      
- 
+  
 ```{r, results=TRUE, message=FALSE, warning=FALSE}
 noaaJune<-read.csv("Data/NOAA_June17.csv", header=T, na.strings="NA") #load data
 noaaMarch<-read.csv("Data/NOAA_March17.csv", header=T, na.strings="NA") #load data 
@@ -105,7 +105,7 @@ TempsJune <- plyr::ddply(noaaJune, c("DD"), summarise,
                    Junerange = Junemax-Junemin
                    )
 TempsJune%>%
-       summarise(Junemean_temp=mean(Junemean), Junemax_temp=max(Junemean), Junemin_temp=min(Junemean), Junemean_range=mean(Junerange), Junemax_range=max(Junerange), Junemin_range=min(Junerange))
+       summarise(Junemean_temp=mean(Junemean), Junemax_temp=max(Junemean), Junemin_temp=min(Junemean), Junemean_range=mean(Junerange), Junemax_range=max(Junerange), Junemin_range=min(Junerange), JuneSD=mean(Junesd))
 
 TempsMarch <- plyr::ddply(noaaMarch, c("DD"), summarise,
                    Marchmean = mean(WTMP, na.rm=TRUE),
@@ -115,7 +115,7 @@ TempsMarch <- plyr::ddply(noaaMarch, c("DD"), summarise,
                    Marchrange = Marchmax-Marchmin
                    )
 TempsMarch%>%
-       summarise(Marchmean_temp=mean(Marchmean), Marchmax_temp=max(Marchmean), Marchmin_temp=min(Marchmean), Marchmean_range=mean(Marchrange), Marchmax_range=max(Marchrange), Marchmin_range=min(Marchrange))
+       summarise(Marchmean_temp=mean(Marchmean), Marchmax_temp=max(Marchmean), Marchmin_temp=min(Marchmean), Marchmean_range=mean(Marchrange), Marchmax_range=max(Marchrange), Marchmin_range=min(Marchrange), MarchSD=mean(Marchsd))
 ```
 
 ### *Experimental conditions*  
@@ -131,7 +131,9 @@ Load temperature data from Apex files and generate figure with:
 
 Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days.  
 
-```{r, restults=FALSE}
+Display temperature means, standard deviation, and mean daily range for 1) each conditioning treatment; 2) each stress treatment; 3) assembled figure.  
+
+```{r, results=TRUE}
 physical<-read.csv("Data/Temperature.csv", header=T, na.strings="NA")
 physical$DateTime <- as.POSIXct(physical$DateTime, format="%m/%d/%y %H:%M")
 
@@ -173,7 +175,7 @@ TimeSeries<-ggplot(Temps1, aes(x = DateTime, y = mean, fill=Treatment, color=Tre
   theme(legend.position="top")+
   theme(axis.text = element_text(size=16, color="black"))
 
-conditiontemps<-subset(temps, Phase=="Conditioning", c(DateTime, Phase, Minutes, Tank, Temperature, Treatment))
+conditiontemps<-subset(temps, Phase=="Conditioning", c(DateTime, Day, Phase, Minutes, Tank, Temperature, Treatment))
 
 Conditioning1 <- ddply(conditiontemps, c("Minutes", "Treatment"), summarise,
                    N    = length(Temperature[!is.na(Temperature)]),
@@ -181,9 +183,18 @@ Conditioning1 <- ddply(conditiontemps, c("Minutes", "Treatment"), summarise,
                    sd   = sd(Temperature, na.rm=TRUE),
                    se   = sd / sqrt(6), 
                    max = max(Temperature, na.rm=TRUE),
+                   min = min(Temperature, na.rm=TRUE), 
                    lower = mean-se, 
                    upper = mean+se
                    )
+
+prestress_sum <- ddply(Conditioning1, c("Treatment"), summarise,
+                    mean_temp = mean(mean, na.rm=TRUE), 
+                    sd_temp   = mean(sd, na.rm=TRUE),
+                    min_temp = min(mean),
+                    max_temp = max(mean),
+                    range_temp = (max_temp-min_temp)
+                   );prestress_sum
 
 ConditioningDay<-ggplot(Conditioning1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
   geom_line(aes(color = Treatment), size = .5) +
@@ -220,6 +231,14 @@ Stress1 <- ddply(stresssubset, c("Minutes", "Treatment"), summarise,
                    lower = mean-se, 
                    upper = mean+se
                    )
+
+stress_sum <- ddply(Stress1, c("Treatment"), summarise,
+                    mean_temp = mean(mean, na.rm=TRUE), 
+                    sd_temp   = mean(sd, na.rm=TRUE),
+                    min_temp = min(mean),
+                    max_temp = max(mean),
+                    range_temp = (max_temp-min_temp)
+                   );stress_sum
 
 #subset to display high values, including both the first and second high temperature period, not ramping days
 
@@ -258,17 +277,21 @@ As the thermal stress profile occured in a dual-stress event due to an interrupt
 
 Degree heating days are calculated by finding the difference between the mean ambient treatment and the daily mean temperature in the high treatment for each day of the stress period. These degree heating day values are then added over the course of the stress test to provide a total degree heating day value.  
 
-There were 62.14 Degree Heating Days in the high treatment as compared to the mean of the *ambient treatment* over the course of the 31-day stress period.  
+There were 62.14 Degree Heating Days in the high treatment as compared to the mean of the *ambient treatment* over the course of the 31-day stress period. Display mean and sd and mean range of temperature treatments during the stress period.  
 ```{r, results=TRUE}
 #summarize temperature to generate means by day
 DHD <- ddply(stresstemps, c("Day", "Treatment"), summarise,
-                   mean = mean(Temperature, na.rm=TRUE)
+                   mean = mean(Temperature, na.rm=TRUE),
+                    sd = sd(Temperature, na.rm=TRUE),
+                    min = min(Temperature, na.rm=TRUE), 
+                    max = max(Temperature, na.rm=TRUE), 
+                    range = max-min
                    )
 
 #Obtain mean value for ambient over the course of the entire period
-ddply(stresstemps, c("Treatment"), summarise,
-                   mean = mean(Temperature, na.rm=TRUE)
-                   )
+#ddply(stresstemps, c("Treatment"), summarise,
+                   #mean = mean(Temperature, na.rm=TRUE)
+                  # )
 #Ambient mean over course of stress test is 27.40
 
 #Generate new column to calculate difference between high temperature treatment each day and the average ambient temperature (27.40)
