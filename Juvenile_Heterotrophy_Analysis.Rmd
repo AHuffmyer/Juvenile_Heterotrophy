@@ -1,5 +1,5 @@
 ---
-title: Juvenile P. acuta coral nutritional and thermal regime enhance resistance to temperature stress through physiological preparation
+title: Juvenile *Pocillopora *acuta coral nutritional and thermal regime enhance resistance to temperature stress through physiological preparation
 author: "AS Huffmyer, CJ Johnson, AM Epps, JD Lemus, RD Gates"
 date: '2020'
 output:
@@ -22,12 +22,7 @@ rm(list=ls(all=TRUE))
 knitr::opts_chunk$set(root.dir = "~/R",warning=FALSE, message=FALSE)
 ```
 
-```{r, echo=FALSE, results=FALSE}
-getwd()
-```
-
-```{r, echo=FALSE, results=FALSE, messages=FALSE}
-library("reshape") #reshape data
+```{r, echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
 library("plotrix") #functions in tapply
 library("ggplot2") #plotting
 library("reshape2") #reshape data
@@ -35,36 +30,24 @@ library("dplyr")  #splitting, applying, and combining data
 library("plyr")  #splitting, applying, and combining data
 library("pscl") 
 library("plotrix") #plotting
-library("gridExtra") #arrange plots for output
-library("car") #levenes test
-library("exactRankTests")
-library("lsmeans")
+library("car") #levenes test and stats package
+library("lsmeans") #post hoc tests
 library("vegan") #nmds
-library("effects")
+library("effects") #model effects
 library("blmeco") #overdispersion tests
 library("multcomp") 
 library("multcompView")
-library("vegan") #calculating distance matrices
 library("survival") #Kaplan-Meier Survivorship Curves
 library("survminer")  #Kaplan-Meier Survivorship Curves
-library("betareg") #beta regressions
-library("coin") #rank testing
-library("mvtnorm")
-library("PMCMR")
 library("scales")
 library("MuMIn")
-library("glmmTMB")
 library("lme4") #linear mixed modeling
 library("lmerTest") #Adds p-value calculations to lme4 models
-library("ggsignif") #add significance values to ggplots
-library("HH") #post-hoc figures
 library("MASS")
-library("FSA")
 library("emmeans") #post-hoc tests
 library("cowplot") #plotting
 library("magick") #plotting images with plots
 library("tidyverse")
-library("coxme") #add random effects to coxph model
 library("factoextra")
 library("ggfortify")
 ```
@@ -77,37 +60,33 @@ Author contributions: A Huffmyer designed study, conducted experiment, collected
 
 *Methodology overview*  
 
-Juvenile corals were exposed to temperature treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these conditioning treatments for 30 days. Growth and survivorship was measured during the conditioning period. Over the course of the conditioning period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece).  
+Juvenile corals were exposed to pre-stress treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these conditioning treatments for 30 days. Growth and survivorship was measured during the conditioning period. Over the course of the conditioning period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece). Following this pre-stress period, we exposed juvenile corals of each pre-stress temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship.    
 
 *See manuscript for detailed methodology and treatment summary information*  
 
 ## 1. Temperature Treatments  
 
+Here, we display figures of treatment temperatures and provide descriptive statistics to compare these treatment values to temperature on the natural reef.  
+
 ### *Temperature on the natural reef*  
+
+Temperature on natural reef collected from:  
 
 NOAA Moku o Loe station #51207, Pacific Islands Ocean Observing System  
 Retrieved from: https://www.ndbc.noaa.gov/station_page.php?station=mokh1   
 
-First, examine NOAA temperature data collected from the Moku o Loe station in March 2017 and June 2017 for comparison to treatment conditions during conditioning period. March provides a comparison to the "cool" treatment, while June offers a comparison to the "ambient" treatment.      
+First, examine NOAA temperature data collected from the Moku o Loe station in March 2017 and June 2017 for comparison to treatment conditions during conditioning period. March provides a comparison to the "cool" treatment, while June offers a comparison to the "ambient" treatment.     
+
+Display descriptive statistics of March and June 2017. 
   
 ```{r, results=TRUE, message=FALSE, warning=FALSE}
 noaaJune<-read.csv("Data/NOAA_June17.csv", header=T, na.strings="NA") #load data
 noaaMarch<-read.csv("Data/NOAA_March17.csv", header=T, na.strings="NA") #load data 
 
-noaaJune$DD<-as.factor(noaaJune$DD)
-noaaMarch$DD<-as.factor(noaaMarch$DD)
+noaaJune$DD<-as.factor(noaaJune$DD) #set day as factor
+noaaMarch$DD<-as.factor(noaaMarch$DD) #set day as factor
 
-TempsJune <- plyr::ddply(noaaJune, c("DD"), summarise,
-                   Junemean = mean(WTMP, na.rm=TRUE),
-                   Junesd   = sd(WTMP, na.rm=TRUE),
-                   Junemin = min(WTMP, na.rm=TRUE),
-                   Junemax = max(WTMP, na.rm=TRUE),
-                   Junerange = Junemax-Junemin
-                   )
-TempsJune%>%
-       summarise(Junemean_temp=mean(Junemean), Junemax_temp=max(Junemean), Junemin_temp=min(Junemean), Junemean_range=mean(Junerange), Junemax_range=max(Junerange), Junemin_range=min(Junerange), JuneSD=mean(Junesd))
-
-TempsMarch <- plyr::ddply(noaaMarch, c("DD"), summarise,
+TempsMarch <- plyr::ddply(noaaMarch, c("DD"), summarise, #summarize march data
                    Marchmean = mean(WTMP, na.rm=TRUE),
                    Marchsd   = sd(WTMP, na.rm=TRUE),
                    Marchmin = min(WTMP, na.rm=TRUE),
@@ -115,25 +94,35 @@ TempsMarch <- plyr::ddply(noaaMarch, c("DD"), summarise,
                    Marchrange = Marchmax-Marchmin
                    )
 TempsMarch%>%
-       summarise(Marchmean_temp=mean(Marchmean), Marchmax_temp=max(Marchmean), Marchmin_temp=min(Marchmean), Marchmean_range=mean(Marchrange), Marchmax_range=max(Marchrange), Marchmin_range=min(Marchrange), MarchSD=mean(Marchsd))
+       summarise(Marchmean_temp=mean(Marchmean), Marchmax_temp=max(Marchmean), Marchmin_temp=min(Marchmean), Marchmean_range=mean(Marchrange), Marchmax_range=max(Marchrange), Marchmin_range=min(Marchrange), MarchSD=mean(Marchsd)) #present summary of march data 
+
+
+TempsJune <- plyr::ddply(noaaJune, c("DD"), summarise, #summarize june data
+                   Junemean = mean(WTMP, na.rm=TRUE),
+                   Junesd   = sd(WTMP, na.rm=TRUE),
+                   Junemin = min(WTMP, na.rm=TRUE),
+                   Junemax = max(WTMP, na.rm=TRUE),
+                   Junerange = Junemax-Junemin
+                   )
+TempsJune%>%
+       summarise(Junemean_temp=mean(Junemean), Junemax_temp=max(Junemean), Junemin_temp=min(Junemean), Junemean_range=mean(Junerange), Junemax_range=max(Junerange), Junemin_range=min(Junerange), JuneSD=mean(Junesd)) #present summary of june data 
+
 ```
 
-### *Experimental conditions*  
-
-Load temperature data from Apex files and generate figure with: 
-
-1. Time series of temperature data with mean treatment temperatures specified by color. 
-2. Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the conditioning period and the stress period. 
+### *Temperature in experimental conditions*  
 
 Temperature treatments were controlled using the Apex Neptune Aquacontroller platform in a 12-tank indoor controlled mesocosm system. Data are recorded in the Apex Aquacontroller system every 15 minutes and Apex temperature probes are calibrated every 3-7 days with a digital thermometer. Temperature data are loaded, summarized, and displayed in the figures below as a time series and 24-hour temperature cycles.  
 
-Load temperature data from Apex files and generate figure with:
+Load temperature data from temperature logger files and generate figure with: 
+
+1. Time series of temperature data with mean treatment temperatures specified by color. 
+2. 24-hour cycle of temperatures by summarizing the mean temp at each 15-minute interval per day during the pre-stress period and the stress period. 
 
 Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days.  
 
-Display temperature means, standard deviation, and mean daily range for 1) each conditioning treatment; 2) each stress treatment; 3) assembled figure.  
+Display temperature means, standard deviation, and mean daily range for 1) each pre-stress treatment; 2) each stress treatment; 3) full assembled figure.  
 
-```{r, results=TRUE}
+```{r, results=TRUE, message=FALSE, warning=FALSE}
 physical<-read.csv("Data/Temperature.csv", header=T, na.strings="NA")
 physical$DateTime <- as.POSIXct(physical$DateTime, format="%m/%d/%y %H:%M")
 
@@ -194,7 +183,7 @@ prestress_sum <- ddply(Conditioning1, c("Treatment"), summarise,
                     min_temp = min(mean),
                     max_temp = max(mean),
                     range_temp = (max_temp-min_temp)
-                   );prestress_sum
+                   )
 
 ConditioningDay<-ggplot(Conditioning1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
   geom_line(aes(color = Treatment), size = .5) +
@@ -238,7 +227,7 @@ stress_sum <- ddply(Stress1, c("Treatment"), summarise,
                     min_temp = min(mean),
                     max_temp = max(mean),
                     range_temp = (max_temp-min_temp)
-                   );stress_sum
+                   )
 
 #subset to display high values, including both the first and second high temperature period, not ramping days
 
@@ -273,6 +262,19 @@ ggsave(filename="Figures/TemperatureFigure.pdf", plot=tempplots, dpi=300, width=
 
 ![Temperature Treatments](Figures/TemperatureFigure.pdf)  
 
+Display descriptive statistics for pre-stress treatments.   
+
+```{r, results=TRUE}
+prestress_sum
+```
+
+Display descriptive statistics for stress treatments.   
+
+```{r, results=TRUE}
+stress_sum
+```
+
+
 As the thermal stress profile occured in a dual-stress event due to an interruption in the experimental system, we calculate the number of total degree heating days accumlated by the end of the stress test.  
 
 Degree heating days are calculated by finding the difference between the mean ambient treatment and the daily mean temperature in the high treatment for each day of the stress period. These degree heating day values are then added over the course of the stress test to provide a total degree heating day value.  
@@ -289,9 +291,9 @@ DHD <- ddply(stresstemps, c("Day", "Treatment"), summarise,
                    )
 
 #Obtain mean value for ambient over the course of the entire period
-#ddply(stresstemps, c("Treatment"), summarise,
-                   #mean = mean(Temperature, na.rm=TRUE)
-                  # )
+ambientmean<-ddply(stresstemps, c("Treatment"), summarise,
+                   mean = mean(Temperature, na.rm=TRUE)
+                   )
 #Ambient mean over course of stress test is 27.40
 
 #Generate new column to calculate difference between high temperature treatment each day and the average ambient temperature (27.40)
@@ -305,9 +307,9 @@ sum(DHD$Diff)
 ```
 
 
-## 2. Settlement
+## 2. Larval Settlement  
 
-Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.  
+Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.    
 
 ```{r, restults=FALSE}
 settle<-read.csv("Data/Larval_Settlement.csv", header=T, na.strings="NA")
@@ -319,12 +321,11 @@ attach(settle)
 y<-cbind(Success, Failure)
 ```
 
-
 Analyze effect of temperature treatment on settlement success with plug nested within tank and cohort as random effects. Cohort indicates day larvae were released over the 4-day collection period.  
 
 `setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial)`
 
-Determine significance of treatment using Type III Anova analysis.  
+Determine significance of treatment using Type II Anova analysis. Display ANOVA table.  
 
 ```{r, results=TRUE}
 #mixed model with tank and cohort as random effects
@@ -332,7 +333,7 @@ setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial, REML
 Anova(setmod, type="II") #non sign at p=0.5719
 ```
 
-Results indicate that temperature was not a significant driver of settlement at p=0.5691. Generate summary of model and check assumptions of residual normality.  
+Results indicate that temperature was not a significant driver of settlement at p=0.5691. Generate summary of model and check assumptions of residual normality.   
 
 ```{r, results=TRUE}
 setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial)
@@ -340,13 +341,12 @@ summary(setmod)
 qqPlot(residuals(setmod, type="deviance"))
 ```
 
-Residuals appear normal. Check for overdispersion using the blmeco package: `dispersion_glmer(setmod)`    
+Residuals appear normal. There is no evidence of overdispersion using the blmeco package: `dispersion_glmer(setmod)`    
 ```{r, results=TRUE}
 dispersion_glmer(setmod)
 ```
-Value is less than 1.008, which is less than the threshold considered acceptable (1.4) in the package description.   
 
-There is no effect of treatment on settlement rates. Cohort will remain a random effect in future measurements as it produced variation in this model.   
+There is no effect of treatment on settlement rates. Cohort will remain a random effect in future measurements as it accounted for variation in this model.   
 
 Generate summary of settlement in each temperature treatment.  
 ```{r, results=TRUE}
@@ -365,16 +365,16 @@ knitr::kable(Settlement)
 *Conclusions*  
 1. Temperature did not influence settlement rate of larvae during 24-hour period in which settlement took place.   
 
-2. We can assume settlement rate and therefore total settlement was likely equal across temperature treatments.  
+2. We can assume settlement rate and therefore total number of starting settlers was not different per plug across temperature treatments.   
 
 
-## 3. Survivorship  
+## 3. Post-Settlement Survivorship  
 
-Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for Kaplan Meier analyses ("censor") across multiple timepoints during the 30-day treatment period. Data are examined as Kaplan-Meier survivorship curves and analyzed using Cox Proportional Hazards mixed models with temperature and nutrition as main effects and plug nested within tank and cohort as random effects.
+Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for analyses across multiple timepoints during the 30-day pre-stress treatment period. Data are examined as survivorship curves and analyzed using Cox Proportional Hazards models with temperature and nutrition as main effects.  
 
 ```{r, results=FALSE}
 #load data
-KM<-read.csv("Data/PreStress_Survivorship.csv", header=TRUE, sep=",", na.strings="NA")
+KM<-read.csv("Data/PreStress_Survivorship.csv", header=TRUE, sep=",", na.strings="NA") #load data
 
 print(levels(KM$Temperature))  ##Levels are ambient, then cool - which is correct
 print(levels(KM$Nutrition)) ##Needs to be reordered with No Heterotrophy first
@@ -382,9 +382,10 @@ print(levels(KM$Nutrition)) ##Needs to be reordered with No Heterotrophy first
 KM$Nutrition <- relevel(KM$Nutrition, ref = "No Heterotrophy")
 print(levels(KM$Nutrition))
 ```
-
  
-Survivorship data is analyzed using a Cox Proportional Hazards model: `cox1<-coxph(Surv(Days,Censor)~Nutrition*Temperature, data=KM)`
+Survivorship data is analyzed using a Cox Proportional Hazards model:  
+
+`cox1<-coxph(Surv(Days,Censor)~Nutrition*Temperature, data=KM)`  
 
 ```{r, results=TRUE}
 #survivorship models
@@ -394,12 +395,14 @@ cox1<-coxph(Surv(Days,Censor)~Nutrition + Temperature + Nutrition:Temperature, d
 
 Note that p values generated in this summary are not used as p values are calcuated with a Type II ANOVA. Tests show a significnat effect of temperature on survivorship with a coef of 0.82979 in the cool treatment, indicating that the risk of mortality is approx. 17% lower in cool temperature as compared to ambient.  
 
+Display model summary and ANOVA table.  
+
 ```{r, results=TRUE}
 summary(cox1)
 anova(cox1, type=2)
 ```
 
-As there is no significant effect of nutritional treatment in the hazards model, we display the survivorship curves separated by Temperature and Nutritional treatment separately. The Kaplan-Meier curves show the separation in survivorship by temperature treatment and the lack of difference by nutritional treatment. Note that the difference in survivorship is small (approx 5%), but significant as indicated by model above. 
+As there is no significant effect of nutritional treatment or an interaction between temperature and nutrition in the hazards model, we display the survivorship curves separated by Temperature and Nutritional treatment separately. The curves show the separation in survivorship by temperature treatment and the lack of difference by nutritional treatment. Note that the difference in survivorship is small (approx 5%), but significant as indicated by model above.  
 
 ```{r, results=FALSE, fig.show="hide", results="hide"}
 #Fit survivorship function for temperature
@@ -453,7 +456,7 @@ detach("package:survminer", unload=TRUE)
 
 ![Survival during pre-stress period.](Figures/PreStressSurvivalFigure.png)  
 
-Summary of survivorship in table below for temperature treatments. 
+Summary of survivorship in table below for each temperature and nutrition treatment at each timepoint.   
 
 ```{r, results=TRUE}
 SurvSummary2 <- ddply(KM, c("Days","Temperature", "Nutrition"), summarise,
@@ -468,16 +471,17 @@ knitr::kable(SurvSummary2)
 
 *Conclusions*  
 1. Survivorship was not different by nutritional treatment or the interaction of nutrition or temperature.  
-2. Survivorship was significantly higher in the cool temperature treatment.  
+
+2. Survivorship was significantly higher in the cool temperature treatment, but to a marginal degree.    
 
 
 ## 4. Growth    
 
-Growth data is collected as planar surface area of each juvenile at the start and end of the conditioning period (approx. 30 days).  
+Growth data is collected as planar surface area of each juvenile at the start and end of the pre-stress period (30 days).  
 
 Data was collected and analyzed by C. Johnson and A. Epps from photographs taken of 10-15 plugs from each tank, taken with a scale bar for size reference. Data analyzed in ImageJ/Fiji software.  
 
-Growth rate is calculated as the change in planar surface area normalized to starting size per day (% growth per day).
+Growth rate is calculated as the change in planar surface area normalized to starting size per day (% planar extension per day).   
 
 Here, data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the conditioning period, fusion status will be incorporated as a random effect ("Fused.Final"). Data will be analyzed for both fused and non-fused juvenile colonies, as approximately 50% of dataset are fused individuals and should be included. Although not included here, future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
 
@@ -502,14 +506,14 @@ r<-which(is.na(growth$Area.Final), arr.ind=TRUE)
 growth <- growth[-r, ]
 ```
 
-First, calculate % growth per day in planar surface area for each juvenile examine for normality.   
+First, calculate % growth per day in planar surface area for each juvenile and check data for normality.   
 
 ```{r, results=FALSE}
 growth$Planar<-((growth$Area.Final-growth$Area.Initial)/growth$Area.Initial)/(growth$Days)
 qqPlot(growth$Planar)
 ```
 
-Data is non-normally distributed, so we conduct a transformation. A quarter root transformation assists in meeting normality assumptions. Check normality of model residuals below during analysis below.    
+Data is non-normally distributed, so we conduct a transformation. A quarter root transformation assists in meeting normality assumptions. We also check normality of model residuals below during model analysis    
 
 ```{r, results=TRUE}
 growth$tPlanar<-(growth$Planar)^(1/4)
@@ -524,29 +528,25 @@ Significance determined using Type II ANOVA function.
 
 `modelGrowth=lmer(tPlanar~Nutrition * Temperature + (1|Fusion) + (1|Tank) + (1|Cohort), data=growth)`
 
-Check for homogeneity of variance using the Levene's test (passes) in the car package and normality of residuals. Residuals appear to be normal, but with some very slight deviance at tails of qqplot.    
+```{r, results=TRUE}
+modelGrowth=lmer(tPlanar~Nutrition * Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth)
+```
+
+Check for homogeneity of variance using the Levene's test (passes) in the car package and normality of residuals. Residuals are approximately normal, but with some very slight deviance at tails of qqPlot.  
 
 ```{r, results=TRUE}
-modelGrowth=lmer(tPlanar~Nutrition + Temperature + Nutrition:Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth)
 leveneTest(growth$tPlanar~growth$Nutrition*growth$Temperature)
 qqPlot(residuals(modelGrowth))
 ```
 
-Display summary of model and anova table for use of p-values.  
+Display summary of model and anova table for use of p-values.   
 
 ```{r, results=TRUE}
-summary(modelGrowth)
+summary(modelGrowth) 
 anova(modelGrowth, type=2)
 ```
 
-Perform Tukey post hoc analysis using emmeans function in the emmeans package.  
-```{r, results=TRUE}
-emm = emmeans(modelGrowth, ~ Temperature * Nutrition, adjust="tukey")
-#letter display
-cld(emm)
-```
-
-Generate a plot of non-transformed data to view growth rate between treatment groups. First, generate a summary table of proportion growth per day for each treatment.  
+Generate a plot of non-transformed data to view percent growth between treatment groups. Display a summary table of proportion growth per day for each treatment.   
 
 ```{r, results=TRUE}
 #multiply by 100 to obtain percentages for display
@@ -562,6 +562,7 @@ GrowthPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
 knitr::kable(GrowthPlanar)
 ```
 
+Display figure of juvenile growth rate.  
 
 ```{r, results=TRUE}
 Growth1a<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, colour=Nutrition)) +
@@ -594,99 +595,11 @@ ggsave("Figures/Growth_Figure.pdf", plot=growthfig, height=8, width=10, units = 
 
 ![Juvenile growth](Figures/Growth_Figure.pdf) 
 
-```{r, results=FALSE}
-#bar plot
-Growth1b<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, fill=Nutrition)) +
-  scale_fill_manual(values=c("purple", "orange"))+
-  geom_bar(stat="identity", position=position_dodge(), color="black")+
-  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
-                width=0.05, size=0.7, position=position_dodge(0.9))+
-  theme_classic()+
-  theme(text = element_text(size = 24, color="black"))+
-  theme(axis.text = element_text(size = 24, color="black"))+
-  theme(legend.position = "right")+
-  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
-  ylab(expression(bold(paste("% planar extension", " day" ^-1)))) +
-  theme(legend.title=element_blank())+
-  theme(legend.text = element_text(size=24))+
-  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
-  ylim(0,5)+
-  scale_x_discrete(limits=c("Cool", "Ambient"))+
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
-  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
-  xlab("Temperature") +
-  geom_text(x=1.5, y=4.9, label="p(Nutrition)=0.003", size=6, color="black") + 
-  geom_text(x=1.5, y=4.6, label="p(Temperature)=0.35", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=4.3, label="p(Interaction)=0.59", size=6, color="darkgray")
-
-growthfig<-plot_grid(Growth1b, labels = c(""), ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h")
-```
-
- 
-```{r, results=FALSE}
-#dot plot
-
-Growth3<-ggplot(data=growth, aes(x=Temperature, y=graph, fill=Nutrition)) +
-  scale_fill_manual(values=c("purple", "orange"))+
-  geom_boxplot(width=0.75, position=position_dodge(0.9))+
-  geom_dotplot(binaxis='y', stackdir='center', 
-               position=position_dodge(0.9), dotsize=0.3, color="black")+
-  theme_classic()+
-  theme(text = element_text(size = 24, color="black"))+
-  theme(axis.text = element_text(size = 24, color="black"))+
-  theme(legend.position = "right")+
-  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
-  ylab(expression(bold(paste("% planar extension", " day" ^-1)))) +
-  theme(legend.title=element_blank())+
-  theme(legend.text = element_text(size=24))+
-  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
-  ylim(0,35)+
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
-  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
-  xlab(expression(bold(paste("Temperature"))))
-
-```
-
-```{r, results=FALSE}
-#multiply by 100 to obtain percentages for display
-growth$graph<-growth$Planar*100
-
-GrowthQtPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
-                   N    = length(tPlanar[!is.na(tPlanar)]),
-                   mean = mean(tPlanar, na.rm=TRUE),
-                   sd   = sd(tPlanar, na.rm=TRUE),
-                   se   = sd / sqrt(N), 
-                   max = max(tPlanar, na.rm=TRUE)
-)
-knitr::kable(GrowthQtPlanar)
-```
-
-```{r, results=FALSE}
-#dot plot
-Growth3QT<-ggplot(data=growth, aes(x=Temperature, y=tPlanar, fill=Nutrition)) +
-  scale_fill_manual(values=c("purple", "orange"))+
-  geom_boxplot(width=0.75, position=position_dodge(0.9))+
-  geom_dotplot(binaxis='y', stackdir='center', 
-               position=position_dodge(0.9), dotsize=0.3, color="black")+
-  theme_classic()+
-  theme(text = element_text(size = 24, color="black"))+
-  theme(axis.text = element_text(size = 24, color="black"))+
-  theme(legend.position = "right")+
-  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
-  ylab(expression(bold(paste("(planar extension", " day"^-1,")"^(1/4))))) + 
-  theme(legend.title=element_blank())+
-  theme(legend.text = element_text(size=24))+
-  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
-  scale_x_discrete(limits=c("Cool", "Ambient"))+
-  ylim(0,1)+
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
-  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
-  xlab("Temperature");Growth3QT
-
-```
-
 *Conclusions*  
-1. Growth was significantly higher in heterotrophic feeding treatment. There was no effect of temperature.  
+1. Growth was significantly higher in heterotrophic feeding treatment. 
+
+2. There was no effect of temperature.  
+
 
 ## 5. Confocal Data Manipulation  
 
@@ -780,13 +693,11 @@ confocal$Cohort<-as.factor(confocal$Cohort)
 confocal$Tank<-as.factor(confocal$Tank)
 ```
 
-**Calibrate LSCM fluorescence values as described in Huffmyer et al. in prep:**  
+**Calibrate LSCM fluorescence values as described in Huffmyer et al. 2020:**  
 
 LSCM collects symbiont cell density data as the intensity of "red" chlorophyll fluorescence as specified in LSCM settings. This value can be calibrated to a % Relative Intensity value, by using the Red InSpeck fluorescent microbead kits.  
 
 Calibration equation for juvenile *P. acuta*: (Red Intensity Value + 79.395) / 24.301  
-
-Here we also calculate the ratio of red:green fluorescence (symbiont:host) for exploration and analysis below.   
 
 ```{r, results=FALSE}
 confocal$Red<-(confocal$Symbiont.Intensity+79.395)/24.301
@@ -816,9 +727,9 @@ colony$ConnectRed<-connecting$Red[match(colony$Sample, polyp$Sample)]
 ```
 
 
-## 6. Confocal Tissue Thickness 
+## 6. Confocal Tissue Thickness  
 
-Using the "Master_Confocal" data frame and tissue subsets, we first analyze tissue thickness measured by confocal LSCM.   
+Using the "Master_Confocal" data frame, we first analyze tissue thickness measured by LSCM.   
 
 ```{r, results=FALSE}
 print(levels(colony$Temperature))  ##Levels are ambient, then cool - which is correct
@@ -829,16 +740,13 @@ colony$Nutrition <- relevel(colony$Nutrition, ref = "No Heterotrophy")
 print(levels(colony$Nutrition))
 ```
 
-**Examine Data for Normality** 
+Examine data for normality, using data collected as averaged over each juvenile colony (including polyp and connecting tissue measurements).  
 
-*Colony Level*
 ```{r, results=TRUE}
 qqPlot(colony$Thickness)
 ```
 
-Thickness data is normal at the colony level.   
-
-**Analysis of Tissue Thickness**   
+Thickness data is normally distributed.  
 
 As data is continuous and normally distributed, we will analyze the data with lmer() as a linear mixed effects model.  
 
@@ -846,7 +754,7 @@ Temperature and Nutrition are main effects. Cohort and plug nested within tank a
 
 `thickModel<-lmer(Thickness~Temperature+Nutrition+Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)`  
 
-View summary of model and anova table for use of p-values.  
+Run model, view summary of model, and anova table for use of p-values.  
 ```{r, results=TRUE}
 thickModel<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)
 summary(thickModel)
@@ -859,14 +767,7 @@ leveneTest(colony$Thickness~colony$Nutrition*colony$Temperature)
 qqPlot(residuals(thickModel))
 ```
 
-Conduct post-hoc anaysis of tissue thickness data.  
-```{r, results=TRUE}
-emm = emmeans(thickModel, ~ Temperature * Nutrition, adjust="tukey")
-#letter display
-cld(emm)
-```
-
-Summarize tissue thickness in a table and plot.  
+Summarize mean tissue thickness in a table.   
 
 ```{r, results=TRUE}
 ThickTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
@@ -910,44 +811,12 @@ ggsave("Figures/Thickness_Figure.pdf", plot=Thick2, height=8, width=6, units = c
 
 ![Juvenile tissue thickness](Figures/Thickness_Figure.pdf) 
 
-```{r, results=FALSE}
-#dot plot
-Thick3<-ggplot(data=colony, aes(x=Temperature, y=Thickness, fill=Nutrition)) +
-  scale_fill_manual(values=c("purple", "orange"))+
-  geom_boxplot(width=0.75)+
-  geom_dotplot(binaxis='y', stackdir='center', 
-               position=position_dodge(0.75), dotsize=0.5, color="black")+
-  #stat_summary(fun.y=mean, geom="point", shape=18,
-                 #size=7, color="black", position=position_dodge(0.9)) +
-  theme_classic()+
-  theme(text = element_text(size = 18, color="black"))+
-  theme(axis.text.x = element_text(size = 18, color="black"))+
-  theme(axis.text = element_text(size = 18, color="black"))+
-  theme(legend.position = "none")+
-  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
-  ylab(expression(bold(paste("Tissue Thickness (", mu, "m)")))) +
-  theme(legend.title=element_blank())+
-  theme(legend.text = element_text(size=18))+
-  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
-  ylim(0,1000) +
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
-  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
-  xlab("Temperature") +
-  scale_x_discrete(limits=c("Cool", "Ambient"))+
-  #geom_text(x=1.81, y=710, label="B", size=6, color="black") +  
-  #geom_text(x=1.19, y=875, label="A", size=6, color="black") + 
-  #geom_text(x=2.19, y=960, label="A", size=6, color="black") + 
-  #geom_text(x=0.81, y=765, label="AB", size=6, color="black"+
-  geom_text(x=1.5, y=175, label="p(Nutrition)<0.001", size=6, color="black") + 
-  geom_text(x=1.5, y=100, label="p(Temperature)=0.06", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=25, label="p(Interaction)=0.03", size=6, color="black");Thick3
-
-```
-
 *Conclusions*  
 
 1. There was a significant positive effect of nutrition on tissue thickness.  
+
 2. There was a significant interactive effect of nutrition and heterotrophy, with thicker tissues in heterotrophically fed groups and thicker tissues in cool temperature in the absence of heterotrophy.  
+
 
 ## 7. Confocal Fluorescence
 
@@ -977,15 +846,8 @@ Test for homogeneity of variances - passes. Test normality of residuals - passes
 leveneTest(colony$Red~colony$Temperature*colony$Nutrition)
 qqPlot(residuals(RedModel))
 ```
- 
-Conduct Tukey post-hoc test in emmeans package.  
-```{r, results=TRUE}
-emm = emmeans(RedModel, ~ Temperature * Nutrition, adjust="tukey")
-#letter display
-cld(emm)
-```
 
-Summarize symbiont fluorescence (%RI) in a table and plot.   
+Summarize symbiont fluorescence (mean colony %RI) in a table and plot.   
 
 ```{r, results=TRUE}
 RedTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
@@ -997,7 +859,6 @@ RedTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
 )
 knitr::kable(RedTable)
 ```
-
 
 View interaction plot.  
 ```{r, results=TRUE}
@@ -1029,37 +890,10 @@ ggsave("Figures/Fluorescence_Figure.pdf", plot=Red2, height=8, width=8, units = 
 
 ![Juvenile symbiont fluorescence](Figures/Fluorescence_Figure.pdf)  
 
-```{r, results=FALSE}
-#dot plot
-Red3<-ggplot(data=colony, aes(x=Temperature, y=Red, fill=Nutrition)) +
-  scale_fill_manual(values=c("purple", "orange"))+
-  geom_boxplot(width=0.75)+
-  geom_dotplot(binaxis='y', stackdir='center', 
-               position=position_dodge(0.75), dotsize=0.5, color="black")+
-  geom_text(x=1.5, y=9, label="p(Nutrition)=0.001", size=6, color="black") + 
-  geom_text(x=1.5, y=5, label="p(Temperature)=0.70", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=1, label="p(Interaction)=0.006", size=6, color="black") + 
-  theme_classic()+
-  ylim(0,50)+
-  theme(text = element_text(size = 18, color="black"))+
-  theme(legend.text=element_text(size=18))+
-  theme(axis.text = element_text(size = 18, color="black"))+
-  theme(axis.text.x = element_text(size = 18, color="black"))+
-  theme(legend.position="none")+
-  scale_x_discrete(limits=c("Cool", "Ambient"))+
-  theme(legend.title=element_text(face="bold"))+
-  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
-  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
-  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
-  ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
-  xlab("Temperature")
-
-```
-
 
 ### **Relationship between thickness and fluorescence**  
 
-Display Pearson correlation between these two factors.  
+Display Pearson correlation results between these two characteristics of physiology. Pearson correlation is used as data are normally distributed.      
 
 ```{r, results=TRUE}
 cor.test(colony$Red, colony$Thickness, method=c("pearson"))
@@ -1098,16 +932,19 @@ summary(corrModel)
 anova(corrModel, type=2)
 ```
 
-There was no interactive effect between thickness and nutrition or temperature, indicating that these conditions did not alter the relationship between thickness and the amount of fluorescence. Rather, it is clear that differences in these values are due to nutrition.  
+There was no interactive effect between thickness and nutrition or temperature, indicating that these conditions did not alter the relationship between thickness and the amount of fluorescence. Rather, it is clear that differences in these values are due to nutrition.   
 
 *Conclusions*  
+
 1. There was a significant positive effect of nutrition on symbiont fluorescence.  
+
 2. There was a significant interactive effect of temperature and nutrition on symbiont fluorescence. In the absence of heterotrophy cool temperature had a trend for higher fluorescence with the opposite trend occuring in the presence of heterotrophy.  
-3. There was a positive relationship between tissue thickness and symbiont fluorescence and this relationship .  
 
-### **Figure**  
+3. There was a positive correlation between tissue thickness and symbiont fluorescence.  
 
-Generate final figure of response variables. 
+### **Generate Final Figure**  
+
+Generate final figure of physiological response variables and confocal images of juveniles.   
 ```{r, results=FALSE}
 confocalfig1<-plot_grid(Growth1a, Thick2, Red2, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(1,1,1.5), label_size = 20, label_y=1, align="h")
 
@@ -1127,10 +964,7 @@ ggsave(filename="Figures/Physiology_Figure.png", plot=confocalfinal, dpi=300, wi
 
 ## 8. Thermal Stress Survivorship  
 
-Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test.  Survivorship is recorded as "Success" (number alive) and "Failure" (number dead) and analyzed using a binomial mixed model.  
-
-Fixed effects: Conditioning temperature treatment, nutritional treatment, stress test temperature treatment, day (time)   
-Random effects: Plug nested with tank, cohort.
+Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test. 
 
 Load in survivorship data, examine structure, and create binomial vector of Success/Failure.   
 
@@ -1147,7 +981,7 @@ thermal$Surv<-(thermal$Juveniles)/(thermal$Failures+thermal$Juveniles)
 final<-thermal[which(thermal$Day == "31"),] #subset final timepoint
 ```
 
-Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial Juveniles - Juveniles at timepoint) called "Failures". 
+Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial Juveniles - Juveniles at timepoint) called "Failures".  
  
 Summary of total survivorship at the end of the thermal stress test.   
 
@@ -1174,7 +1008,7 @@ Analyze survivorship at the end of the thermal stress using a binomial mixed eff
 Main effects: Pre-stress temperature, nutrition, and stress temperature  
 Random effects: Tank and cohort  
 
-Run model and display summary as well as anova table for use of p-values.  
+Run model and display summary as well as anova table for use of p-values.   
 
 ```{r, results=TRUE}
 stressFINALmod<-glmer(x~Stress.Temp*Rear.Temp*Nutrition + (1|Stress.Tank) + (1|Cohort), family=binomial)
@@ -1183,7 +1017,7 @@ summary(stressFINALmod)
 Anova(stressFINALmod)
 ```
 
-Check for evidence of overdispersion - passes.  
+Check for evidence of overdispersion - passes.   
 ```{r, results=TRUE}
 dispersion_glmer(stressFINALmod) #no evidence of overdispersion
 ```
