@@ -1,5 +1,5 @@
 ---
-title: Effects of nutritional and thermal regimes on juvenile coral physiology and thermal tolerance  
+title: Juvenile P. acuta coral nutritional and thermal regime enhance resistance to temperature stress through physiological preparation
 author: "AS Huffmyer, CJ Johnson, AM Epps, JD Lemus, RD Gates"
 date: '2020'
 output:
@@ -562,7 +562,40 @@ GrowthPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
 knitr::kable(GrowthPlanar)
 ```
 
+
 ```{r, results=TRUE}
+Growth1a<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, colour=Nutrition)) +
+  scale_colour_manual(values=c("purple", "orange"))+
+  geom_line(position=position_dodge(0.03), size=1.3, aes(group=Nutrition)) +
+  geom_point(size=3, position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
+  theme_classic()+
+  theme(text = element_text(size = 24, color="black"))+
+  theme(axis.text = element_text(size = 24, color="black"))+
+  theme(legend.position = "right")+
+  theme(axis.title = element_text(size = 24, color="black", face="bold"))+
+  ylab(expression(bold(paste("% planar extension", " day" ^-1)))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=24))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(0,5)+
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  geom_text(x=1.5, y=0.9, label="p(Nutrition)=0.003", size=6, color="black") + 
+  geom_text(x=1.5, y=0.6, label="p(Temperature)=0.35", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=0.3, label="p(Interaction)=0.59", size=6, color="darkgray")
+
+growthfig<-plot_grid(Growth1a, labels = c(""), ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h")
+
+ggsave("Figures/Growth_Figure.pdf", plot=growthfig, height=8, width=10, units = c("in"), dpi=500) #output figure
+```
+
+![Juvenile growth](Figures/Growth_Figure.pdf) 
+
+```{r, results=FALSE}
+#bar plot
 Growth1b<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, fill=Nutrition)) +
   scale_fill_manual(values=c("purple", "orange"))+
   geom_bar(stat="identity", position=position_dodge(), color="black")+
@@ -584,20 +617,15 @@ Growth1b<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, fill=Nutrition)) 
   xlab("Temperature") +
   geom_text(x=1.5, y=4.9, label="p(Nutrition)=0.003", size=6, color="black") + 
   geom_text(x=1.5, y=4.6, label="p(Temperature)=0.35", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=4.3, label="p(Interaction)=0.59", size=6, color="darkgray");Growth1b
-  #geom_text(x=1.78, y=2.5, label="AB", size=8) +
-  #geom_text(x=0.78, y=2, label="B", size=8) +
-  #geom_text(x=2.23, y=4.1, label="A", size=8) +
-  #geom_text(x=1.23, y=3.6, label="A", size=8)
+  geom_text(x=1.5, y=4.3, label="p(Interaction)=0.59", size=6, color="darkgray")
 
 growthfig<-plot_grid(Growth1b, labels = c(""), ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h")
-
-ggsave("Figures/Growth_Figure.pdf", plot=growthfig, height=8, width=10, units = c("in"), dpi=500) #output figure
 ```
 
-Dot plot by temperature treatment.  
-```{r, results=TRUE}
-#create function for standard error
+ 
+```{r, results=FALSE}
+#dot plot
+
 Growth3<-ggplot(data=growth, aes(x=Temperature, y=graph, fill=Nutrition)) +
   scale_fill_manual(values=c("purple", "orange"))+
   geom_boxplot(width=0.75, position=position_dodge(0.9))+
@@ -615,22 +643,11 @@ Growth3<-ggplot(data=growth, aes(x=Temperature, y=graph, fill=Nutrition)) +
   ylim(0,35)+
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
   theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
-  #geom_text(x=1.5, y=9, label="p(Nutrition)=0.001", size=6, color="black") + 
-  #geom_text(x=1.5, y=5, label="p(Temperature)=0.70", size=6, color="darkgray") + 
-  #geom_text(x=1.5, y=1, label="p(Interaction)=0.006", size=6, color="black") +
-  #geom_text(x=0.78, y=26.5, label="AB", size=8) +
-  #geom_text(x=1.23, y=26.5, label="A", size=8) +
-  #geom_text(x=1.78, y=26.5, label="B", size=8) +
-  #geom_text(x=2.23, y=26.5, label="A", size=8)+
-  xlab(expression(bold(paste("Temperature"))));Growth3
+  xlab(expression(bold(paste("Temperature"))))
 
-
-#ggsave("Figures/Rate_Growth_Dots_Temp.pdf", plot=Growth3, height=8, width=9, units = c("in"), dpi=500) #output figure
 ```
 
-Produce graphs with growth on quarter root scale to reflect model analyses.  
-
-```{r, results=TRUE}
+```{r, results=FALSE}
 #multiply by 100 to obtain percentages for display
 growth$graph<-growth$Planar*100
 
@@ -644,9 +661,8 @@ GrowthQtPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
 knitr::kable(GrowthQtPlanar)
 ```
 
-Dot plot by temperature treatment.  
-```{r, results=TRUE}
-#create function for standard error
+```{r, results=FALSE}
+#dot plot
 Growth3QT<-ggplot(data=growth, aes(x=Temperature, y=tPlanar, fill=Nutrition)) +
   scale_fill_manual(values=c("purple", "orange"))+
   geom_boxplot(width=0.75, position=position_dodge(0.9))+
@@ -666,12 +682,7 @@ Growth3QT<-ggplot(data=growth, aes(x=Temperature, y=tPlanar, fill=Nutrition)) +
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
   theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
   xlab("Temperature");Growth3QT
-  #geom_text(x=0.78, y=0.8, label="AB", size=8) +
-  #geom_text(x=1.23, y=0.8, label="A", size=8) +
-  #geom_text(x=1.78, y=0.8, label="B", size=8) +
-  #geom_text(x=2.23, y=0.8, label="A", size=8)
 
-#ggsave("Figures/QT_Growth_Dots_Temp.pdf", plot=Growth3QT, height=8, width=9, units = c("in"), dpi=500) #output figure
 ```
 
 *Conclusions*  
@@ -868,9 +879,40 @@ ThickTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
 knitr::kable(ThickTable)
 ```
 
-Dot plot by temperature.  
+View interaction plot.    
 ```{r, results=TRUE}
+Thick2<-ggplot(data=ThickTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
+  scale_colour_manual(values=c("purple", "orange"))+
+  geom_line(position=position_dodge(0.03), size=1.3, aes(group=Nutrition)) +
+  geom_point(size=3, position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
+  theme_classic()+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 18, color="black"))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(legend.position = "none")+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  ylab(expression(bold(paste("Tissue Thickness (", mu, "m)")))) +
+  theme(legend.title=element_blank())+
+  theme(legend.text = element_text(size=18))+
+  theme(plot.margin=unit(c(1.5,0,0,0), "cm"))+
+  ylim(300,850) +
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
+  theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
+  xlab("Temperature") +
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  geom_text(x=1.5, y=410, label="p(Nutrition)<0.001", size=6, color="black") + 
+  geom_text(x=1.5, y=375, label="p(Temperature)=0.06", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=340, label="p(Interaction)=0.03", size=6, color="black")
 
+
+ggsave("Figures/Thickness_Figure.pdf", plot=Thick2, height=8, width=6, units = c("in"), dpi=300) #output figure
+```
+
+![Juvenile tissue thickness](Figures/Thickness_Figure.pdf) 
+
+```{r, results=FALSE}
+#dot plot
 Thick3<-ggplot(data=colony, aes(x=Temperature, y=Thickness, fill=Nutrition)) +
   scale_fill_manual(values=c("purple", "orange"))+
   geom_boxplot(width=0.75)+
@@ -901,8 +943,6 @@ Thick3<-ggplot(data=colony, aes(x=Temperature, y=Thickness, fill=Nutrition)) +
   geom_text(x=1.5, y=100, label="p(Temperature)=0.06", size=6, color="darkgray") + 
   geom_text(x=1.5, y=25, label="p(Interaction)=0.03", size=6, color="black");Thick3
 
-
-ggsave("Figures/Thickness_Figure.pdf", plot=Thick3, height=8, width=6, units = c("in"), dpi=300) #output figure
 ```
 
 *Conclusions*  
@@ -959,17 +999,44 @@ RedTable <- ddply(colony, c("Nutrition", "Temperature"), summarise,
 knitr::kable(RedTable)
 ```
 
-Make dot plot by temperature.  
+
+View interaction plot.  
 ```{r, results=TRUE}
+Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
+  scale_colour_manual(values=c("purple", "orange"))+
+  geom_line(position=position_dodge(0.03), size=1.3, aes(group=Nutrition)) +
+  geom_point(size=3, position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
+  geom_text(x=1.5, y=21, label="p(Nutrition)=0.001", size=6, color="black") + 
+  geom_text(x=1.5, y=19, label="p(Temperature)=0.70", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=17, label="p(Interaction)=0.006", size=6, color="black") + 
+  theme_classic()+
+  ylim(15,45)+
+  theme(text = element_text(size = 18, color="black"))+
+  theme(legend.text=element_text(size=18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.text.x = element_text(size = 18, color="black"))+
+  theme(legend.position="none")+
+  scale_x_discrete(limits=c("Cool", "Ambient"))+
+  theme(legend.title=element_text(face="bold"))+
+  theme(axis.title = element_text(size = 18, color="black", face="bold"))+
+  theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
+  theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
+  ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
+  xlab("Temperature")
+
+ggsave("Figures/Fluorescence_Figure.pdf", plot=Red2, height=8, width=8, units = c("in"), dpi=300) #output figure
+```
+
+![Juvenile symbiont fluorescence](Figures/Fluorescence_Figure.pdf)  
+
+```{r, results=FALSE}
+#dot plot
 Red3<-ggplot(data=colony, aes(x=Temperature, y=Red, fill=Nutrition)) +
   scale_fill_manual(values=c("purple", "orange"))+
   geom_boxplot(width=0.75)+
   geom_dotplot(binaxis='y', stackdir='center', 
                position=position_dodge(0.75), dotsize=0.5, color="black")+
-  #geom_text(x=2.19, y=44, label="C", size=6, color="black") +  
-  #geom_text(x=0.81, y=38, label="AB", size=6, color="black") +  
-  #geom_text(x=1.81, y=35, label="A", size=6, color="black") +  
-  #geom_text(x=1.19, y=39, label="BC", size=6, color="black") + 
   geom_text(x=1.5, y=9, label="p(Nutrition)=0.001", size=6, color="black") + 
   geom_text(x=1.5, y=5, label="p(Temperature)=0.70", size=6, color="darkgray") + 
   geom_text(x=1.5, y=1, label="p(Interaction)=0.006", size=6, color="black") + 
@@ -986,16 +1053,15 @@ Red3<-ggplot(data=colony, aes(x=Temperature, y=Red, fill=Nutrition)) +
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
   theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
   ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
-  xlab("Temperature");Red3
+  xlab("Temperature")
 
-ggsave("Figures/Fluorescence_Figure.pdf", plot=Red3, height=8, width=8, units = c("in"), dpi=300) #output figure
 ```
 
 
 
 ### **Relationship between thickness and fluorescence**  
 
-Display Pearson correlation between these two factors. 
+Display Pearson correlation between these two factors.  
 
 ```{r, results=TRUE}
 cor.test(colony$Red, colony$Thickness, method=c("pearson"))
@@ -1018,11 +1084,13 @@ Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) +
   theme(legend.title = element_text(size = 18, face="bold"))+
   theme(legend.text = element_text(size = 18, color="black"))+
   ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
-  xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))));Cor1
+  xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))))
 
 ggsave("Figures/Correlation_Physiology_Figure.pdf", plot=Cor1, height=8, width=10, units = c("in"), dpi=300) #output figure
 
 ```
+
+![Correlation between thickness and fluorescence](Figures/Correlation_Physiology_Figure.pdf) 
 
 Conduct a model analysis to determine whether temperatures have different slopes in the relationship between tissue thickness and symbiont fluorescence.  
 
@@ -1041,7 +1109,7 @@ There was no interactive effect between thickness and nutrition or temperature, 
 
 Generate final figure of response variables. 
 ```{r, results=FALSE}
-confocalfig1<-plot_grid(Thick3, Red3, Cor1, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(1,1,1.25), label_size = 20, label_y=1, align="h")
+confocalfig1<-plot_grid(Thick2, Red2, Cor1, labels = c("A", "B", "C"), ncol=3, nrow=1, rel_heights= c(1,1,1), rel_widths = c(1,1,1.25), label_size = 20, label_y=1, align="h")
 
 ggsave(filename="Figures/Physiology_fig1.png", plot=confocalfig1, dpi=500, width=20, height=6, units="in")
 
@@ -1058,8 +1126,6 @@ ggsave(filename="Figures/Physiology_Figure.png", plot=confocalfinal, dpi=300, wi
 
 
 ## 8. Thermal Stress Survivorship  
-
-### *Analyze over time*  
 
 Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test.  Survivorship is recorded as "Success" (number alive) and "Failure" (number dead) and analyzed using a binomial mixed model.  
 
@@ -1082,94 +1148,8 @@ final<-thermal[which(thermal$Day == "31"),] #subset final timepoint
 ```
 
 Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial Juveniles - Juveniles at timepoint) called "Failures". 
-
-```{r, results=FALSE}
-#create binomial vector
-attach(thermal)
-x<-cbind(Juveniles, Failures)
-```
-
-Analyze survivorship during thermal stress using a binomial mixed effects model.  
-
-Main effects: Day, pre-stress temperature, nutrition, and stress temperature  
-Random effects: Plug nested within tank and cohort  
-
-Run model and display summary as well as anova table for use of p-values.  
-
-```{r, results=FALSE}
-stressmod<-glmer(x~Stress.Temp*Rear.Temp*Nutrition*Day + (1|Stress.Tank/Plug) + (1|Cohort), family=binomial)
-
-summary(stressmod)
-Anova(stressmod)
-```
-
-Check for evidence of overdispersion - passes.  
-```{r, results=TRUE}
-dispersion_glmer(stressmod) #no evidence of overdispersion
-```
-
-Plot results of binomial model of survivorship.  
-
-```{r, results=TRUE}
-thermal$group<-paste(thermal$Rear.Temp, "-", thermal$Nutrition)
-
-stressmod2<-glmer(x ~ group * Day + (1|Stress.Tank/Plug) + (1|Cohort), family=binomial, data=thermal, subset=c(Stress.Temp=="High")) 
-
-eff.stress2 <- predictorEffect(c("Day"), stressmod2)
-
-stress.effects2<-plot(eff.stress2,
-                   lines=list(multiline=TRUE, 
-                              col=c("gray", "gray", "blue", "blue"), 
-                              lty=c(1, 2, 1, 2)), 
-                   confint=list(style="bands", alpha=0.0), 
-                   lwd=6,
-                   axes=list(y=list(lim=c(0, 1))),
-                   type="response",
-                   ylab=expression(bold("Survivorship")), 
-                   legend.position="right",
-                   main="",
-                   xlab=expression(bold("Day")),
-                   lattice=list(key.args=list(space="right",
-                                              border=FALSE, 
-                                              cex=1.5,
-                                              cex.title=1.5,
-                                              title=expression(bold("Treatments")))))
-```
  
-
-```{r, results=TRUE}
-stressmod3<-glmer(x ~ group * Day + (1|Stress.Tank/Plug) + (1|Cohort), family=binomial, data=thermal, subset=c(Stress.Temp=="Control")) 
-
-eff.stress3 <- predictorEffect(c("Day"), stressmod3)
-stress.effects3<-plot(eff.stress3,
-                   lines=list(multiline=TRUE, 
-                              col=c("darkgray", "darkgray", "blue", "blue"), 
-                              lty=c(1, 2, 1, 2)), 
-                   confint=list(style="bands", alpha=0.00), 
-                   lwd=6,
-                   axes=list(y=list(lim=c(0, 1))),
-                   type="response", 
-                   ylab=expression(bold("Survivorship")), 
-                   legend.position="top",
-                   xlab=expression(bold("Day")),
-                   main=list(label="",
-                                  cex=1.5, font=2),
-                   lattice=list(key.args=list(space="none",
-                                              border=FALSE, 
-                                              title=expression(bold("Control")),
-                                              cex=1, 
-                                              cex.title=1)))
- 
-stress_figs_30days<-plot_grid(stress.effects3, stress.effects2, labels = c("Control", "High"), ncol=2, nrow=1, rel_heights= c(1,1), rel_widths = c(0.75,1), label_size = 20, label_y=1, align="h")
-
-ggsave(filename="Figures/Stress_Survival_OverTime.png", plot=stress_figs_30days, dpi=300, width=20, height=8, units="in")
-
-detach(thermal)
-```
-
-![Stress survival over 30-day period in control and high temperatures.](Figures/Stress_Survival_OverTime.png)   
- 
-Summary of total survivorship included below at the end of the thermal stress test.   
+Summary of total survivorship at the end of the thermal stress test.   
 
 ```{r, results=TRUE}
 Stress.Summary <- ddply(final, c("Stress.Temp", "Rear.Temp", "Nutrition"), summarise,
@@ -1182,7 +1162,6 @@ Stress.Summary <- ddply(final, c("Stress.Temp", "Rear.Temp", "Nutrition"), summa
 knitr::kable(Stress.Summary)
 ```
 
-### *Analyze at the end point*  
 
 ```{r, results=FALSE}
 #create binomial vector
@@ -1197,7 +1176,7 @@ Random effects: Tank and cohort
 
 Run model and display summary as well as anova table for use of p-values.  
 
-```{r, results=FALSE}
+```{r, results=TRUE}
 stressFINALmod<-glmer(x~Stress.Temp*Rear.Temp*Nutrition + (1|Stress.Tank) + (1|Cohort), family=binomial)
 
 summary(stressFINALmod)
@@ -1209,46 +1188,66 @@ Check for evidence of overdispersion - passes.
 dispersion_glmer(stressFINALmod) #no evidence of overdispersion
 ```
 
-Plot results of binomial model of survivorship at the end of the stress period.  
+Plot total survivorship in high and ambient treatment at the end of the stress period.  
 
 ```{r, results=TRUE}
-final$group<-paste(final$Rear.Temp, "-", final$Nutrition)
 
-stressFINALmod2<-glmer(x ~ group * Stress.Temp + (1|Stress.Tank) + (1|Cohort), family=binomial, data=final) 
-
-eff.stressFINAL <- predictorEffect(c("Stress.Temp"), stressFINALmod2)
-
-stress.effectsFINAL<-plot(eff.stressFINAL,
-                   lines=list(multiline=TRUE, 
-                              col=c("gray", "gray", "blue", "blue"), 
-                              lty=c(1, 2, 1, 4)), 
-                   confint=list(style="none", width=0), 
-                   lwd=6,
-                   axes=list(y=list(lim=c(0, 1))),
-                   type="response",
-                   ylab=expression(bold("Survivorship")), 
-                   legend.position="right",
-                   main="",
-                   xlab=expression(bold("Stress Treatment")),
-                   lattice=list(key.args=list(space="top",
-                                              border=FALSE, 
-                                              cex=1.2,
-                                              cex.title=1.2,
-                                              title=expression(bold("Pre-Stress Temperature - Nutrition")))))
-
-stress.effectsFINAL<-ggdraw(stress.effectsFINAL) +
-              ggplot2::annotate("text", 
-                                x = 0.5, y = .75, # x and y coordinates of the text
-                                label = "p(Pre-Stress Temperature x Nutrition)=0.008", size = 6, color="black")+
-              ggplot2::annotate("text", 
-                                x = 0.5, y = .7, # x and y coordinates of the text
-                                label = "p(Stress Temperature x Nutrition)=0.004", size = 6, color="black")
-
-stress_figs_end<-plot_grid(stress.effectsFINAL, labels = c(""), ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h")
-
-ggsave(filename="Figures/Stress_Survival_Total.png", plot=stress_figs_end, dpi=300, width=7, height=10, units="in")
+cols <- c("Ambient" = "#606060","Cool" = "#0099FF")
           
+          
+FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, group=interaction(Rear.Temp, Nutrition), colour=Rear.Temp, linetype=Nutrition)) + 
+  geom_line(position=position_dodge(0.03), size=1.3) +
+  geom_point(size=3, position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
+  xlab(expression(bold("Stress Temperature"))) +
+  ylab(expression(bold("Survivorship"))) +
+  ylim(0,1) +
+  ggtitle("")+
+  theme_classic() +
+  scale_colour_manual(name=expression(bold(atop("Pre-Stress    ", paste("Temperature")))),
+                        breaks=c("Ambient", "Cool"),
+                        labels=c("Ambient", "Cool"), 
+                        values=cols)+
+  scale_linetype_manual(name=expression(bold("Nutrition")),
+                          breaks=c("Heterotrophy", "No Heterotrophy"),
+                          labels=c("Heterotrophy", "No Heterotrophy"), 
+                          values=c("dotted", "solid")) +
+  annotate("text", x = .45, y = .25, 
+           label = "p(Stress Temp.)<0.001", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = .21, 
+           label = "p(Pre-Stress Temp.)<0.001", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = .17, 
+           label = "p(Nutrition)<0.001", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = .13, 
+           label = "p(Stress Temp. x Pre-Stress Temp.)=0.66", size = 5, color="darkgray", hjust=0)+
+   annotate("text", x = .45, y = .09, 
+           label = "p(Stress Temp. x Nutrition)=0.008", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = .05, 
+           label = "p(Pre-Stress Temp. x Nutrition)=0.004", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = .01, 
+           label = "p(Three-way Interaction)=0.74", size = 5, color="darkgray", hjust=0)+
+  theme(panel.background = element_blank()) +
+  theme(text = element_text(size=20),
+        panel.border = element_blank(), 
+        plot.background =element_blank(),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        axis.line = element_line(colour = "black"),
+        axis.text = element_text(size=18, colour="black"),
+        legend.title=element_text(),
+        legend.position=("right"),
+        plot.title=element_text(), #Justify the title to the top left
+        legend.text = element_text(size = 20),
+        axis.title.y=element_text(margin=margin(0,7,0,0)), 
+        axis.title.x=element_text(margin=margin(7,0,0,0)))
+
+ggsave(filename="Figures/Stress_Survival_Total.png", plot=FigSurvStress, dpi=300, width=10, height=8, units="in")
 ```
 
+![Thermal Survivorship](Figures/Stress_Survival_Total.png)
 
-![Stress survival over 30-day period in control and high temperatures.](Figures/Stress_Survival_Total.png)   
+```{r, results=TRUE}
+
+detach(final)
+          
+```

@@ -1,5 +1,5 @@
 
-**Study:** Effects of nutritional and thermal regimes on juvenile coral physiology and thermal tolerance  
+**Study:** Juvenile nutrition and thermal regime enhance resistance to temperature stress through energetic preparation
 
 **Authors:** Huffmyer AS, CJ Johnson, AM Epps, JD Lemus, RD Gates
 

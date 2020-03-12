@@ -1,1203 +1,1203 @@
 Date,Day,Plug,Stress.Tank,Stress.Temp,Rear.Tank,Rear.Temp,Nutrition,Treatment,Cohort,Juveniles,Failures
-20170711,1,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,14,0
-20170714,4,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,14,0
-20170716,6,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,14,0
-20170718,8,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,14,0
-20170721,11,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,10,4
-20170724,14,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,4,10
-20170807,28,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,3,11
-20170810,31,A077,14,Control,18,Ambient,Heterotrophy,AH,20170609,3,11
-20170711,1,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,0
-20170714,4,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,0
-20170716,6,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,0
-20170718,8,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,0
-20170721,11,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,0
-20170724,14,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,0
-20170807,28,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,7,1
-20170810,31,A078,14,Control,18,Ambient,Heterotrophy,AH,20170609,5,3
-20170711,1,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,9,0
-20170714,4,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,9,0
-20170716,6,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,9,0
-20170718,8,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,9,0
-20170721,11,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,8,1
-20170724,14,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,6,3
-20170807,28,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,6,3
-20170810,31,A080,14,Control,18,Ambient,Heterotrophy,AH,20170609,5,4
-20170711,1,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,6,0
-20170714,4,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,6,0
-20170716,6,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,6,0
-20170718,8,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,5,1
-20170721,11,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,5,1
-20170724,14,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,5,1
-20170807,28,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,5,1
-20170810,31,A089,14,Control,18,Ambient,Heterotrophy,AH,20170609,4,2
-20170711,1,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,3,0
-20170714,4,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,3,0
-20170716,6,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,3,0
-20170718,8,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,3,0
-20170721,11,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,2,1
-20170724,14,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,2,1
-20170807,28,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,2,1
-20170810,31,A104,21,Control,14,Ambient,Heterotrophy,AH,20170609,2,1
-20170711,1,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,4,0
-20170714,4,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,4,0
-20170716,6,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,4,0
-20170718,8,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,4,0
-20170721,11,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,4,0
-20170724,14,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,4,0
-20170807,28,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,2,2
-20170810,31,A112,14,Control,14,Ambient,Heterotrophy,AH,20170609,2,2
-20170711,1,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,10,0
-20170714,4,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,10,0
-20170716,6,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,10,0
-20170718,8,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,10,0
-20170721,11,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,10,0
-20170724,14,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,6,4
-20170807,28,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,4,6
-20170810,31,A117,18,Control,14,Ambient,Heterotrophy,AH,20170609,4,6
-20170711,1,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,5,0
-20170714,4,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,5,0
-20170716,6,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,5,0
-20170718,8,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,5,0
-20170721,11,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,5,0
-20170724,14,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,4,1
-20170807,28,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,4,1
-20170810,31,A173,18,Control,21,Ambient,Heterotrophy,AH,20170609,4,1
-20170711,1,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170714,4,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170716,6,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170718,8,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170721,11,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170724,14,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170807,28,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170810,31,A175,18,Control,21,Ambient,Heterotrophy,AH,20170609,1,0
-20170711,1,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,2,0
-20170714,4,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,2,0
-20170716,6,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,2,0
-20170718,8,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,2,0
-20170721,11,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,2,0
-20170724,14,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,2,0
-20170807,28,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,1,1
-20170810,31,A176,14,Control,21,Ambient,Heterotrophy,AH,20170609,0,2
-20170711,1,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,8,0
-20170714,4,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,8,0
-20170716,6,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,8,0
-20170718,8,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,8,0
-20170721,11,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,8,0
-20170724,14,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,4,4
-20170807,28,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,4,4
-20170810,31,A261,18,Control,14,Ambient,Heterotrophy,AH,20170610,4,4
-20170711,1,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170714,4,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170716,6,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170718,8,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170721,11,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170724,14,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170807,28,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170810,31,A271,21,Control,14,Ambient,Heterotrophy,AH,20170610,1,0
-20170711,1,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,3,0
-20170714,4,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,3,0
-20170716,6,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,3,0
-20170718,8,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,3,0
-20170721,11,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,2,1
-20170724,14,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,2,1
-20170807,28,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,2,1
-20170810,31,A272,21,Control,14,Ambient,Heterotrophy,AH,20170610,2,1
-20170711,1,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,6,0
-20170714,4,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,6,0
-20170716,6,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,6,0
-20170718,8,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,6,0
-20170721,11,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,6,0
-20170724,14,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,4,2
-20170807,28,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,3
-20170810,31,A288,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,3
-20170711,1,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170714,4,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170716,6,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170718,8,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170721,11,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170724,14,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170807,28,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170810,31,A294,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,0
-20170711,1,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,9,0
-20170714,4,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,9,0
-20170716,6,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,9,0
-20170718,8,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,9,0
-20170721,11,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,7,2
-20170724,14,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,6
-20170807,28,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,6
-20170810,31,A299,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,6
-20170711,1,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,0
-20170714,4,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,0
-20170716,6,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,0
-20170718,8,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,0
-20170721,11,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,3,0
-20170724,14,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,1
-20170807,28,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,2,1
-20170810,31,A300,14,Control,18,Ambient,Heterotrophy,AH,20170610,1,2
-20170711,1,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170714,4,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170716,6,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170718,8,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170721,11,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170724,14,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170807,28,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170810,31,A358,21,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170711,1,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170714,4,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170716,6,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170718,8,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170721,11,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170724,14,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170807,28,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,1,0
-20170810,31,A360,18,Control,21,Ambient,Heterotrophy,AH,20170610,0,1
-20170711,1,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,7,0
-20170714,4,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,7,0
-20170716,6,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,7,0
-20170718,8,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,7,0
-20170721,11,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,6,1
-20170724,14,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,5,2
-20170807,28,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,4,3
-20170810,31,A362,18,Control,21,Ambient,Heterotrophy,AH,20170610,4,3
-20170711,1,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,6,0
-20170714,4,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,6,0
-20170716,6,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,6,0
-20170718,8,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,6,0
-20170721,11,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,5,1
-20170724,14,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,5,1
-20170807,28,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,3,3
-20170810,31,A364,18,Control,21,Ambient,Heterotrophy,AH,20170610,2,4
-20170711,1,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170714,4,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170716,6,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,3,1
-20170718,8,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,3,1
-20170721,11,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,3,1
-20170724,14,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,3,1
-20170807,28,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,2,2
-20170810,31,A438,18,Control,18,Ambient,Heterotrophy,AH,20170611,2,2
-20170711,1,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170714,4,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170716,6,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170718,8,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170721,11,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170724,14,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170807,28,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170810,31,A439,14,Control,18,Ambient,Heterotrophy,AH,20170611,2,0
-20170711,1,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170714,4,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170716,6,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170718,8,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170721,11,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170724,14,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170807,28,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170810,31,A441,14,Control,18,Ambient,Heterotrophy,AH,20170611,4,0
-20170711,1,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,7,0
-20170714,4,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,7,0
-20170716,6,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,7,0
-20170718,8,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,7,0
-20170721,11,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,7,0
-20170724,14,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,6,1
-20170807,28,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,6,1
-20170810,31,A442,14,Control,18,Ambient,Heterotrophy,AH,20170611,6,1
-20170711,1,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,3,0
-20170714,4,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,2,1
-20170716,6,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,2,1
-20170718,8,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,2,1
-20170721,11,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,2,1
-20170724,14,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,2,1
-20170807,28,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,2,1
-20170810,31,A443,21,Control,18,Ambient,Heterotrophy,AH,20170611,1,2
-20170711,1,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,5,0
-20170714,4,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,5,0
-20170716,6,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,4,1
-20170718,8,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,4,1
-20170721,11,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,4,1
-20170724,14,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,2
-20170807,28,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,2
-20170810,31,A460,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,2
-20170711,1,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170714,4,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170716,6,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170718,8,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170721,11,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170724,14,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170807,28,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170810,31,A464,21,Control,14,Ambient,Heterotrophy,AH,20170611,3,0
-20170711,1,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170714,4,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170716,6,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170718,8,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170721,11,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170724,14,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170807,28,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,2,2
-20170810,31,A466,14,Control,14,Ambient,Heterotrophy,AH,20170611,1,3
-20170711,1,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170714,4,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170716,6,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170718,8,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170721,11,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170724,14,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,4,0
-20170807,28,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,1,3
-20170810,31,A468,18,Control,14,Ambient,Heterotrophy,AH,20170611,1,3
-20170711,1,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,2,0
-20170714,4,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,2,0
-20170716,6,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,2,0
-20170718,8,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,2,0
-20170721,11,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,2,0
-20170724,14,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,1,1
-20170807,28,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,0,2
-20170810,31,A522,21,Control,21,Ambient,Heterotrophy,AH,20170611,0,2
-20170711,1,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170714,4,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170716,6,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170718,8,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170721,11,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170724,14,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170807,28,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,1,0
-20170810,31,A568,21,Control,18,Ambient,Heterotrophy,AH,20170612,0,1
-20170711,1,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,4,0
-20170714,4,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,4,0
-20170716,6,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,4,0
-20170718,8,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,4,0
-20170721,11,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,4,0
-20170724,14,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,4,0
-20170807,28,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,3,1
-20170810,31,A576,21,Control,18,Ambient,Heterotrophy,AH,20170612,3,1
-20170711,1,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170714,4,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170716,6,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170718,8,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170721,11,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170724,14,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,1,1
-20170807,28,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,1,1
-20170810,31,A583,18,Control,14,Ambient,Heterotrophy,AH,20170612,1,1
-20170711,1,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170714,4,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170716,6,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170718,8,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170721,11,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170724,14,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170807,28,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170810,31,A585,21,Control,14,Ambient,Heterotrophy,AH,20170612,2,0
-20170711,1,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,10,0
-20170714,4,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,10,0
-20170716,6,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,10,0
-20170718,8,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,10,0
-20170721,11,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,8,2
-20170724,14,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,3,7
-20170807,28,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,8
-20170810,31,A586,18,Control,14,Ambient,Heterotrophy,AH,20170612,2,8
-20170711,1,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170714,4,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170716,6,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170718,8,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170721,11,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170724,14,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170807,28,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170810,31,A591,21,Control,14,Ambient,Heterotrophy,AH,20170612,1,0
-20170711,1,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,4,0
-20170714,4,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,4,0
-20170716,6,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,4,0
-20170718,8,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,4,0
-20170721,11,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,4,0
-20170724,14,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,2,2
-20170807,28,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,2,2
-20170810,31,A627,21,Control,21,Ambient,Heterotrophy,AH,20170612,2,2
-20170711,1,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,2,0
-20170714,4,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,2,0
-20170716,6,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,2,0
-20170718,8,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,1,1
-20170721,11,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,0,2
-20170724,14,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,0,2
-20170807,28,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,0,2
-20170810,31,A632,18,Control,21,Ambient,Heterotrophy,AH,20170612,0,2
-20170711,1,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,4,0
-20170714,4,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,4,0
-20170716,6,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,4,0
-20170718,8,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,4,0
-20170721,11,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,4,0
-20170724,14,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,4,0
-20170807,28,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,3,1
-20170810,31,A763,14,Control,21,Ambient,Heterotrophy,AH,20170613,0,4
-20170711,1,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,3,0
-20170714,4,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,3,0
-20170716,6,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,2,1
-20170718,8,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,2,1
-20170721,11,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,2,1
-20170724,14,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,2,1
-20170807,28,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,2,1
-20170810,31,A774a,18,Control,21,Ambient,Heterotrophy,AH,20170613,2,1
-20170711,1,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170714,4,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170716,6,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170718,8,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170721,11,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170724,14,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170807,28,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170810,31,A053,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,0
-20170711,1,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,3,0
-20170714,4,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,3,0
-20170716,6,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,3,0
-20170718,8,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,1
-20170721,11,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,1
-20170724,14,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,1
-20170807,28,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,1
-20170810,31,A055,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,1
-20170711,1,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,4,0
-20170714,4,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,4,0
-20170716,6,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,4,0
-20170718,8,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,4,0
-20170721,11,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,4,0
-20170724,14,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,2
-20170807,28,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,2
-20170810,31,A057,16,Control,22,Ambient,No Heterotrophy,AN,20170609,2,2
-20170711,1,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170714,4,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170716,6,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170718,8,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170721,11,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170724,14,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170807,28,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170810,31,A095,13,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170711,1,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,7,0
-20170714,4,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,7,0
-20170716,6,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,7,0
-20170718,8,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,7,0
-20170721,11,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,7,0
-20170724,14,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,7,0
-20170807,28,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,6,1
-20170810,31,A097,13,Control,16,Ambient,No Heterotrophy,AN,20170609,6,1
-20170711,1,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170714,4,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,2,0
-20170716,6,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170718,8,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170721,11,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170724,14,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170807,28,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170810,31,A098,22,Control,16,Ambient,No Heterotrophy,AN,20170609,1,1
-20170711,1,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,9,0
-20170714,4,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,9,0
-20170716,6,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,9,0
-20170718,8,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,9,0
-20170721,11,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,9,0
-20170724,14,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,7,2
-20170807,28,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,7,2
-20170810,31,A127,22,Control,22,Ambient,No Heterotrophy,AN,20170609,4,5
-20170711,1,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,14,0
-20170714,4,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,14,0
-20170716,6,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,14,0
-20170718,8,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,14,0
-20170721,11,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,12,2
-20170724,14,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,10,4
-20170807,28,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,9,5
-20170810,31,A274,13,Control,16,Ambient,No Heterotrophy,AN,20170610,8,6
-20170711,1,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170714,4,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170716,6,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170718,8,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170721,11,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170724,14,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170807,28,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170810,31,A285,16,Control,16,Ambient,No Heterotrophy,AN,20170610,2,0
-20170711,1,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,5,0
-20170714,4,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,5,0
-20170716,6,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,5,0
-20170718,8,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,5,0
-20170721,11,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,5,0
-20170724,14,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,5,0
-20170807,28,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,4,1
-20170810,31,A404a,13,Control,15,Ambient,No Heterotrophy,AN,20170610,4,1
-20170711,1,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,0
-20170714,4,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,0
-20170716,6,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,0
-20170718,8,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,0
-20170721,11,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,0
-20170724,14,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,0
-20170807,28,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,1,1
-20170810,31,A410,22,Control,22,Ambient,No Heterotrophy,AN,20170611,0,2
-20170711,1,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,1,0
-20170714,4,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170716,6,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170718,8,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170721,11,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170724,14,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170807,28,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170810,31,A415,16,Control,22,Ambient,No Heterotrophy,AN,20170611,0,1
-20170711,1,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,3,0
-20170714,4,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,3,0
-20170716,6,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,3,0
-20170718,8,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,3,0
-20170721,11,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,3,0
-20170724,14,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,1
-20170807,28,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,2,1
-20170810,31,A419,22,Control,22,Ambient,No Heterotrophy,AN,20170611,0,3
-20170711,1,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,2,0
-20170714,4,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,2,0
-20170716,6,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,2,0
-20170718,8,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,2,0
-20170721,11,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,1,1
-20170724,14,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,1,1
-20170807,28,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,1,1
-20170810,31,A452,13,Control,16,Ambient,No Heterotrophy,AN,20170611,1,1
-20170711,1,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170714,4,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170716,6,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170718,8,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170721,11,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170724,14,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170807,28,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170810,31,A486,13,Control,15,Ambient,No Heterotrophy,AN,20170611,5,0
-20170711,1,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170714,4,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170716,6,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170718,8,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170721,11,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170724,14,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170807,28,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170810,31,A487,13,Control,15,Ambient,No Heterotrophy,AN,20170611,1,0
-20170711,1,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,11,0
-20170714,4,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,10,1
-20170716,6,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,6,5
-20170718,8,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,2,9
-20170721,11,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,2,9
-20170724,14,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,2,9
-20170807,28,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,1,10
-20170810,31,A546,13,Control,22,Ambient,No Heterotrophy,AN,20170612,0,11
-20170711,1,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170714,4,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170716,6,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170718,8,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170721,11,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170724,14,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170807,28,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,5,0
-20170810,31,A547,16,Control,22,Ambient,No Heterotrophy,AN,20170612,4,1
-20170711,1,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,8,0
-20170714,4,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,8,0
-20170716,6,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,8,0
-20170718,8,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,8,0
-20170721,11,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,8,0
-20170724,14,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,7,1
-20170807,28,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,5,3
-20170810,31,A549,22,Control,22,Ambient,No Heterotrophy,AN,20170612,0,8
-20170711,1,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,7,0
-20170714,4,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,7,0
-20170716,6,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,7,0
-20170718,8,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,7,0
-20170721,11,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,7,0
-20170724,14,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,7,0
-20170807,28,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,4,3
-20170810,31,A577,16,Control,16,Ambient,No Heterotrophy,AN,20170612,3,4
-20170711,1,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,3,0
-20170714,4,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,3,0
-20170716,6,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,3,0
-20170718,8,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,3,0
-20170721,11,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,2,1
-20170724,14,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,1,2
-20170807,28,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,1,2
-20170810,31,A579,13,Control,16,Ambient,No Heterotrophy,AN,20170612,1,2
-20170711,1,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170714,4,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170716,6,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170718,8,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170721,11,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170724,14,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170807,28,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170810,31,A598,22,Control,15,Ambient,No Heterotrophy,AN,20170612,1,0
-20170711,1,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,4,0
-20170714,4,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,4,0
-20170716,6,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,4,0
-20170718,8,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,4,0
-20170721,11,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,2,2
-20170724,14,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,3
-20170807,28,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,3
-20170810,31,A599,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,3
-20170711,1,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170714,4,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170716,6,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170718,8,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,2,1
-20170721,11,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,2
-20170724,14,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,2
-20170807,28,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,2
-20170810,31,A600,13,Control,15,Ambient,No Heterotrophy,AN,20170612,1,2
-20170711,1,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170714,4,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170716,6,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170718,8,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170721,11,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170724,14,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170807,28,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,3,0
-20170810,31,A601,13,Control,15,Ambient,No Heterotrophy,AN,20170612,2,1
-20170711,1,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170714,4,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170716,6,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170718,8,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170721,11,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170724,14,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170807,28,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170810,31,A665,13,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170711,1,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170714,4,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170716,6,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170718,8,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170721,11,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170724,14,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170807,28,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170810,31,A670,22,Control,16,Ambient,No Heterotrophy,AN,20170613,0,1
-20170711,1,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170714,4,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170716,6,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170718,8,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170721,11,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170724,14,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170807,28,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170810,31,A671,16,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170711,1,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170714,4,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170716,6,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170718,8,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170721,11,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170724,14,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170807,28,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170810,31,A673,22,Control,16,Ambient,No Heterotrophy,AN,20170613,1,0
-20170711,1,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,3,0
-20170714,4,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,3,0
-20170716,6,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,3,0
-20170718,8,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,3,0
-20170721,11,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,3,0
-20170724,14,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,2,1
-20170807,28,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,2,1
-20170810,31,A680,13,Control,16,Ambient,No Heterotrophy,AN,20170613,0,3
-20170711,1,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170714,4,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170716,6,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170718,8,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170721,11,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170724,14,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170807,28,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,2,0
-20170810,31,A715,16,Control,22,Ambient,No Heterotrophy,AN,20170613,0,2
-20170711,1,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,1,0
-20170714,4,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,1,0
-20170716,6,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,1,0
-20170718,8,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,1,0
-20170721,11,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,0,1
-20170724,14,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,0,1
-20170807,28,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,0,1
-20170810,31,A718,13,Control,22,Ambient,No Heterotrophy,AN,20170613,0,1
-20170711,1,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,3,0
-20170714,4,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,2,1
-20170716,6,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,2,1
-20170718,8,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,2,1
-20170721,11,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,2,1
-20170724,14,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,2,1
-20170807,28,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,1,2
-20170810,31,A727,22,Control,15,Ambient,No Heterotrophy,AN,20170613,1,2
-20170711,1,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170714,4,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170716,6,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170718,8,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170721,11,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170724,14,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170807,28,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,1,0
-20170810,31,A729,16,Control,15,Ambient,No Heterotrophy,AN,20170613,0,1
-20170711,1,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170714,4,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170716,6,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170718,8,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170721,11,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170724,14,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170807,28,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170810,31,A137,14,Control,17,Cool,Heterotrophy,CH,20170609,2,0
-20170711,1,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170714,4,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170716,6,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170718,8,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170721,11,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170724,14,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170807,28,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,1,0
-20170810,31,A141,14,Control,17,Cool,Heterotrophy,CH,20170609,0,1
-20170711,1,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,9,0
-20170714,4,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,9,0
-20170716,6,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,9,0
-20170718,8,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,9,0
-20170721,11,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,9,0
-20170724,14,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,3,6
-20170807,28,A147,21,Control,17,Cool,Heterotrophy,CH,20170609,2,7
-20170711,1,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170714,4,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170716,6,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170718,8,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170721,11,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170724,14,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170807,28,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170810,31,A161,21,Control,19,Cool,Heterotrophy,CH,20170609,1,0
-20170711,1,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,2,0
-20170714,4,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,2,0
-20170716,6,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,2,0
-20170718,8,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,2,0
-20170721,11,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,2,0
-20170724,14,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,1,1
-20170807,28,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,1,1
-20170810,31,A162,18,Control,19,Cool,Heterotrophy,CH,20170609,1,1
-20170711,1,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,5,0
-20170714,4,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,5,0
-20170716,6,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,5,0
-20170718,8,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,5,0
-20170721,11,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,5,0
-20170724,14,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,5,0
-20170807,28,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,4,1
-20170810,31,A170,18,Control,19,Cool,Heterotrophy,CH,20170609,4,1
-20170711,1,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,5,0
-20170714,4,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,5,0
-20170716,6,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,5,0
-20170718,8,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,5,0
-20170721,11,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,4,1
-20170724,14,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,4,1
-20170807,28,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,4,1
-20170810,31,A332,14,Control,24,Cool,Heterotrophy,CH,20170610,4,1
-20170711,1,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,4,0
-20170714,4,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,4,0
-20170716,6,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,4,0
-20170718,8,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,4,0
-20170721,11,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,4,0
-20170724,14,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,4,0
-20170807,28,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,3,1
-20170810,31,A335,14,Control,24,Cool,Heterotrophy,CH,20170610,3,1
-20170711,1,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170714,4,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170716,6,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170718,8,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170721,11,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170724,14,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170807,28,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170810,31,A341,14,Control,24,Cool,Heterotrophy,CH,20170610,2,0
-20170711,1,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,5,0
-20170714,4,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,5,0
-20170716,6,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,4,1
-20170718,8,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,4,1
-20170721,11,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,4,1
-20170724,14,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,4,1
-20170807,28,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,3,2
-20170810,31,A372,21,Control,19,Cool,Heterotrophy,CH,20170610,3,2
-20170711,1,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170714,4,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170716,6,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170718,8,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170721,11,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170724,14,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170807,28,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170810,31,A373,18,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170711,1,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170714,4,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170716,6,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170718,8,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170721,11,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170724,14,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170807,28,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,2,0
-20170810,31,A375,14,Control,19,Cool,Heterotrophy,CH,20170610,1,1
-20170711,1,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170714,4,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170716,6,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170718,8,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170721,11,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170724,14,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170807,28,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170810,31,A384,21,Control,17,Cool,Heterotrophy,CH,20170610,3,0
-20170711,1,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,4,0
-20170714,4,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,4,0
-20170716,6,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,4,0
-20170718,8,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,4,0
-20170721,11,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,4,0
-20170724,14,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,3,1
-20170807,28,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,3,1
-20170810,31,A385,18,Control,17,Cool,Heterotrophy,CH,20170610,3,1
-20170711,1,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,5,0
-20170714,4,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,5,0
-20170716,6,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,5,0
-20170718,8,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,5,0
-20170721,11,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,5,0
-20170724,14,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,5,0
-20170807,28,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,4,1
-20170810,31,A393a,14,Control,24,Cool,Heterotrophy,CH,20170611,3,2
-20170711,1,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170714,4,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170716,6,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170718,8,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170721,11,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170724,14,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170807,28,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,1,2
-20170810,31,A394,21,Control,24,Cool,Heterotrophy,CH,20170611,1,2
-20170711,1,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170714,4,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170716,6,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170718,8,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170721,11,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170724,14,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170807,28,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170810,31,A395,21,Control,24,Cool,Heterotrophy,CH,20170611,1,0
-20170711,1,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170714,4,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170716,6,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170718,8,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170721,11,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170724,14,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170807,28,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,7,0
-20170810,31,A397,21,Control,24,Cool,Heterotrophy,CH,20170611,5,2
-20170711,1,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170714,4,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170716,6,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170718,8,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170721,11,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170724,14,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,3,0
-20170807,28,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,1,2
-20170810,31,A398,14,Control,24,Cool,Heterotrophy,CH,20170611,0,3
-20170711,1,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170714,4,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170716,6,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170718,8,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170721,11,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170724,14,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170807,28,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170810,31,A400a,21,Control,24,Cool,Heterotrophy,CH,20170611,2,0
-20170711,1,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,4,0
-20170714,4,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,4,0
-20170716,6,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,4,0
-20170718,8,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,4,0
-20170721,11,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,4,0
-20170724,14,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,4,0
-20170807,28,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,2,2
-20170810,31,A402a,18,Control,24,Cool,Heterotrophy,CH,20170611,2,2
-20170711,1,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,4,0
-20170714,4,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,4,0
-20170716,6,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,2,2
-20170718,8,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,2,2
-20170721,11,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,2,2
-20170724,14,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,2,2
-20170807,28,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,1,3
-20170810,31,A495,14,Control,17,Cool,Heterotrophy,CH,20170611,1,3
-20170711,1,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,7,0
-20170714,4,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,7,0
-20170716,6,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,7,0
-20170718,8,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,7,0
-20170721,11,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,7,0
-20170724,14,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,3,4
-20170807,28,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,3,4
-20170810,31,A500,21,Control,17,Cool,Heterotrophy,CH,20170611,3,4
-20170711,1,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170714,4,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170716,6,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170718,8,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170721,11,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170724,14,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170807,28,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170810,31,A501,18,Control,17,Cool,Heterotrophy,CH,20170611,2,0
-20170711,1,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,3,0
-20170714,4,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,3,0
-20170716,6,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,3,0
-20170718,8,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,3,0
-20170721,11,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,3,0
-20170724,14,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,3,0
-20170807,28,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,1,2
-20170810,31,A502,21,Control,17,Cool,Heterotrophy,CH,20170611,1,2
-20170711,1,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170714,4,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170716,6,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170718,8,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170721,11,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170724,14,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170807,28,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,2,1
-20170810,31,A507,14,Control,19,Cool,Heterotrophy,CH,20170611,2,1
-20170711,1,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170714,4,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170716,6,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170718,8,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170721,11,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170724,14,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170807,28,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170810,31,A512,14,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170711,1,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170714,4,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170716,6,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170718,8,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170721,11,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170724,14,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170807,28,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170810,31,A514,18,Control,19,Cool,Heterotrophy,CH,20170611,2,0
-20170711,1,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170714,4,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170716,6,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170718,8,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170721,11,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170724,14,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170807,28,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170810,31,A517,14,Control,19,Cool,Heterotrophy,CH,20170611,3,0
-20170711,1,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,5,0
-20170714,4,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,5,0
-20170716,6,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,5,0
-20170718,8,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,5,0
-20170721,11,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,5,0
-20170724,14,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,5,0
-20170807,28,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,3,2
-20170810,31,A529,14,Control,24,Cool,Heterotrophy,CH,20170612,2,3
-20170711,1,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,4,0
-20170714,4,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,3,1
-20170716,6,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,3,1
-20170718,8,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,3,1
-20170721,11,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,3,1
-20170724,14,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,3,1
-20170807,28,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,2,2
-20170810,31,A537,21,Control,24,Cool,Heterotrophy,CH,20170612,1,3
-20170711,1,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170714,4,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170716,6,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170718,8,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170721,11,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170724,14,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170807,28,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170810,31,A604,21,Control,17,Cool,Heterotrophy,CH,20170612,1,0
-20170711,1,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170714,4,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170716,6,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170718,8,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170721,11,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170724,14,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170807,28,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170810,31,A608,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170711,1,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170714,4,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170716,6,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170718,8,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170721,11,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170724,14,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170807,28,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170810,31,A609,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170711,1,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170714,4,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170716,6,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,3,0
-20170718,8,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170721,11,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170724,14,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,2,1
-20170807,28,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,1,2
-20170810,31,A613,18,Control,17,Cool,Heterotrophy,CH,20170612,1,2
-20170711,1,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170714,4,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170716,6,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170718,8,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170721,11,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170724,14,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170807,28,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170810,31,A619,18,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170711,1,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170714,4,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170716,6,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170718,8,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170721,11,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170724,14,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170807,28,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170810,31,A626,21,Control,19,Cool,Heterotrophy,CH,20170612,1,0
-20170711,1,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170714,4,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170716,6,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170718,8,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170721,11,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170724,14,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170807,28,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170810,31,A660,18,Control,14,Cool,Heterotrophy,CH,20170613,1,0
-20170711,1,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170714,4,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170716,6,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170718,8,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170721,11,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170724,14,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170807,28,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170810,31,A741,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170711,1,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170714,4,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170716,6,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170718,8,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170721,11,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170724,14,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170807,28,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170810,31,A742,18,Control,17,Cool,Heterotrophy,CH,20170613,0,1
-20170711,1,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170714,4,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170716,6,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170718,8,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170721,11,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170724,14,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170807,28,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170810,31,A743,18,Control,17,Cool,Heterotrophy,CH,20170613,1,0
-20170711,1,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,3,0
-20170714,4,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,3,0
-20170716,6,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,3,0
-20170718,8,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,3,0
-20170721,11,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,3,0
-20170724,14,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,2,1
-20170807,28,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,2,1
-20170810,31,A758,18,Control,19,Cool,Heterotrophy,CH,20170613,2,1
-20170711,1,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,4,0
-20170714,4,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,3,1
-20170716,6,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,2,2
-20170718,8,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,2,2
-20170721,11,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,2,2
-20170724,14,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,2,2
-20170807,28,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,2,2
-20170810,31,A760,14,Control,19,Cool,Heterotrophy,CH,20170613,1,3
-20170711,1,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170714,4,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170716,6,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170718,8,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170721,11,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170724,14,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,1,1
-20170807,28,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,1,1
-20170810,31,A066,13,Control,20,Cool,No Heterotrophy,CN,20170609,1,1
-20170711,1,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170714,4,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170716,6,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170718,8,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170721,11,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170724,14,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170807,28,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170810,31,A069,22,Control,20,Cool,No Heterotrophy,CN,20170609,2,0
-20170711,1,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170714,4,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170716,6,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170718,8,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170721,11,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170724,14,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170807,28,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,1,0
-20170810,31,A120,13,Control,13,Cool,No Heterotrophy,CN,20170609,0,1
-20170711,1,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,3,0
-20170714,4,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,3,0
-20170716,6,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,3,0
-20170718,8,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,3,0
-20170721,11,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,3,0
-20170724,14,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,3,0
-20170807,28,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,2,1
-20170810,31,A184,22,Control,23,Cool,No Heterotrophy,CN,20170609,1,2
-20170711,1,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170714,4,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170716,6,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170718,8,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170721,11,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170724,14,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,2,2
-20170807,28,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,1,3
-20170810,31,A186,16,Control,23,Cool,No Heterotrophy,CN,20170609,1,3
-20170711,1,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,2,0
-20170714,4,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,2,0
-20170716,6,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,2,0
-20170718,8,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,2,0
-20170721,11,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,2,0
-20170724,14,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,1
-20170807,28,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,1
-20170810,31,A192,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,1
-20170711,1,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,0
-20170714,4,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,0
-20170716,6,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,0
-20170718,8,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,0
-20170721,11,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,0
-20170724,14,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,1,0
-20170807,28,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,0,1
-20170810,31,A193,13,Control,23,Cool,No Heterotrophy,CN,20170609,0,1
-20170711,1,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170714,4,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170716,6,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170718,8,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170721,11,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,4,0
-20170724,14,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,3,1
-20170807,28,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,3,1
-20170810,31,A194,13,Control,23,Cool,No Heterotrophy,CN,20170609,2,2
-20170711,1,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,8,0
-20170714,4,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,8,0
-20170716,6,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,8,0
-20170718,8,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,8,0
-20170721,11,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,8,0
-20170724,14,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,3
-20170807,28,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,3
-20170810,31,A303,22,Control,20,Cool,No Heterotrophy,CN,20170610,4,4
-20170711,1,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,0
-20170714,4,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,0
-20170716,6,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,0
-20170718,8,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,0
-20170721,11,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,5,0
-20170724,14,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,4,1
-20170807,28,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,2,3
-20170810,31,A314,22,Control,20,Cool,No Heterotrophy,CN,20170610,2,3
-20170711,1,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170714,4,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170716,6,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170718,8,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170721,11,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170724,14,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170807,28,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170810,31,A343,16,Control,23,Cool,No Heterotrophy,CN,20170610,6,0
-20170711,1,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,8,0
-20170714,4,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,8,0
-20170716,6,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,8,0
-20170718,8,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,8,0
-20170721,11,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,6,2
-20170724,14,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,4,4
-20170807,28,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,2,6
-20170810,31,A350,13,Control,23,Cool,No Heterotrophy,CN,20170610,2,6
-20170711,1,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,5,0
-20170714,4,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,5,0
-20170716,6,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,5,0
-20170718,8,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,5,0
-20170721,11,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,5,0
-20170724,14,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,5,0
-20170807,28,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,3,2
-20170810,31,A354,16,Control,23,Cool,No Heterotrophy,CN,20170610,2,3
-20170711,1,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170714,4,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170716,6,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170718,8,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170721,11,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170724,14,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170807,28,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170810,31,A408,13,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170711,1,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170714,4,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170716,6,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170718,8,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170721,11,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170724,14,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170807,28,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170810,31,A409,22,Control,13,Cool,No Heterotrophy,CN,20170610,1,0
-20170711,1,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,0
-20170714,4,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,0
-20170716,6,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,0
-20170718,8,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,0
-20170721,11,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,0
-20170724,14,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,0
-20170807,28,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,0,2
-20170810,31,A411a,16,Control,13,Cool,No Heterotrophy,CN,20170610,0,2
-20170711,1,A414,22,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170724,14,A414,22,Control,13,Cool,No Heterotrophy,CN,20170610,2,1
-20170807,28,A414,22,Control,13,Cool,No Heterotrophy,CN,20170610,2,1
-20170810,31,A414,22,Control,13,Cool,No Heterotrophy,CN,20170610,2,1
-20170711,1,A417a,22,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170724,14,A417a,22,Control,13,Cool,No Heterotrophy,CN,20170610,3,0
-20170807,28,A417a,22,Control,13,Cool,No Heterotrophy,CN,20170610,2,1
-20170810,31,A417a,22,Control,13,Cool,No Heterotrophy,CN,20170610,2,1
-20170711,1,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,4,0
-20170714,4,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,3,1
-20170716,6,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,2
-20170718,8,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,2
-20170721,11,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,2
-20170724,14,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,2
-20170807,28,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,2
-20170810,31,A418,16,Control,13,Cool,No Heterotrophy,CN,20170610,2,2
-20170711,1,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170714,4,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170716,6,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170718,8,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170721,11,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170724,14,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170807,28,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,3,0
-20170810,31,A422,22,Control,20,Cool,No Heterotrophy,CN,20170611,2,1
-20170711,1,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,2,0
-20170714,4,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,2,0
-20170716,6,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,2,0
-20170718,8,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,2,0
-20170721,11,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,2,0
-20170724,14,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,2,0
-20170807,28,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,1,1
-20170810,31,A424,13,Control,20,Cool,No Heterotrophy,CN,20170611,1,1
-20170711,1,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170714,4,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170716,6,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170718,8,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170721,11,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170724,14,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170807,28,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170810,31,A472,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170711,1,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,3,0
-20170714,4,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,3,0
-20170716,6,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,3,0
-20170718,8,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,2,1
-20170721,11,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,2,1
-20170724,14,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,2,1
-20170807,28,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,2
-20170810,31,A474,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,2
-20170711,1,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170714,4,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170716,6,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170718,8,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170721,11,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170724,14,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,1,0
-20170807,28,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,0,1
-20170810,31,A475,22,Control,13,Cool,No Heterotrophy,CN,20170611,0,1
-20170711,1,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170714,4,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170716,6,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170718,8,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170721,11,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170724,14,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170807,28,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,2,0
-20170810,31,A477,13,Control,13,Cool,No Heterotrophy,CN,20170611,1,1
-20170711,1,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,13,0
-20170714,4,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,13,0
-20170716,6,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,13,0
-20170718,8,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,13,0
-20170721,11,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,13,0
-20170724,14,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,13,0
-20170807,28,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,10,3
-20170810,31,A526,16,Control,23,Cool,No Heterotrophy,CN,20170611,6,7
-20170711,1,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170714,4,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170716,6,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170718,8,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170721,11,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170724,14,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170807,28,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170810,31,A527,16,Control,23,Cool,No Heterotrophy,CN,20170611,5,0
-20170711,1,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170714,4,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170716,6,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170718,8,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170721,11,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170724,14,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170807,28,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170810,31,A552,22,Control,20,Cool,No Heterotrophy,CN,20170612,2,0
-20170711,1,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,9,0
-20170714,4,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,9,0
-20170716,6,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,4,5
-20170718,8,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,4,5
-20170721,11,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,4,5
-20170724,14,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,4,5
-20170807,28,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,2,7
-20170810,31,A556,16,Control,20,Cool,No Heterotrophy,CN,20170612,2,7
-20170711,1,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,5,0
-20170714,4,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,5,0
-20170716,6,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,5,0
-20170718,8,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,4,1
-20170721,11,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,4,1
-20170724,14,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,4,1
-20170807,28,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,3,2
-20170810,31,A561,13,Control,20,Cool,No Heterotrophy,CN,20170612,3,2
-20170711,1,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,3,0
-20170714,4,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,3,0
-20170716,6,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,3,0
-20170718,8,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,3,0
-20170721,11,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,3,0
-20170724,14,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,3,0
-20170807,28,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,1,2
-20170810,31,A638,16,Control,23,Cool,No Heterotrophy,CN,20170612,0,3
-20170711,1,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,2,0
-20170714,4,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,1,1
-20170716,6,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,1,1
-20170718,8,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,1,1
-20170721,11,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,0,2
-20170724,14,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,0,2
-20170807,28,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,0,2
-20170810,31,A712,22,Control,20,Cool,No Heterotrophy,CN,20170613,0,2
-20170711,1,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170714,4,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170716,6,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170718,8,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170721,11,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170724,14,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170807,28,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,1,0
-20170810,31,A778,16,Control,23,Cool,No Heterotrophy,CN,20170613,0,1
+20170711,1,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,14,0
+20170714,4,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,14,0
+20170716,6,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,14,0
+20170718,8,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,14,0
+20170721,11,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,10,4
+20170724,14,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,4,10
+20170807,28,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,3,11
+20170810,31,A077,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,3,11
+20170711,1,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,0
+20170714,4,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,0
+20170716,6,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,0
+20170718,8,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,0
+20170721,11,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,0
+20170724,14,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,0
+20170807,28,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,7,1
+20170810,31,A078,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,5,3
+20170711,1,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,9,0
+20170714,4,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,9,0
+20170716,6,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,9,0
+20170718,8,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,9,0
+20170721,11,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,8,1
+20170724,14,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,6,3
+20170807,28,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,6,3
+20170810,31,A080,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,5,4
+20170711,1,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,6,0
+20170714,4,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,6,0
+20170716,6,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,6,0
+20170718,8,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,5,1
+20170721,11,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,5,1
+20170724,14,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,5,1
+20170807,28,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,5,1
+20170810,31,A089,14,Ambient,18,Ambient,Heterotrophy,AH,20170609,4,2
+20170711,1,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,3,0
+20170714,4,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,3,0
+20170716,6,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,3,0
+20170718,8,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,3,0
+20170721,11,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,2,1
+20170724,14,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,2,1
+20170807,28,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,2,1
+20170810,31,A104,21,Ambient,14,Ambient,Heterotrophy,AH,20170609,2,1
+20170711,1,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,0
+20170714,4,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,0
+20170716,6,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,0
+20170718,8,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,0
+20170721,11,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,0
+20170724,14,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,0
+20170807,28,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,2,2
+20170810,31,A112,14,Ambient,14,Ambient,Heterotrophy,AH,20170609,2,2
+20170711,1,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,10,0
+20170714,4,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,10,0
+20170716,6,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,10,0
+20170718,8,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,10,0
+20170721,11,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,10,0
+20170724,14,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,6,4
+20170807,28,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,6
+20170810,31,A117,18,Ambient,14,Ambient,Heterotrophy,AH,20170609,4,6
+20170711,1,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,5,0
+20170714,4,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,5,0
+20170716,6,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,5,0
+20170718,8,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,5,0
+20170721,11,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,5,0
+20170724,14,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,4,1
+20170807,28,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,4,1
+20170810,31,A173,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,4,1
+20170711,1,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170714,4,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170716,6,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170718,8,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170721,11,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170724,14,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170807,28,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170810,31,A175,18,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,0
+20170711,1,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,2,0
+20170714,4,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,2,0
+20170716,6,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,2,0
+20170718,8,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,2,0
+20170721,11,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,2,0
+20170724,14,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,2,0
+20170807,28,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,1,1
+20170810,31,A176,14,Ambient,21,Ambient,Heterotrophy,AH,20170609,0,2
+20170711,1,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,8,0
+20170714,4,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,8,0
+20170716,6,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,8,0
+20170718,8,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,8,0
+20170721,11,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,8,0
+20170724,14,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,4,4
+20170807,28,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,4,4
+20170810,31,A261,18,Ambient,14,Ambient,Heterotrophy,AH,20170610,4,4
+20170711,1,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170714,4,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170716,6,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170718,8,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170721,11,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170724,14,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170807,28,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170810,31,A271,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,1,0
+20170711,1,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,3,0
+20170714,4,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,3,0
+20170716,6,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,3,0
+20170718,8,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,3,0
+20170721,11,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,2,1
+20170724,14,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,2,1
+20170807,28,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,2,1
+20170810,31,A272,21,Ambient,14,Ambient,Heterotrophy,AH,20170610,2,1
+20170711,1,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,6,0
+20170714,4,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,6,0
+20170716,6,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,6,0
+20170718,8,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,6,0
+20170721,11,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,6,0
+20170724,14,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,4,2
+20170807,28,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,3
+20170810,31,A288,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,3
+20170711,1,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170714,4,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170716,6,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170718,8,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170721,11,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170724,14,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170807,28,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170810,31,A294,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,0
+20170711,1,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,9,0
+20170714,4,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,9,0
+20170716,6,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,9,0
+20170718,8,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,9,0
+20170721,11,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,7,2
+20170724,14,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,6
+20170807,28,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,6
+20170810,31,A299,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,6
+20170711,1,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,0
+20170714,4,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,0
+20170716,6,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,0
+20170718,8,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,0
+20170721,11,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,3,0
+20170724,14,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,1
+20170807,28,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,2,1
+20170810,31,A300,14,Ambient,18,Ambient,Heterotrophy,AH,20170610,1,2
+20170711,1,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170714,4,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170716,6,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170718,8,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170721,11,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170724,14,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170807,28,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170810,31,A358,21,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170711,1,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170714,4,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170716,6,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170718,8,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170721,11,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170724,14,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170807,28,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,1,0
+20170810,31,A360,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,0,1
+20170711,1,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,7,0
+20170714,4,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,7,0
+20170716,6,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,7,0
+20170718,8,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,7,0
+20170721,11,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,6,1
+20170724,14,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,5,2
+20170807,28,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,4,3
+20170810,31,A362,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,4,3
+20170711,1,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,6,0
+20170714,4,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,6,0
+20170716,6,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,6,0
+20170718,8,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,6,0
+20170721,11,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,5,1
+20170724,14,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,5,1
+20170807,28,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,3,3
+20170810,31,A364,18,Ambient,21,Ambient,Heterotrophy,AH,20170610,2,4
+20170711,1,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170714,4,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170716,6,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,3,1
+20170718,8,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,3,1
+20170721,11,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,3,1
+20170724,14,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,3,1
+20170807,28,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,2
+20170810,31,A438,18,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,2
+20170711,1,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170714,4,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170716,6,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170718,8,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170721,11,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170724,14,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170807,28,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170810,31,A439,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,0
+20170711,1,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170714,4,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170716,6,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170718,8,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170721,11,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170724,14,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170807,28,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170810,31,A441,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,4,0
+20170711,1,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,7,0
+20170714,4,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,7,0
+20170716,6,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,7,0
+20170718,8,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,7,0
+20170721,11,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,7,0
+20170724,14,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,6,1
+20170807,28,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,6,1
+20170810,31,A442,14,Ambient,18,Ambient,Heterotrophy,AH,20170611,6,1
+20170711,1,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,3,0
+20170714,4,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,1
+20170716,6,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,1
+20170718,8,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,1
+20170721,11,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,1
+20170724,14,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,1
+20170807,28,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,2,1
+20170810,31,A443,21,Ambient,18,Ambient,Heterotrophy,AH,20170611,1,2
+20170711,1,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,5,0
+20170714,4,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,5,0
+20170716,6,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,1
+20170718,8,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,1
+20170721,11,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,1
+20170724,14,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,2
+20170807,28,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,2
+20170810,31,A460,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,2
+20170711,1,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170714,4,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170716,6,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170718,8,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170721,11,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170724,14,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170807,28,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170810,31,A464,21,Ambient,14,Ambient,Heterotrophy,AH,20170611,3,0
+20170711,1,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170714,4,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170716,6,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170718,8,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170721,11,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170724,14,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170807,28,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,2,2
+20170810,31,A466,14,Ambient,14,Ambient,Heterotrophy,AH,20170611,1,3
+20170711,1,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170714,4,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170716,6,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170718,8,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170721,11,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170724,14,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,4,0
+20170807,28,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,1,3
+20170810,31,A468,18,Ambient,14,Ambient,Heterotrophy,AH,20170611,1,3
+20170711,1,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,2,0
+20170714,4,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,2,0
+20170716,6,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,2,0
+20170718,8,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,2,0
+20170721,11,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,2,0
+20170724,14,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,1,1
+20170807,28,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,0,2
+20170810,31,A522,21,Ambient,21,Ambient,Heterotrophy,AH,20170611,0,2
+20170711,1,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170714,4,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170716,6,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170718,8,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170721,11,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170724,14,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170807,28,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,1,0
+20170810,31,A568,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,0,1
+20170711,1,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,4,0
+20170714,4,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,4,0
+20170716,6,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,4,0
+20170718,8,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,4,0
+20170721,11,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,4,0
+20170724,14,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,4,0
+20170807,28,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,3,1
+20170810,31,A576,21,Ambient,18,Ambient,Heterotrophy,AH,20170612,3,1
+20170711,1,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170714,4,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170716,6,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170718,8,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170721,11,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170724,14,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,1
+20170807,28,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,1
+20170810,31,A583,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,1
+20170711,1,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170714,4,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170716,6,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170718,8,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170721,11,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170724,14,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170807,28,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170810,31,A585,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,0
+20170711,1,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,10,0
+20170714,4,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,10,0
+20170716,6,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,10,0
+20170718,8,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,10,0
+20170721,11,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,8,2
+20170724,14,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,3,7
+20170807,28,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,8
+20170810,31,A586,18,Ambient,14,Ambient,Heterotrophy,AH,20170612,2,8
+20170711,1,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170714,4,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170716,6,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170718,8,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170721,11,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170724,14,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170807,28,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170810,31,A591,21,Ambient,14,Ambient,Heterotrophy,AH,20170612,1,0
+20170711,1,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,4,0
+20170714,4,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,4,0
+20170716,6,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,4,0
+20170718,8,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,4,0
+20170721,11,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,4,0
+20170724,14,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,2,2
+20170807,28,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,2,2
+20170810,31,A627,21,Ambient,21,Ambient,Heterotrophy,AH,20170612,2,2
+20170711,1,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,2,0
+20170714,4,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,2,0
+20170716,6,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,2,0
+20170718,8,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,1,1
+20170721,11,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,0,2
+20170724,14,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,0,2
+20170807,28,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,0,2
+20170810,31,A632,18,Ambient,21,Ambient,Heterotrophy,AH,20170612,0,2
+20170711,1,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,4,0
+20170714,4,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,4,0
+20170716,6,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,4,0
+20170718,8,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,4,0
+20170721,11,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,4,0
+20170724,14,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,4,0
+20170807,28,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,3,1
+20170810,31,A763,14,Ambient,21,Ambient,Heterotrophy,AH,20170613,0,4
+20170711,1,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,3,0
+20170714,4,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,3,0
+20170716,6,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,2,1
+20170718,8,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,2,1
+20170721,11,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,2,1
+20170724,14,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,2,1
+20170807,28,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,2,1
+20170810,31,A774a,18,Ambient,21,Ambient,Heterotrophy,AH,20170613,2,1
+20170711,1,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170714,4,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170716,6,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170718,8,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170721,11,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170724,14,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170807,28,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170810,31,A053,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,0
+20170711,1,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,3,0
+20170714,4,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,3,0
+20170716,6,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,3,0
+20170718,8,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,1
+20170721,11,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,1
+20170724,14,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,1
+20170807,28,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,1
+20170810,31,A055,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,1
+20170711,1,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,4,0
+20170714,4,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,4,0
+20170716,6,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,4,0
+20170718,8,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,4,0
+20170721,11,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,4,0
+20170724,14,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,2
+20170807,28,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,2
+20170810,31,A057,16,Ambient,22,Ambient,No Heterotrophy,AN,20170609,2,2
+20170711,1,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170714,4,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170716,6,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170718,8,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170721,11,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170724,14,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170807,28,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170810,31,A095,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170711,1,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,7,0
+20170714,4,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,7,0
+20170716,6,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,7,0
+20170718,8,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,7,0
+20170721,11,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,7,0
+20170724,14,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,7,0
+20170807,28,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,6,1
+20170810,31,A097,13,Ambient,16,Ambient,No Heterotrophy,AN,20170609,6,1
+20170711,1,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170714,4,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,2,0
+20170716,6,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170718,8,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170721,11,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170724,14,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170807,28,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170810,31,A098,22,Ambient,16,Ambient,No Heterotrophy,AN,20170609,1,1
+20170711,1,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,9,0
+20170714,4,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,9,0
+20170716,6,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,9,0
+20170718,8,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,9,0
+20170721,11,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,9,0
+20170724,14,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,7,2
+20170807,28,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,7,2
+20170810,31,A127,22,Ambient,22,Ambient,No Heterotrophy,AN,20170609,4,5
+20170711,1,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,14,0
+20170714,4,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,14,0
+20170716,6,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,14,0
+20170718,8,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,14,0
+20170721,11,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,12,2
+20170724,14,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,10,4
+20170807,28,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,9,5
+20170810,31,A274,13,Ambient,16,Ambient,No Heterotrophy,AN,20170610,8,6
+20170711,1,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170714,4,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170716,6,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170718,8,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170721,11,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170724,14,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170807,28,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170810,31,A285,16,Ambient,16,Ambient,No Heterotrophy,AN,20170610,2,0
+20170711,1,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,5,0
+20170714,4,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,5,0
+20170716,6,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,5,0
+20170718,8,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,5,0
+20170721,11,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,5,0
+20170724,14,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,5,0
+20170807,28,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,4,1
+20170810,31,A404a,13,Ambient,15,Ambient,No Heterotrophy,AN,20170610,4,1
+20170711,1,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,0
+20170714,4,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,0
+20170716,6,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,0
+20170718,8,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,0
+20170721,11,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,0
+20170724,14,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,0
+20170807,28,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,1,1
+20170810,31,A410,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,2
+20170711,1,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,1,0
+20170714,4,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170716,6,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170718,8,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170721,11,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170724,14,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170807,28,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170810,31,A415,16,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,1
+20170711,1,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,3,0
+20170714,4,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,3,0
+20170716,6,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,3,0
+20170718,8,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,3,0
+20170721,11,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,3,0
+20170724,14,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,1
+20170807,28,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,2,1
+20170810,31,A419,22,Ambient,22,Ambient,No Heterotrophy,AN,20170611,0,3
+20170711,1,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,2,0
+20170714,4,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,2,0
+20170716,6,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,2,0
+20170718,8,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,2,0
+20170721,11,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,1,1
+20170724,14,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,1,1
+20170807,28,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,1,1
+20170810,31,A452,13,Ambient,16,Ambient,No Heterotrophy,AN,20170611,1,1
+20170711,1,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170714,4,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170716,6,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170718,8,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170721,11,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170724,14,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170807,28,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170810,31,A486,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,5,0
+20170711,1,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170714,4,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170716,6,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170718,8,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170721,11,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170724,14,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170807,28,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170810,31,A487,13,Ambient,15,Ambient,No Heterotrophy,AN,20170611,1,0
+20170711,1,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,11,0
+20170714,4,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,10,1
+20170716,6,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,6,5
+20170718,8,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,2,9
+20170721,11,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,2,9
+20170724,14,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,2,9
+20170807,28,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,1,10
+20170810,31,A546,13,Ambient,22,Ambient,No Heterotrophy,AN,20170612,0,11
+20170711,1,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170714,4,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170716,6,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170718,8,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170721,11,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170724,14,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170807,28,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,0
+20170810,31,A547,16,Ambient,22,Ambient,No Heterotrophy,AN,20170612,4,1
+20170711,1,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,8,0
+20170714,4,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,8,0
+20170716,6,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,8,0
+20170718,8,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,8,0
+20170721,11,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,8,0
+20170724,14,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,7,1
+20170807,28,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,5,3
+20170810,31,A549,22,Ambient,22,Ambient,No Heterotrophy,AN,20170612,0,8
+20170711,1,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,7,0
+20170714,4,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,7,0
+20170716,6,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,7,0
+20170718,8,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,7,0
+20170721,11,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,7,0
+20170724,14,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,7,0
+20170807,28,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,4,3
+20170810,31,A577,16,Ambient,16,Ambient,No Heterotrophy,AN,20170612,3,4
+20170711,1,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,3,0
+20170714,4,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,3,0
+20170716,6,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,3,0
+20170718,8,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,3,0
+20170721,11,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,2,1
+20170724,14,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,1,2
+20170807,28,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,1,2
+20170810,31,A579,13,Ambient,16,Ambient,No Heterotrophy,AN,20170612,1,2
+20170711,1,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170714,4,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170716,6,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170718,8,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170721,11,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170724,14,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170807,28,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170810,31,A598,22,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,0
+20170711,1,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,4,0
+20170714,4,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,4,0
+20170716,6,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,4,0
+20170718,8,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,4,0
+20170721,11,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,2,2
+20170724,14,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,3
+20170807,28,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,3
+20170810,31,A599,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,3
+20170711,1,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170714,4,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170716,6,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170718,8,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,2,1
+20170721,11,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,2
+20170724,14,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,2
+20170807,28,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,2
+20170810,31,A600,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,1,2
+20170711,1,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170714,4,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170716,6,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170718,8,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170721,11,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170724,14,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170807,28,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,3,0
+20170810,31,A601,13,Ambient,15,Ambient,No Heterotrophy,AN,20170612,2,1
+20170711,1,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170714,4,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170716,6,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170718,8,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170721,11,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170724,14,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170807,28,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170810,31,A665,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170711,1,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170714,4,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170716,6,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170718,8,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170721,11,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170724,14,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170807,28,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170810,31,A670,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,0,1
+20170711,1,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170714,4,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170716,6,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170718,8,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170721,11,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170724,14,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170807,28,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170810,31,A671,16,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170711,1,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170714,4,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170716,6,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170718,8,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170721,11,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170724,14,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170807,28,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170810,31,A673,22,Ambient,16,Ambient,No Heterotrophy,AN,20170613,1,0
+20170711,1,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,3,0
+20170714,4,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,3,0
+20170716,6,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,3,0
+20170718,8,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,3,0
+20170721,11,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,3,0
+20170724,14,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,2,1
+20170807,28,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,2,1
+20170810,31,A680,13,Ambient,16,Ambient,No Heterotrophy,AN,20170613,0,3
+20170711,1,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170714,4,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170716,6,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170718,8,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170721,11,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170724,14,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170807,28,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,2,0
+20170810,31,A715,16,Ambient,22,Ambient,No Heterotrophy,AN,20170613,0,2
+20170711,1,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,1,0
+20170714,4,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,1,0
+20170716,6,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,1,0
+20170718,8,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,1,0
+20170721,11,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,0,1
+20170724,14,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,0,1
+20170807,28,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,0,1
+20170810,31,A718,13,Ambient,22,Ambient,No Heterotrophy,AN,20170613,0,1
+20170711,1,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,3,0
+20170714,4,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,2,1
+20170716,6,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,2,1
+20170718,8,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,2,1
+20170721,11,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,2,1
+20170724,14,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,2,1
+20170807,28,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,2
+20170810,31,A727,22,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,2
+20170711,1,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170714,4,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170716,6,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170718,8,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170721,11,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170724,14,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170807,28,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,1,0
+20170810,31,A729,16,Ambient,15,Ambient,No Heterotrophy,AN,20170613,0,1
+20170711,1,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170714,4,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170716,6,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170718,8,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170721,11,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170724,14,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170807,28,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170810,31,A137,14,Ambient,17,Cool,Heterotrophy,CH,20170609,2,0
+20170711,1,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170714,4,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170716,6,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170718,8,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170721,11,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170724,14,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170807,28,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,1,0
+20170810,31,A141,14,Ambient,17,Cool,Heterotrophy,CH,20170609,0,1
+20170711,1,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,9,0
+20170714,4,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,9,0
+20170716,6,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,9,0
+20170718,8,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,9,0
+20170721,11,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,9,0
+20170724,14,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,3,6
+20170807,28,A147,21,Ambient,17,Cool,Heterotrophy,CH,20170609,2,7
+20170711,1,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170714,4,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170716,6,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170718,8,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170721,11,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170724,14,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170807,28,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170810,31,A161,21,Ambient,19,Cool,Heterotrophy,CH,20170609,1,0
+20170711,1,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,2,0
+20170714,4,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,2,0
+20170716,6,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,2,0
+20170718,8,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,2,0
+20170721,11,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,2,0
+20170724,14,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,1,1
+20170807,28,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,1,1
+20170810,31,A162,18,Ambient,19,Cool,Heterotrophy,CH,20170609,1,1
+20170711,1,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,5,0
+20170714,4,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,5,0
+20170716,6,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,5,0
+20170718,8,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,5,0
+20170721,11,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,5,0
+20170724,14,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,5,0
+20170807,28,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,4,1
+20170810,31,A170,18,Ambient,19,Cool,Heterotrophy,CH,20170609,4,1
+20170711,1,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,5,0
+20170714,4,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,5,0
+20170716,6,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,5,0
+20170718,8,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,5,0
+20170721,11,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,1
+20170724,14,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,1
+20170807,28,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,1
+20170810,31,A332,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,1
+20170711,1,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,0
+20170714,4,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,0
+20170716,6,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,0
+20170718,8,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,0
+20170721,11,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,0
+20170724,14,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,4,0
+20170807,28,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,3,1
+20170810,31,A335,14,Ambient,24,Cool,Heterotrophy,CH,20170610,3,1
+20170711,1,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170714,4,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170716,6,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170718,8,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170721,11,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170724,14,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170807,28,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170810,31,A341,14,Ambient,24,Cool,Heterotrophy,CH,20170610,2,0
+20170711,1,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,5,0
+20170714,4,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,5,0
+20170716,6,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,4,1
+20170718,8,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,4,1
+20170721,11,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,4,1
+20170724,14,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,4,1
+20170807,28,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,3,2
+20170810,31,A372,21,Ambient,19,Cool,Heterotrophy,CH,20170610,3,2
+20170711,1,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170714,4,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170716,6,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170718,8,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170721,11,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170724,14,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170807,28,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170810,31,A373,18,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170711,1,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170714,4,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170716,6,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170718,8,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170721,11,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170724,14,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170807,28,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,2,0
+20170810,31,A375,14,Ambient,19,Cool,Heterotrophy,CH,20170610,1,1
+20170711,1,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170714,4,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170716,6,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170718,8,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170721,11,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170724,14,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170807,28,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170810,31,A384,21,Ambient,17,Cool,Heterotrophy,CH,20170610,3,0
+20170711,1,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,4,0
+20170714,4,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,4,0
+20170716,6,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,4,0
+20170718,8,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,4,0
+20170721,11,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,4,0
+20170724,14,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,3,1
+20170807,28,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,3,1
+20170810,31,A385,18,Ambient,17,Cool,Heterotrophy,CH,20170610,3,1
+20170711,1,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,5,0
+20170714,4,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,5,0
+20170716,6,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,5,0
+20170718,8,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,5,0
+20170721,11,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,5,0
+20170724,14,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,5,0
+20170807,28,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,4,1
+20170810,31,A393a,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,2
+20170711,1,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170714,4,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170716,6,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170718,8,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170721,11,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170724,14,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170807,28,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,2
+20170810,31,A394,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,2
+20170711,1,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170714,4,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170716,6,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170718,8,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170721,11,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170724,14,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170807,28,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170810,31,A395,21,Ambient,24,Cool,Heterotrophy,CH,20170611,1,0
+20170711,1,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170714,4,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170716,6,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170718,8,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170721,11,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170724,14,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170807,28,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,7,0
+20170810,31,A397,21,Ambient,24,Cool,Heterotrophy,CH,20170611,5,2
+20170711,1,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170714,4,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170716,6,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170718,8,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170721,11,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170724,14,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,3,0
+20170807,28,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,1,2
+20170810,31,A398,14,Ambient,24,Cool,Heterotrophy,CH,20170611,0,3
+20170711,1,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170714,4,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170716,6,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170718,8,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170721,11,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170724,14,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170807,28,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170810,31,A400a,21,Ambient,24,Cool,Heterotrophy,CH,20170611,2,0
+20170711,1,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,4,0
+20170714,4,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,4,0
+20170716,6,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,4,0
+20170718,8,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,4,0
+20170721,11,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,4,0
+20170724,14,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,4,0
+20170807,28,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,2,2
+20170810,31,A402a,18,Ambient,24,Cool,Heterotrophy,CH,20170611,2,2
+20170711,1,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,4,0
+20170714,4,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,4,0
+20170716,6,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,2,2
+20170718,8,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,2,2
+20170721,11,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,2,2
+20170724,14,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,2,2
+20170807,28,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,1,3
+20170810,31,A495,14,Ambient,17,Cool,Heterotrophy,CH,20170611,1,3
+20170711,1,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,7,0
+20170714,4,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,7,0
+20170716,6,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,7,0
+20170718,8,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,7,0
+20170721,11,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,7,0
+20170724,14,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,4
+20170807,28,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,4
+20170810,31,A500,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,4
+20170711,1,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170714,4,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170716,6,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170718,8,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170721,11,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170724,14,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170807,28,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170810,31,A501,18,Ambient,17,Cool,Heterotrophy,CH,20170611,2,0
+20170711,1,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,0
+20170714,4,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,0
+20170716,6,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,0
+20170718,8,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,0
+20170721,11,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,0
+20170724,14,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,3,0
+20170807,28,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,1,2
+20170810,31,A502,21,Ambient,17,Cool,Heterotrophy,CH,20170611,1,2
+20170711,1,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170714,4,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170716,6,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170718,8,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170721,11,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170724,14,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170807,28,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,1
+20170810,31,A507,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,1
+20170711,1,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170714,4,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170716,6,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170718,8,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170721,11,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170724,14,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170807,28,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170810,31,A512,14,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170711,1,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170714,4,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170716,6,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170718,8,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170721,11,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170724,14,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170807,28,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170810,31,A514,18,Ambient,19,Cool,Heterotrophy,CH,20170611,2,0
+20170711,1,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170714,4,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170716,6,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170718,8,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170721,11,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170724,14,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170807,28,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170810,31,A517,14,Ambient,19,Cool,Heterotrophy,CH,20170611,3,0
+20170711,1,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,5,0
+20170714,4,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,5,0
+20170716,6,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,5,0
+20170718,8,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,5,0
+20170721,11,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,5,0
+20170724,14,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,5,0
+20170807,28,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,3,2
+20170810,31,A529,14,Ambient,24,Cool,Heterotrophy,CH,20170612,2,3
+20170711,1,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,4,0
+20170714,4,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,3,1
+20170716,6,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,3,1
+20170718,8,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,3,1
+20170721,11,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,3,1
+20170724,14,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,3,1
+20170807,28,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,2,2
+20170810,31,A537,21,Ambient,24,Cool,Heterotrophy,CH,20170612,1,3
+20170711,1,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170714,4,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170716,6,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170718,8,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170721,11,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170724,14,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170807,28,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170810,31,A604,21,Ambient,17,Cool,Heterotrophy,CH,20170612,1,0
+20170711,1,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170714,4,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170716,6,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170718,8,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170721,11,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170724,14,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170807,28,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170810,31,A608,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170711,1,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170714,4,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170716,6,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170718,8,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170721,11,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170724,14,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170807,28,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170810,31,A609,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170711,1,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170714,4,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170716,6,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,3,0
+20170718,8,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170721,11,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170724,14,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,2,1
+20170807,28,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,1,2
+20170810,31,A613,18,Ambient,17,Cool,Heterotrophy,CH,20170612,1,2
+20170711,1,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170714,4,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170716,6,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170718,8,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170721,11,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170724,14,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170807,28,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170810,31,A619,18,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170711,1,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170714,4,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170716,6,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170718,8,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170721,11,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170724,14,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170807,28,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170810,31,A626,21,Ambient,19,Cool,Heterotrophy,CH,20170612,1,0
+20170711,1,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170714,4,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170716,6,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170718,8,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170721,11,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170724,14,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170807,28,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170810,31,A660,18,Ambient,14,Cool,Heterotrophy,CH,20170613,1,0
+20170711,1,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170714,4,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170716,6,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170718,8,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170721,11,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170724,14,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170807,28,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170810,31,A741,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170711,1,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170714,4,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170716,6,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170718,8,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170721,11,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170724,14,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170807,28,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170810,31,A742,18,Ambient,17,Cool,Heterotrophy,CH,20170613,0,1
+20170711,1,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170714,4,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170716,6,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170718,8,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170721,11,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170724,14,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170807,28,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170810,31,A743,18,Ambient,17,Cool,Heterotrophy,CH,20170613,1,0
+20170711,1,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,3,0
+20170714,4,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,3,0
+20170716,6,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,3,0
+20170718,8,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,3,0
+20170721,11,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,3,0
+20170724,14,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,2,1
+20170807,28,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,2,1
+20170810,31,A758,18,Ambient,19,Cool,Heterotrophy,CH,20170613,2,1
+20170711,1,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,4,0
+20170714,4,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,3,1
+20170716,6,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,2,2
+20170718,8,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,2,2
+20170721,11,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,2,2
+20170724,14,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,2,2
+20170807,28,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,2,2
+20170810,31,A760,14,Ambient,19,Cool,Heterotrophy,CH,20170613,1,3
+20170711,1,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170714,4,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170716,6,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170718,8,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170721,11,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170724,14,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,1,1
+20170807,28,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,1,1
+20170810,31,A066,13,Ambient,20,Cool,No Heterotrophy,CN,20170609,1,1
+20170711,1,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170714,4,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170716,6,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170718,8,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170721,11,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170724,14,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170807,28,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170810,31,A069,22,Ambient,20,Cool,No Heterotrophy,CN,20170609,2,0
+20170711,1,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170714,4,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170716,6,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170718,8,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170721,11,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170724,14,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170807,28,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,1,0
+20170810,31,A120,13,Ambient,13,Cool,No Heterotrophy,CN,20170609,0,1
+20170711,1,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,0
+20170714,4,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,0
+20170716,6,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,0
+20170718,8,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,0
+20170721,11,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,0
+20170724,14,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,0
+20170807,28,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,1
+20170810,31,A184,22,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,2
+20170711,1,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170714,4,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170716,6,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170718,8,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170721,11,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170724,14,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,2
+20170807,28,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,3
+20170810,31,A186,16,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,3
+20170711,1,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,0
+20170714,4,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,0
+20170716,6,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,0
+20170718,8,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,0
+20170721,11,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,0
+20170724,14,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,1
+20170807,28,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,1
+20170810,31,A192,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,1
+20170711,1,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,0
+20170714,4,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,0
+20170716,6,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,0
+20170718,8,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,0
+20170721,11,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,0
+20170724,14,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,1,0
+20170807,28,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,0,1
+20170810,31,A193,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,0,1
+20170711,1,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170714,4,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170716,6,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170718,8,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170721,11,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,4,0
+20170724,14,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,1
+20170807,28,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,3,1
+20170810,31,A194,13,Ambient,23,Cool,No Heterotrophy,CN,20170609,2,2
+20170711,1,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,8,0
+20170714,4,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,8,0
+20170716,6,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,8,0
+20170718,8,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,8,0
+20170721,11,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,8,0
+20170724,14,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,3
+20170807,28,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,3
+20170810,31,A303,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,4,4
+20170711,1,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,0
+20170714,4,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,0
+20170716,6,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,0
+20170718,8,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,0
+20170721,11,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,5,0
+20170724,14,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,4,1
+20170807,28,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,2,3
+20170810,31,A314,22,Ambient,20,Cool,No Heterotrophy,CN,20170610,2,3
+20170711,1,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170714,4,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170716,6,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170718,8,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170721,11,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170724,14,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170807,28,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170810,31,A343,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,0
+20170711,1,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,8,0
+20170714,4,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,8,0
+20170716,6,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,8,0
+20170718,8,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,8,0
+20170721,11,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,6,2
+20170724,14,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,4,4
+20170807,28,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,2,6
+20170810,31,A350,13,Ambient,23,Cool,No Heterotrophy,CN,20170610,2,6
+20170711,1,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,5,0
+20170714,4,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,5,0
+20170716,6,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,5,0
+20170718,8,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,5,0
+20170721,11,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,5,0
+20170724,14,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,5,0
+20170807,28,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,3,2
+20170810,31,A354,16,Ambient,23,Cool,No Heterotrophy,CN,20170610,2,3
+20170711,1,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170714,4,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170716,6,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170718,8,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170721,11,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170724,14,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170807,28,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170810,31,A408,13,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170711,1,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170714,4,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170716,6,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170718,8,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170721,11,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170724,14,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170807,28,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170810,31,A409,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,1,0
+20170711,1,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,0
+20170714,4,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,0
+20170716,6,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,0
+20170718,8,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,0
+20170721,11,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,0
+20170724,14,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,0
+20170807,28,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,0,2
+20170810,31,A411a,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,0,2
+20170711,1,A414,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170724,14,A414,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,1
+20170807,28,A414,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,1
+20170810,31,A414,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,1
+20170711,1,A417a,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170724,14,A417a,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,0
+20170807,28,A417a,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,1
+20170810,31,A417a,22,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,1
+20170711,1,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,4,0
+20170714,4,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,3,1
+20170716,6,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,2
+20170718,8,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,2
+20170721,11,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,2
+20170724,14,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,2
+20170807,28,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,2
+20170810,31,A418,16,Ambient,13,Cool,No Heterotrophy,CN,20170610,2,2
+20170711,1,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170714,4,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170716,6,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170718,8,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170721,11,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170724,14,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170807,28,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,3,0
+20170810,31,A422,22,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,1
+20170711,1,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,0
+20170714,4,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,0
+20170716,6,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,0
+20170718,8,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,0
+20170721,11,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,0
+20170724,14,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,2,0
+20170807,28,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,1,1
+20170810,31,A424,13,Ambient,20,Cool,No Heterotrophy,CN,20170611,1,1
+20170711,1,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170714,4,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170716,6,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170718,8,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170721,11,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170724,14,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170807,28,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170810,31,A472,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170711,1,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,3,0
+20170714,4,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,3,0
+20170716,6,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,3,0
+20170718,8,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,1
+20170721,11,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,1
+20170724,14,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,1
+20170807,28,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,2
+20170810,31,A474,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,2
+20170711,1,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170714,4,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170716,6,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170718,8,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170721,11,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170724,14,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,0
+20170807,28,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,0,1
+20170810,31,A475,22,Ambient,13,Cool,No Heterotrophy,CN,20170611,0,1
+20170711,1,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170714,4,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170716,6,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170718,8,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170721,11,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170724,14,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170807,28,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,2,0
+20170810,31,A477,13,Ambient,13,Cool,No Heterotrophy,CN,20170611,1,1
+20170711,1,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,13,0
+20170714,4,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,13,0
+20170716,6,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,13,0
+20170718,8,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,13,0
+20170721,11,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,13,0
+20170724,14,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,13,0
+20170807,28,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,10,3
+20170810,31,A526,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,6,7
+20170711,1,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170714,4,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170716,6,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170718,8,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170721,11,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170724,14,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170807,28,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170810,31,A527,16,Ambient,23,Cool,No Heterotrophy,CN,20170611,5,0
+20170711,1,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170714,4,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170716,6,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170718,8,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170721,11,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170724,14,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170807,28,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170810,31,A552,22,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,0
+20170711,1,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,9,0
+20170714,4,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,9,0
+20170716,6,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,5
+20170718,8,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,5
+20170721,11,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,5
+20170724,14,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,5
+20170807,28,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,7
+20170810,31,A556,16,Ambient,20,Cool,No Heterotrophy,CN,20170612,2,7
+20170711,1,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,5,0
+20170714,4,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,5,0
+20170716,6,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,5,0
+20170718,8,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,1
+20170721,11,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,1
+20170724,14,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,4,1
+20170807,28,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,3,2
+20170810,31,A561,13,Ambient,20,Cool,No Heterotrophy,CN,20170612,3,2
+20170711,1,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,3,0
+20170714,4,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,3,0
+20170716,6,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,3,0
+20170718,8,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,3,0
+20170721,11,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,3,0
+20170724,14,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,3,0
+20170807,28,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,1,2
+20170810,31,A638,16,Ambient,23,Cool,No Heterotrophy,CN,20170612,0,3
+20170711,1,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,2,0
+20170714,4,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,1,1
+20170716,6,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,1,1
+20170718,8,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,1,1
+20170721,11,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,0,2
+20170724,14,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,0,2
+20170807,28,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,0,2
+20170810,31,A712,22,Ambient,20,Cool,No Heterotrophy,CN,20170613,0,2
+20170711,1,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170714,4,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170716,6,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170718,8,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170721,11,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170724,14,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170807,28,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,1,0
+20170810,31,A778,16,Ambient,23,Cool,No Heterotrophy,CN,20170613,0,1
 20170711,1,A076,19,High,18,Ambient,Heterotrophy,AH,20170609,4,0
 20170714,4,A076,19,High,18,Ambient,Heterotrophy,AH,20170609,3,1
 20170716,6,A076,19,High,18,Ambient,Heterotrophy,AH,20170609,3,1
