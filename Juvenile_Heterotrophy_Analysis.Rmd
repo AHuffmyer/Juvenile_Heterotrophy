@@ -529,7 +529,7 @@ Significance determined using Type II ANOVA function.
 `modelGrowth=lmer(tPlanar~Nutrition * Temperature + (1|Fusion) + (1|Tank) + (1|Cohort), data=growth)`
 
 ```{r, results=TRUE}
-modelGrowth=lmer(tPlanar~Nutrition * Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth)
+modelGrowth=lmer(scale(tPlanar)~Nutrition * Temperature + (1|Fused.Initial) + (1|Tank/Plug.ID) + (1|Cohort), data=growth)
 ```
 
 Check for homogeneity of variance using the Levene's test (passes) in the car package and normality of residuals. Residuals are approximately normal, but with some very slight deviance at tails of qqPlot.  
@@ -539,10 +539,10 @@ leveneTest(growth$tPlanar~growth$Nutrition*growth$Temperature)
 qqPlot(residuals(modelGrowth))
 ```
 
-Display summary of model and anova table for use of p-values.   
+Display summary of model and anova table for use of p-values. Model summary conducted with scaled data to produce standardized beta weights.   
 
 ```{r, results=TRUE}
-summary(modelGrowth) 
+summary(modelGrowth)
 anova(modelGrowth, type=2)
 ```
 
@@ -712,7 +712,7 @@ confocal <- confocal[-q, ]
 write.csv(confocal, file="Output/Master_Confocal.csv")
 ```
 
-Create subsets of data by tissue type, as these will be analyzed separately.  
+Subset measurements averaged over the entire colony.   
 
 ```{r, results=FALSE}
 colony<-subset(confocal, Tissue=="Colony", select=c(Sample, Tissue, Thickness, ID, Symbiont.Intensity, Tissue.Intensity, Plug, Spat, Cohort, Temperature, Nutrition, Treatment, Tank, Area, Red, Green, Ratio))
@@ -755,8 +755,9 @@ Temperature and Nutrition are main effects. Cohort and plug nested within tank a
 `thickModel<-lmer(Thickness~Temperature+Nutrition+Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)`  
 
 Run model, view summary of model, and anova table for use of p-values.  
-```{r, results=TRUE}
-thickModel<-lmer(Thickness~Temperature + Nutrition + Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)
+```{r, results=TRUE, warning=FALSE, message=FALSE}
+thickModel<-lmer(scale(Thickness)~Temperature + Nutrition + Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)
+
 summary(thickModel)
 anova(thickModel, type=2)
 ```
@@ -836,7 +837,7 @@ Temperature and Nutrition are main effects. Cohort and plug nested within tank a
 
 View summary of model and anova table for use of p-values.      
 ```{r, results=TRUE, message=FALSE, warning=FALSE}
-RedModel<-lmer(Red~Temperature+Nutrition+Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)
+RedModel<-lmer(scale(Red)~Temperature+Nutrition+Temperature:Nutrition + (1+Area|Plug) + (1|Cohort) + (1|Tank/Plug), data=colony)
 summary(RedModel)
 anova(RedModel, type=2)
 ```
