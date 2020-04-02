@@ -901,25 +901,25 @@ cor.test(colony$Red, colony$Thickness, method=c("pearson"))
 ``` 
 
 Plot relationship between tissue thickness and Symbiodiniaceae fluorescence.  
-
+ 
 ```{r, results=TRUE, warning=FALSE}
 Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) + 
-  geom_point(aes(color=Nutrition, shape=Temperature), size=3) +
+  geom_point(aes(color=Nutrition, shape=Temperature), size=6) +
    scale_color_manual(name="Nutrition",
                     values=c("purple", "orange"), 
                     labels=c("No Heterotrophy", "Heterotrophy"))+
-  scale_shape_manual(values = c(19,21))+
+  scale_shape_manual(values = c("circle", "triangle"))+
   theme_classic()+
   geom_text(x=800, y=20, label="r=0.50, p<0.001", size=6, color="black") +
-  theme(text = element_text(size = 18))+
-  theme(axis.text = element_text(size = 18, color="black"))+
-  theme(axis.title = element_text(size = 18, face="bold"))+
-  theme(legend.title = element_text(size = 18, face="bold"))+
-  theme(legend.text = element_text(size = 18, color="black"))+
+  theme(text = element_text(size = 20))+
+  theme(axis.text = element_text(size = 20, color="black"))+
+  theme(axis.title = element_text(size = 20, face="bold"))+
+  theme(legend.title = element_text(size = 20, face="bold"))+
+  theme(legend.text = element_text(size = 20, color="black"))+
   ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
   xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))))
 
-ggsave("Figures/Correlation_Physiology_Figure.pdf", plot=Cor1, height=8, width=10, units = c("in"), dpi=300) #output figure
+ggsave("Figures/Correlation_Physiology_Figure.png", plot=Cor1, height=10, width=12, units = c("in"), dpi=300) #output figure
 
 ```
 
