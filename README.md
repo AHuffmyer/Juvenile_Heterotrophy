@@ -1,5 +1,5 @@
 
-**Study:** Juvenile nutrition and thermal regime enhance resistance to temperature stress through energetic preparation
+**Study:** Interactions between heterotrophic feeding and temperature enhance juvenile *Pocillopora acuta* coral resistance to thermal stress through tissue thickening and modulation of Symbiodiniaceae fluorescence
 
 **Authors:** Huffmyer AS, CJ Johnson, AM Epps, JD Lemus, RD Gates
 
