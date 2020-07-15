@@ -1,5 +1,5 @@
 ---
-title: Juvenile *Pocillopora *acuta coral nutritional and thermal regime enhance resistance to temperature stress through physiological preparation
+title: Interactions between heterotrophic feeding and thermal regime enhance juvenile *Pocillopora acuta* coral tolerance to temperature stress through tissue thickening and Symbiodiniaceae regulation 
 author: "AS Huffmyer, CJ Johnson, AM Epps, JD Lemus, RD Gates"
 date: '2020'
 output:
@@ -60,7 +60,7 @@ Author contributions: A Huffmyer designed study, conducted experiment, collected
 
 *Methodology overview*  
 
-Juvenile corals were exposed to pre-stress treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these conditioning treatments for 30 days. Growth and survivorship was measured during the conditioning period. Over the course of the conditioning period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece). Following this pre-stress period, we exposed juvenile corals of each pre-stress temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship.    
+Juvenile corals were exposed to rearing treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these treatments for 30 days. Growth and survivorship was measured during the rearing period. Over the course of the rearing period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece).  We then exposed juvenile corals of each rearing temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship as a measure of thermal tolerance.    
 
 *See manuscript for detailed methodology and treatment summary information*  
 
@@ -75,7 +75,7 @@ Temperature on natural reef collected from:
 NOAA Moku o Loe station #51207, Pacific Islands Ocean Observing System  
 Retrieved from: https://www.ndbc.noaa.gov/station_page.php?station=mokh1   
 
-First, examine NOAA temperature data collected from the Moku o Loe station in March 2017 and June 2017 for comparison to treatment conditions during conditioning period. March provides a comparison to the "cool" treatment, while June offers a comparison to the "ambient" treatment.     
+First, examine NOAA temperature data collected from the Moku o Loe station in March 2017 and June 2017 for comparison to treatment conditions during rearing period. March provides a comparison to the "cool" treatment, while June offers a comparison to the "ambient" treatment.     
 
 Display descriptive statistics of March and June 2017. 
   
@@ -116,11 +116,11 @@ Temperature treatments were controlled using the Apex Neptune Aquacontroller pla
 Load temperature data from temperature logger files and generate figure with: 
 
 1. Time series of temperature data with mean treatment temperatures specified by color. 
-2. 24-hour cycle of temperatures by summarizing the mean temp at each 15-minute interval per day during the pre-stress period and the stress period. 
+2. 24-hour cycle of temperatures by summarizing the mean temp at each 15-minute interval per day during the rearing period and the stress period. 
 
 Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days.  
 
-Display temperature means, standard deviation, and mean daily range for 1) each pre-stress treatment; 2) each stress treatment; 3) full assembled figure.  
+Display temperature means, standard deviation, and mean daily range for 1) each rearing treatment; 2) each stress treatment; 3) full assembled figure.  
 
 ```{r, results=TRUE, message=FALSE, warning=FALSE}
 physical<-read.csv("Data/Temperature.csv", header=T, na.strings="NA")
@@ -164,9 +164,9 @@ TimeSeries<-ggplot(Temps1, aes(x = DateTime, y = mean, fill=Treatment, color=Tre
   theme(legend.position="top")+
   theme(axis.text = element_text(size=16, color="black"))
 
-conditiontemps<-subset(temps, Phase=="Conditioning", c(DateTime, Day, Phase, Minutes, Tank, Temperature, Treatment))
+rearingtemps<-subset(temps, Phase=="Rearing", c(DateTime, Day, Phase, Minutes, Tank, Temperature, Treatment))
 
-Conditioning1 <- ddply(conditiontemps, c("Minutes", "Treatment"), summarise,
+Rearing1 <- ddply(rearingtemps, c("Minutes", "Treatment"), summarise,
                    N    = length(Temperature[!is.na(Temperature)]),
                    mean = mean(Temperature, na.rm=TRUE),
                    sd   = sd(Temperature, na.rm=TRUE),
@@ -177,7 +177,7 @@ Conditioning1 <- ddply(conditiontemps, c("Minutes", "Treatment"), summarise,
                    upper = mean+se
                    )
 
-prestress_sum <- ddply(Conditioning1, c("Treatment"), summarise,
+rearing_sum <- ddply(Rearing1, c("Treatment"), summarise,
                     mean_temp = mean(mean, na.rm=TRUE), 
                     sd_temp   = mean(sd, na.rm=TRUE),
                     min_temp = min(mean),
@@ -185,12 +185,12 @@ prestress_sum <- ddply(Conditioning1, c("Treatment"), summarise,
                     range_temp = (max_temp-min_temp)
                    )
 
-ConditioningDay<-ggplot(Conditioning1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
+RearingDay<-ggplot(Rearing1, aes(x = Minutes, y = mean, color=Treatment, fill=Treatment)) + 
   geom_line(aes(color = Treatment), size = .5) +
   scale_color_manual(values = c("#606060", "#0099FF")) +
   scale_fill_manual(values = c("#606060", "#0099FF")) +
   theme_classic() +
-  geom_ribbon(aes(ymin=Conditioning1$lower, ymax=Conditioning1$upper), linetype=2, alpha=0.4, color=NA) +
+  geom_ribbon(aes(ymin=Rearing1$lower, ymax=Rearing1$upper), linetype=2, alpha=0.4, color=NA) +
   ylab("Temperature (°C)")+
   scale_x_continuous(breaks=c(0, 720, 1440), labels=c("0:00", "12:00", "24:00")) +
   xlab("Time of Day") +
@@ -250,22 +250,18 @@ StressDay<-ggplot(Stress1, aes(x = Minutes, y = mean, color=Treatment, fill=Trea
   theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
   theme(axis.text = element_text(size=16, color="black"))
 
-right_row <- plot_grid(ConditioningDay, StressDay, labels = c('B', 'C'), nrow=2, ncol=1, label_size = 20)
+right_row <- plot_grid(RearingDay, StressDay, labels = c('B', 'C'), nrow=2, ncol=1, label_size = 20)
 tempplots<-plot_grid(TimeSeries, right_row, labels = c("A", ""), ncol=2, nrow=1, rel_widths = c(2.6, 1), label_size = 20)
-
-#ggsave(filename="Figures/CondTemp.png", plot=ConditioningDay, dpi=300, width=8, height=8, units="in")
-
-#ggsave(filename="Figures/StressTemp.png", plot=StressDay, dpi=300, width=8, height=8, units="in")
 
 ggsave(filename="Figures/TemperatureFigure.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
 ```
 
 ![Temperature Treatments](Figures/TemperatureFigure.pdf)  
 
-Display descriptive statistics for pre-stress treatments.   
+Display descriptive statistics for rearing treatments.   
 
 ```{r, results=TRUE}
-prestress_sum
+rearing_sum
 ```
 
 Display descriptive statistics for stress treatments.   
@@ -275,11 +271,11 @@ stress_sum
 ```
 
 
-As the thermal stress profile occured in a dual-stress event due to an interruption in the experimental system, we calculate the number of total degree heating days accumlated by the end of the stress test.  
+As the thermal stress profile occured in a dual-stress event due to an interruption in the experimental system, we calculate heat accumlated by the end of the stress test. Heat accumulation was calculated as degree heating days.  
 
-Degree heating days are calculated by finding the difference between the mean ambient treatment and the daily mean temperature in the high treatment for each day of the stress period. These degree heating day values are then added over the course of the stress test to provide a total degree heating day value.  
+Accumulated stress was calculated by finding the difference between the mean ambient treatment and the daily mean temperature in the high treatment for each day of the stress period. These values are then added over the course of the stress test to provide a total heat accumulation value.  
 
-There were 62.14 Degree Heating Days in the high treatment as compared to the mean of the *ambient treatment* over the course of the 31-day stress period. Display mean and sd and mean range of temperature treatments during the stress period.  
+Heat accumulation was 62.14 in the high treatment as compared to the mean of the *ambient treatment* over the course of the 31-day stress period. Display mean and sd and mean range of temperature treatments during the stress period.  
 ```{r, results=TRUE}
 #summarize temperature to generate means by day
 DHD <- ddply(stresstemps, c("Day", "Treatment"), summarise,
@@ -368,13 +364,13 @@ knitr::kable(Settlement)
 2. We can assume settlement rate and therefore total number of starting settlers was not different per plug across temperature treatments.   
 
 
-## 3. Post-Settlement Survivorship  
+## 3. Post-Settlement Survivorship during Rearing Period  
 
-Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for analyses across multiple timepoints during the 30-day pre-stress treatment period. Data are examined as survivorship curves and analyzed using Cox Proportional Hazards models with temperature and nutrition as main effects.  
+Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for analyses across multiple timepoints during the 30-day rearing treatment period. Data are examined as survivorship curves and analyzed using Cox Proportional Hazards models with temperature and nutrition as main effects.  
 
 ```{r, results=FALSE}
 #load data
-KM<-read.csv("Data/PreStress_Survivorship.csv", header=TRUE, sep=",", na.strings="NA") #load data
+KM<-read.csv("Data/Rearing_Survivorship.csv", header=TRUE, sep=",", na.strings="NA") #load data
 
 print(levels(KM$Temperature))  ##Levels are ambient, then cool - which is correct
 print(levels(KM$Nutrition)) ##Needs to be reordered with No Heterotrophy first
@@ -449,14 +445,14 @@ splots<-list()
 splots[[1]]<-survplotKM3
 splots[[2]]<-survplotKM4
 survplotsALL<-arrange_ggsurvplots(splots, print=TRUE, ncol=2, nrow=1)
-ggsave(filename="Figures/PreStressSurvivalFigure.png", plot=survplotsALL, dpi=300, width=13, height=8, units="in")
+ggsave(filename="Figures/RearingSurvivalFigure.png", plot=survplotsALL, dpi=300, width=13, height=8, units="in")
 
 detach("package:survminer", unload=TRUE)
 ```
 
-![Survival during pre-stress period.](Figures/PreStressSurvivalFigure.png)  
+![Survival during rearing period.](Figures/RearingSurvivalFigure.png)  
 
-Summary of survivorship in table below for each temperature and nutrition treatment at each timepoint.   
+Summary of survivorship in table below for each rearing temperature and nutrition treatment at each timepoint.   
 
 ```{r, results=TRUE}
 SurvSummary2 <- ddply(KM, c("Days","Temperature", "Nutrition"), summarise,
@@ -470,22 +466,22 @@ knitr::kable(SurvSummary2)
 
 
 *Conclusions*  
-1. Survivorship was not different by nutritional treatment or the interaction of nutrition or temperature.  
+1. Survivorship was not different by rearing nutritional treatment or the interaction of nutrition or temperature.  
 
-2. Survivorship was significantly higher in the cool temperature treatment, but to a marginal degree.    
+2. Survivorship was significantly higher in the rearing cool temperature treatment, but to a marginal degree.    
 
 
-## 4. Growth    
+## 4. Growth during Rearing Period   
 
-Growth data is collected as planar surface area of each juvenile at the start and end of the pre-stress period (30 days).  
+Growth data is collected as planar surface area of each juvenile at the start and end of the rearing period (30 days).  
 
 Data was collected and analyzed by C. Johnson and A. Epps from photographs taken of 10-15 plugs from each tank, taken with a scale bar for size reference. Data analyzed in ImageJ/Fiji software.  
 
 Growth rate is calculated as the change in planar surface area normalized to starting size per day (% planar extension per day).   
 
-Here, data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the conditioning period, fusion status will be incorporated as a random effect ("Fused.Final"). Data will be analyzed for both fused and non-fused juvenile colonies, as approximately 50% of dataset are fused individuals and should be included. Although not included here, future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
+Here, data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the rearing period, fusion status will be incorporated as a random effect ("Fused.Final"). Data will be analyzed for both fused and non-fused juvenile colonies, as approximately 50% of dataset are fused individuals and should be included. Although not included here, future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
 
-As growth is measured by photographs, this is the only dataset in which we can verify fusion status. Physiology data was collected on randomly selected plugs, which did not have photograph records from the start of the experiment.  
+As growth is measured by photographs, this is the only dataset in which we can verify fusion status. Confocal data was collected on randomly selected plugs, which did not have photograph records from the start of the experiment to determine colony origin as fused or individual.   
 
 ```{r, results=FALSE}
 #load data
@@ -562,7 +558,7 @@ GrowthPlanar <- ddply(growth, c("Nutrition", "Temperature"), summarise,
 knitr::kable(GrowthPlanar)
 ```
 
-Display figure of juvenile growth rate.  
+Display figure of juvenile growth rate during rearing period.  
 
 ```{r, results=TRUE}
 Growth1a<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, colour=Nutrition)) +
@@ -593,21 +589,21 @@ growthfig<-plot_grid(Growth1a, labels = c(""), ncol=1, nrow=1, rel_heights= c(1)
 ggsave("Figures/Growth_Figure.pdf", plot=growthfig, height=8, width=10, units = c("in"), dpi=500) #output figure
 ```
 
-![Juvenile growth](Figures/Growth_Figure.pdf) 
+![Juvenile growth during rearing period](Figures/Growth_Figure.pdf) 
 
 *Conclusions*  
-1. Growth was significantly higher in heterotrophic feeding treatment. 
+1. Growth was significantly higher in heterotrophic feeding treatment during rearing period. 
 
-2. There was no effect of temperature.  
+2. There was no effect of rearing temperature on growth.    
 
 
-## 5. Confocal Data Manipulation  
+## 5. Confocal Measurements: Data Manipulation  
 
-Tissue thickness and symbiont densities are measured using Laser Scanning Confocal Microscopy as described in Huffmyer et al. (2020).  
+Tissue thickness and symbiont densities are measured using Laser Scanning Confocal Microscopy as described in Huffmyer et al. (2020). Data were collected at the end of the rearing period.    
 
 Raw data sets are inputted and manipulated to calculate the following based on:   
-(1) Average Channel 2 (Red) symbiont intensity per spat sample  
-(2) Average Channel 1 (Green) tissue thickness per spat sample    
+(1) Average intensity of Channel 2 (Red); symbiont intensity per spat sample  
+(2) Average depth of Channel 1 (Green); tissue thickness per spat sample    
 
 ```{r, results=FALSE}
 #load data set for fluorescence (symbionts)
@@ -814,14 +810,14 @@ ggsave("Figures/Thickness_Figure.pdf", plot=Thick2, height=8, width=6, units = c
 
 *Conclusions*  
 
-1. There was a significant positive effect of nutrition on tissue thickness.  
+1. There was a significant positive effect of rearing nutrition on tissue thickness.  
 
-2. There was a significant interactive effect of nutrition and heterotrophy, with thicker tissues in heterotrophically fed groups and thicker tissues in cool temperature in the absence of heterotrophy.  
+2. There was a significant interactive effect of rearing nutrition and temperature, with thicker tissues in heterotrophically fed groups and thicker tissues in cool temperature in the absence of heterotrophy.  
 
 
 ## 7. Confocal Fluorescence
 
-Using the confocal data frame we analyze symbiont chlorophyll fluorescence measured by confocal LSCM.  
+Using the confocal data frame we analyze symbiont chlorophyll fluorescence measured by LSCM at the end of the rearing period.  
 
 ```{r, results=TRUE}
 qqPlot(colony$Red)
@@ -889,8 +885,7 @@ Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
 ggsave("Figures/Fluorescence_Figure.pdf", plot=Red2, height=8, width=8, units = c("in"), dpi=300) #output figure
 ```
 
-![Juvenile symbiont fluorescence](Figures/Fluorescence_Figure.pdf)  
-
+![Juvenile symbiont fluorescence at the end of the rearing period](Figures/Fluorescence_Figure.pdf)  
 
 ### **Relationship between thickness and fluorescence**  
 
@@ -923,7 +918,7 @@ ggsave("Figures/Correlation_Physiology_Figure.png", plot=Cor1, height=10, width=
 
 ```
 
-![Correlation between thickness and fluorescence](Figures/Correlation_Physiology_Figure.pdf) 
+![Correlation between thickness and fluorescence](Figures/Correlation_Physiology_Figure.png)   
 
 Conduct a model analysis to determine whether temperatures have different slopes in the relationship between tissue thickness and symbiont fluorescence.  
 
@@ -937,9 +932,9 @@ There was no interactive effect between thickness and nutrition or temperature, 
 
 *Conclusions*  
 
-1. There was a significant positive effect of nutrition on symbiont fluorescence.  
+1. There was a significant positive effect of rearing nutrition on symbiont fluorescence.  
 
-2. There was a significant interactive effect of temperature and nutrition on symbiont fluorescence. In the absence of heterotrophy cool temperature had a trend for higher fluorescence with the opposite trend occuring in the presence of heterotrophy.  
+2. There was a significant interactive effect of rearing temperature and nutrition on symbiont fluorescence. In the absence of heterotrophy cool temperature had a trend for higher fluorescence with the opposite trend occuring in the presence of heterotrophy.  
 
 3. There was a positive correlation between tissue thickness and symbiont fluorescence.  
 
@@ -960,12 +955,12 @@ ggsave(filename="Figures/Physiology_Figure.png", plot=confocalfinal, dpi=300, wi
 ```
 
 
-![Physiological Responses](Figures/Physiology_Figure.png) 
+![Physiological responses during the rearing period](Figures/Physiology_Figure.png) 
 
 
 ## 8. Thermal Stress Survivorship  
 
-Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test. 
+Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test, which occured for 30 days after the end of the rearing period. 
 
 Load in survivorship data, examine structure, and create binomial vector of Success/Failure.   
 
@@ -1006,7 +1001,7 @@ x<-cbind(Juveniles, Failures)
 
 Analyze survivorship at the end of the thermal stress using a binomial mixed effects model.  
 
-Main effects: Pre-stress temperature, nutrition, and stress temperature  
+Main effects: Rearing temperature, nutrition, and stress temperature  
 Random effects: Tank and cohort  
 
 Run model and display summary as well as anova table for use of p-values.   
@@ -1040,7 +1035,7 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
   ggtitle("")+
   theme_classic() +
  #scale_y_continuous(breaks=c(0,0.2,0.4,0.6,0.8,1))+
-  scale_colour_manual(name=expression(bold(atop("Pre-Stress    ", paste("Temperature")))),
+  scale_colour_manual(name=expression(bold(atop("Rearing         ", paste("Temperature")))),
                         breaks=c("Ambient", "Cool"),
                         labels=c("Ambient", "Cool"), 
                         values=cols)+
@@ -1051,15 +1046,15 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
   annotate("text", x = .45, y = .15, 
            label = "p(Stress Temp.)<0.001", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = .11, 
-           label = "p(Pre-Stress Temp.)<0.001", size = 5, color="black", hjust=0)+
+           label = "p(Rearing Temp.)<0.001", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = .07, 
            label = "p(Nutrition)<0.001", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = .03, 
-           label = "p(Stress Temp. x Pre-Stress Temp.)=0.66", size = 5, color="darkgray", hjust=0)+
+           label = "p(Stress Temp. x Rearing Temp.)=0.66", size = 5, color="darkgray", hjust=0)+
    annotate("text", x = .45, y = -.01, 
            label = "p(Stress Temp. x Nutrition)=0.008", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = -.05, 
-           label = "p(Pre-Stress Temp. x Nutrition)=0.004", size = 5, color="black", hjust=0)+
+           label = "p(Rearing Temp. x Nutrition)=0.004", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = -.09, 
            label = "p(Three-way Interaction)=0.74", size = 5, color="darkgray", hjust=0)+
   theme(panel.background = element_blank()) +
@@ -1087,3 +1082,8 @@ ggsave(filename="Figures/Stress_Survival_Total.png", plot=FigSurvStress, dpi=300
 detach(final)
           
 ```
+
+*Conclusions*  
+
+1. There was a positive effect of heterotrophic feeding on juvenile survival during high temperature stress.  
+2. Juveniles reared at cool temperature with access to heterotrophy had higher survival both at ambient and high temperature conditions.  
