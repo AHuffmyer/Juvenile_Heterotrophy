@@ -1,5 +1,5 @@
 
-**Study:** Interactions between heterotrophic feeding and thermal regime enhance juvenile *Pocillopora acuta* coral tolerance to temperature stress through tissue thickening and Symbiodiniaceae regulation
+**Study:** Interactions between heterotrophic feeding and temperature enhance juvenile *Pocillopora acuta* coral resistance to thermal stress through tissue thickening and modulation of Symbiodiniaceae fluorescence
 
 **Authors:** Huffmyer AS, CJ Johnson, AM Epps, JD Lemus, RD Gates
 
