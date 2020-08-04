@@ -54,23 +54,23 @@ library("ggfortify")
 
 ## Authors    
 
-Author contributions: A Huffmyer designed study, conducted experiment, collected and analyzed data, and wrote manuscript. C Johnson conducted the experiment and collected data. A Epps collected and analyzed data. R Gates and J Lemus assisted with designing the study and provided laboratory space, resources, and funding.  
+Author contributions: A Huffmyer designed study, conducted experiment, collected and analyzed data, and wrote manuscript. C Johnson conducted the experiment and collected data. A Epps collected and analyzed data. R Gates and J Lemus assisted with designing the study and provided laboratory space, resources, and funding. R Gates and J Lemus are joint senior authors.   
 
-## Study Overview  
+## Study overview  
 
 *Methodology overview*  
 
-Juvenile corals were exposed to rearing treatment conditions for 30 days in Ambient and Cool treatments. Ambient conditions mimic average temperatures in June in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions mimic average temperatures in March-April in Kaneohe Bay. All temperature treatments fluctuated 1.4°C daily. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tanks were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these treatments for 30 days. Growth and survivorship was measured during the rearing period. Over the course of the rearing period, we measured performance (survivorship and growth) and ending physiological parameters (tissue thickness and symbiont fluorescnece).  We then exposed juvenile corals of each rearing temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship as a measure of thermal tolerance.    
+Juvenile corals were exposed to rearing treatment conditions for 30 days in Ambient and Cool treatments and then exposed to a high temperature simulated stress. Ambient conditions were selected based on average temperatures in summer (June) in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions was selected based on average temperatures in spring (March) in Kaneohe Bay. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tank replicates were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these treatments for 30 days. Over the course of the rearing period, we measured survivorship and growth and measured physiological parameters (tissue thickness and Symbiodiniaceae fluorescence) at the end of the rearing period.  We then exposed juvenile corals of each rearing temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship as a measure of thermal tolerance.    
 
-*See manuscript for detailed methodology and treatment summary information*  
+*See manuscript for detailed methodology and treatment information*  
 
-## 1. Temperature Treatments  
+## 1. Temperature treatments  
 
-Here, we display figures of treatment temperatures and provide descriptive statistics to compare these treatment values to temperature on the natural reef.  
+Here, we display figures of treatment temperatures and provide descriptive statistics to compare these treatment values to temperature in Kaneohe Bay.  
 
-### *Temperature on the natural reef*  
+### *Temperature in Kaneohe Bay*  
 
-Temperature on natural reef collected from:  
+Temperature collected from:  
 
 NOAA Moku o Loe station #51207, Pacific Islands Ocean Observing System  
 Retrieved from: https://www.ndbc.noaa.gov/station_page.php?station=mokh1   
@@ -119,8 +119,6 @@ Load temperature data from temperature logger files and generate figure with:
 2. 24-hour cycle of temperatures by summarizing the mean temp at each 15-minute interval per day during the rearing period and the stress period. 
 
 Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days.  
-
-Display temperature means, standard deviation, and mean daily range for 1) each rearing treatment; 2) each stress treatment; 3) full assembled figure.  
 
 ```{r, results=TRUE, message=FALSE, warning=FALSE}
 physical<-read.csv("Data/Temperature.csv", header=T, na.strings="NA")
@@ -256,7 +254,7 @@ tempplots<-plot_grid(TimeSeries, right_row, labels = c("A", ""), ncol=2, nrow=1,
 ggsave(filename="Figures/TemperatureFigure.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
 ```
 
-![Temperature Treatments](Figures/TemperatureFigure.pdf)  
+![Temperature Treatments over A) experiment timeseries; B) average daily cycle during rearing period; C) average daily cycle during stress period.](Figures/TemperatureFigure.pdf)  
 
 Display descriptive statistics for rearing treatments.   
 
@@ -303,7 +301,7 @@ sum(DHD$Diff)
 ```
 
 
-## 2. Larval Settlement  
+## 2. Larval settlement  
 
 Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.    
 
@@ -359,12 +357,11 @@ knitr::kable(Settlement)
 ```
 
 *Conclusions*  
-1. Temperature did not influence settlement rate of larvae during 24-hour period in which settlement took place.   
-
+1. Temperature did not influence settlement rate of larvae during 24-hour period in which settlement took place.  
 2. We can assume settlement rate and therefore total number of starting settlers was not different per plug across temperature treatments.   
 
 
-## 3. Post-Settlement Survivorship during Rearing Period  
+## 3. Post-settlement survivorship during rearing period  
 
 Survivorship was recorded weekly on all juvenile plugs in the experiment (n = ~715 plugs) as either 0 (at least one living spat) or 1 (no living spat) as required for analyses across multiple timepoints during the 30-day rearing treatment period. Data are examined as survivorship curves and analyzed using Cox Proportional Hazards models with temperature and nutrition as main effects.  
 
@@ -389,7 +386,7 @@ Survivorship data is analyzed using a Cox Proportional Hazards model:
 cox1<-coxph(Surv(Days,Censor)~Nutrition + Temperature + Nutrition:Temperature, data=KM)
 ```
 
-Note that p values generated in this summary are not used as p values are calcuated with a Type II ANOVA. Tests show a significnat effect of temperature on survivorship with a coef of 0.82979 in the cool treatment, indicating that the risk of mortality is approx. 17% lower in cool temperature as compared to ambient.  
+p values are calcuated with a Type II ANOVA. Tests show a significnat effect of temperature on survivorship with a coef of 0.82979 in the cool treatment, indicating that the risk of mortality is approx. 17% lower in cool temperature as compared to ambient.  
 
 Display model summary and ANOVA table.  
 
@@ -467,19 +464,18 @@ knitr::kable(SurvSummary2)
 
 *Conclusions*  
 1. Survivorship was not different by rearing nutritional treatment or the interaction of nutrition or temperature.  
-
 2. Survivorship was significantly higher in the rearing cool temperature treatment, but to a marginal degree.    
 
 
-## 4. Growth during Rearing Period   
+## 4. Growth during rearing period   
 
 Growth data is collected as planar surface area of each juvenile at the start and end of the rearing period (30 days).  
 
 Data was collected and analyzed by C. Johnson and A. Epps from photographs taken of 10-15 plugs from each tank, taken with a scale bar for size reference. Data analyzed in ImageJ/Fiji software.  
 
-Growth rate is calculated as the change in planar surface area normalized to starting size per day (% planar extension per day).   
+Growth rate is calculated as the change in planar surface area normalized to starting size per day (% growth per day).   
 
-Here, data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the rearing period, fusion status will be incorporated as a random effect ("Fused.Final"). Data will be analyzed for both fused and non-fused juvenile colonies, as approximately 50% of dataset are fused individuals and should be included. Although not included here, future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
+Data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the rearing period, fusion status will be incorporated as a random effect ("Fused.Final"). Data will be analyzed for both fused and non-fused juvenile colonies, as approximately 50% of dataset are fused individuals and should be included. Future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
 
 As growth is measured by photographs, this is the only dataset in which we can verify fusion status. Confocal data was collected on randomly selected plugs, which did not have photograph records from the start of the experiment to determine colony origin as fused or individual.   
 
@@ -601,9 +597,7 @@ ggsave("Figures/Growth_Figure.pdf", plot=growthfig, height=8, width=10, units = 
 
 Tissue thickness and symbiont densities are measured using Laser Scanning Confocal Microscopy as described in Huffmyer et al. (2020). Data were collected at the end of the rearing period.    
 
-Raw data sets are inputted and manipulated to calculate the following based on:   
-(1) Average intensity of Channel 2 (Red); symbiont intensity per spat sample  
-(2) Average depth of Channel 1 (Green); tissue thickness per spat sample    
+Raw data sets are inputted and manipulated to calculate the following based on the average intensity of Channel 2 (Red) = symbiont fluorescence intensity per juvenile 
 
 ```{r, results=FALSE}
 #load data set for fluorescence (symbionts)
@@ -736,7 +730,7 @@ colony$Nutrition <- relevel(colony$Nutrition, ref = "No Heterotrophy")
 print(levels(colony$Nutrition))
 ```
 
-Examine data for normality, using data collected as averaged over each juvenile colony (including polyp and connecting tissue measurements).  
+Examine data for normality, using data collected as averaged over each juvenile colony.  
 
 ```{r, results=TRUE}
 qqPlot(colony$Thickness)
@@ -815,7 +809,7 @@ ggsave("Figures/Thickness_Figure.pdf", plot=Thick2, height=8, width=6, units = c
 2. There was a significant interactive effect of rearing nutrition and temperature, with thicker tissues in heterotrophically fed groups and thicker tissues in cool temperature in the absence of heterotrophy.  
 
 
-## 7. Confocal Fluorescence
+## 7. Confocal fluorescence
 
 Using the confocal data frame we analyze symbiont chlorophyll fluorescence measured by LSCM at the end of the rearing period.  
 
@@ -887,7 +881,7 @@ ggsave("Figures/Fluorescence_Figure.pdf", plot=Red2, height=8, width=8, units = 
 
 ![Juvenile symbiont fluorescence at the end of the rearing period](Figures/Fluorescence_Figure.pdf)  
 
-### **Relationship between thickness and fluorescence**  
+### **Correlation between thickness and fluorescence**  
 
 Display Pearson correlation results between these two characteristics of physiology. Pearson correlation is used as data are normally distributed.      
 
@@ -928,7 +922,7 @@ summary(corrModel)
 anova(corrModel, type=2)
 ```
 
-There was no interactive effect between thickness and nutrition or temperature, indicating that these conditions did not alter the relationship between thickness and the amount of fluorescence. Rather, it is clear that differences in these values are due to nutrition.   
+There was no interactive effect between thickness and nutrition or temperature, indicating that these conditions did not alter the relationship between thickness and the amount of fluorescence. Rather, differences in these values may be driven by nutrition.   
 
 *Conclusions*  
 
@@ -938,7 +932,7 @@ There was no interactive effect between thickness and nutrition or temperature, 
 
 3. There was a positive correlation between tissue thickness and symbiont fluorescence.  
 
-### **Generate Final Figure**  
+### **Generate assembled figure**  
 
 Generate final figure of physiological response variables and confocal images of juveniles.   
 ```{r, results=FALSE}
@@ -958,7 +952,7 @@ ggsave(filename="Figures/Physiology_Figure.png", plot=confocalfinal, dpi=300, wi
 ![Physiological responses during the rearing period](Figures/Physiology_Figure.png) 
 
 
-## 8. Thermal Stress Survivorship  
+## 8. Thermal stress survivorship  
 
 Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test, which occured for 30 days after the end of the rearing period. 
 
@@ -977,7 +971,7 @@ thermal$Surv<-(thermal$Juveniles)/(thermal$Failures+thermal$Juveniles)
 final<-thermal[which(thermal$Day == "31"),] #subset final timepoint
 ```
 
-Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial Juveniles - Juveniles at timepoint) called "Failures".  
+Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial juveniles - Juveniles at timepoint) called "Failures".  
  
 Summary of total survivorship at the end of the thermal stress test.   
 
@@ -1003,6 +997,8 @@ Analyze survivorship at the end of the thermal stress using a binomial mixed eff
 
 Main effects: Rearing temperature, nutrition, and stress temperature  
 Random effects: Tank and cohort  
+
+`stressFINALmod<-glmer(x~Stress.Temp*Rear.Temp*Nutrition + (1|Stress.Tank) + (1|Cohort), family=binomial)`
 
 Run model and display summary as well as anova table for use of p-values.   
 
