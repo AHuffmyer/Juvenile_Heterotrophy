@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/227739791.svg)](https://zenodo.org/badge/latestdoi/227739791)
 
 **Study:** Heterotrophy and thermal conditioning enhance coral temperature tolerance in juvenile *Pocillopora acuta*  
 
