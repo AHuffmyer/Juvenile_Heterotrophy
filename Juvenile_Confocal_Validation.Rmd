@@ -1,0 +1,367 @@
+---
+title: "Juvenile Confocal Methods Validation"
+author: "AS Huffmyer, CJ Johnson, AM Epps, JD Lemus, RD Gates"
+date: '2020'
+output:
+  html_document:
+    code_folding: hide
+    toc: yes
+    toc_depth: 6
+    toc_float: yes
+  pdf_document:
+    keep_tex: yes
+---
+
+## Setup   
+
+Set up workspace, set options, and load required packages.  
+```{r, echo=TRUE, show=FALSE}
+rm(list=ls(all=TRUE)) 
+```
+
+```{r setup, echo=TRUE}
+knitr::opts_chunk$set(root.dir = "~/R",warning=FALSE, message=FALSE)
+```
+
+```{r, echo=FALSE, results=FALSE, message=FALSE, warning=FALSE}
+library("plotrix") #functions in tapply
+library("ggplot2") #plotting
+library("reshape2") #reshape data
+library("dplyr")  #splitting, applying, and combining data
+library("plyr")  #splitting, applying, and combining data
+library("pscl") 
+library("plotrix") #plotting
+library("car") #levenes test and stats package
+library("lsmeans") #post hoc tests
+library("effects") #model effects
+library("multcomp") 
+library("multcompView")
+library("scales")
+library("MuMIn")
+library("lme4") #linear mixed modeling
+library("lmerTest") #Adds p-value calculations to lme4 models
+library("MASS")
+library("emmeans") #post-hoc tests
+library("cowplot") #plotting
+library("tidyverse")
+library("factoextra")
+library("ggfortify")
+```
+
+## Overview  
+
+This markdown contains analysis and visualization of confocal methods validation to accompany analysis of thermal and nutritional effects on juvenile coral physiology and thermal tolerance. In this validation, we compare symbiont cell counts (hemocytometer method) to confocal symbiont fluorescence and also compare tissue thickness measured on tissue tunics under a dissection scope and measured by confocal tissue depth of fluorescence. n=11-13 juveniles per comparison.    
+
+To validate these metrics, we took measurements of symbiont cell counts and tissue thickness using comparative methods on a subset of juveniles from ambient temperature fed and unfed treatments. We compared these on the same juvenile corals characterized by confocal microscopy. Confocal method validations were conducted as decribed in Huffmyer et al. (2020): https://jeb.biologists.org/content/223/6/jeb220335.abstract  
+
+## Load and format dataframe  
+
+Load juvenile method validation data frame, format, and apply calibration of symbiont fluorescence by LSCM to % relative intensity, as described in Juvenile_Heterotrophy_Analysis markdown.  
+
+Nutrition: Fed or unfed treament (all from ambient temperature condition)  
+Zstack: Confocal measured depth of tissue fluorescence (i.e., tissue thickness)  
+Tissue: Level of measurement, all measurements applied to the whole juvenile colony  
+Symbiont.Intensity: Fluorescence intensity of symbionts
+Tissue.Intensity: Fluorescence intensity of coral tissues  
+Density: Symbiont cell density in cells per cm^2 surface area of colony  
+Thickness: Tissue thickness measured on decalcified tissue tunics under dissecting microscope  
+Area: Surface area of juvenile colony in cm2
+Comparison: The comparison specified for that sample, either comparing symbiont cell counts to symbiont fluorescence ("cell counts"), or comparing tissue thickness on dissecting microscope to confocal measurement ("thickness").  
+Red: Calibrated symbiont fluorescence measurement to % relative intensity, as detailed in Juvenile_Heterotrophy_Analysis script and in Huffmyer et al. (2020).  
+
+```{r}
+#load in data frame
+master<-read.csv("Data/Juvenile_Confocal_Validation.csv", header=TRUE, sep=",", na.strings="NA")
+
+#calibrate Symbiont.Intensity with Red InSpeck calibration kit as determined in Huffmyer et al. 2020
+master$Red<-(master$Symbiont.Intensity+79.395) / 24.301
+```
+
+## Examine response variables  
+
+Examine response variables for normality.  
+
+```{r}
+##Tissue Thickness - Confocal##
+qqPlot(master$Zstack)
+qqPlot(master$Red)
+qqPlot(master$Density)
+qqPlot(master$Thickness)
+```
+
+Response variables appear to be approximately normal. Next, subset data for tissue thickness comparison and for symbiont comparisons.   
+
+```{r}
+##Subset data in master dataframe by comparison type - either Thickness or Cell counts for direct comparison of methods
+compareThick<-subset(master, Comparison=="Thickness", c(Sample, Nutrition, Zstack, Tissue, Density, Thickness, Area, Comparison, Red))
+compareRed<-subset(master, Comparison=="Cell Counts", c(Sample, Nutrition, Zstack, Tissue, Density, Thickness, Area, Comparison, Red))
+```
+
+## Analysis  
+
+Next, view plots of data for each metric and conduct analyses. 
+
+For each metric, analyze by: 
+
+1) One way ANOVA to analyze effect of nutrition and examine whether each metric produces the same result.  
+2) Correlation analyses to determine whether measurements by confocal and comparative metrics are significantly related.  
+
+### Tissue thickness  
+
+#### Plotting  
+
+Plot confocal tissue thickness data.  
+```{r}
+#plot full LSCM data
+Thick1 <- ddply(compareThick, c("Nutrition"), summarise,
+                N    = length(Zstack[!is.na(Zstack)]),
+                mean = mean(Zstack, na.rm=TRUE),
+                sd   = sd(Zstack, na.rm=TRUE),
+                se   = sd / sqrt(N)
+); Thick1
+
+#thickness as measured by LSCM Zstack
+ThickConfocal_plot<-ggplot(Thick1, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
+  geom_bar(position=position_dodge(), stat="identity", color="black") +
+  scale_fill_manual(name="Nutrition",
+                    values=c("orange", "purple"),
+                    labels=c("Fed", "Unfed"))+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=.2,             
+                position=position_dodge(.9))+
+  theme_classic()+
+  ylim(0,800)+
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.position = "none")+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  ylab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))));ThickConfocal_plot
+```
+
+Plot tissue thickness values from measurement by dissecting microscope.    
+
+```{r}
+#subset only by dissecting microscope  
+Thick2 <- ddply(compareThick, c("Nutrition"), summarise,
+                N    = length(Thickness[!is.na(Thickness)]),
+                mean = mean(Thickness, na.rm=TRUE),
+                sd   = sd(Thickness, na.rm=TRUE),
+                se   = sd / sqrt(N), 
+                min = min(Thickness, na.rm=TRUE),
+                max = max(Thickness, na.rm=TRUE)
+); Thick2
+
+
+ThickScope_plot<-ggplot(Thick2, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
+  geom_bar(position=position_dodge(), stat="identity", color="black") +
+  scale_fill_manual(name="Nutrition",
+                    values=c("orange", "purple"),
+                    labels=c("Fed", "Unfed"))+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=.2,             
+                position=position_dodge(.9))+
+  theme_classic()+
+  ylim(0,800)+
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.position = "none")+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  ylab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))));ThickScope_plot
+```
+
+#### Analysis  
+
+Analyze the effect of nutrition for each method of measurement to determine whether they produce the same result.  
+
+Dissecting microscope method:  
+```{r}
+summary(aov(Thickness~Nutrition, data=compareThick))
+```
+
+Confocal method:  
+```{r}
+summary(aov(Zstack~Nutrition, data=compareThick))
+```
+
+Both methods produce a significant effect of nutrition and plots show that both methods indicate tissue thickness is greater in fed than unfed corals.  
+
+For both fed and unfed corals, the mean tissue thickness was higher using the confocal method (~100um difference). This may be due to the cutting process "squishing" the tunics for dissection scope analysis or the confocal may be more sensitive to capturing fluorescence "glow" that increases the appearance of depth of fluorescence. 
+
+#### Correlation of methods  
+
+Next, test for a correlation between methods.  
+```{r}
+##correlation between lsm and reticle measurements for thickness
+cor.test(compareThick$Thickness, compareThick$Zstack, method=c("pearson"))
+```
+
+There is a significant correlation between the two methods.  
+
+Plot this relationship.  
+```{r}
+ThickCorr<-ggplot(compareThick, aes(x=Thickness, y=Zstack, color=Nutrition)) + 
+  geom_point(size=3) +
+  scale_color_manual(name="Nutrition",
+                    values=c("orange", "purple"),
+                    labels=c("Fed", "Unfed"))+
+  theme_classic()+
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.title = element_text(size = 18, face="bold"))+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  ylab(expression(bold(paste("LSCM Tissue Thickness ("*mu*"m)")))) +
+  xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)")))); ThickCorr
+```
+
+Compare the coefficient of variance between the two methods. Variation is similar between scope (25%) and confocal (28%).  
+```{r}
+#calculate coefficient of variance between samples 
+sd(compareThick$Thickness)/mean(compareThick$Thickness)
+#for scope method, 25% CV
+
+sd(compareThick$Zstack)/mean(compareThick$Zstack)
+#for LSCM, 28% CV
+```
+
+### Symbiont cell counts and fluorescence  
+
+#### Plotting  
+
+Plot confocal symbiont fluorescence data.  
+```{r}
+#plot LSCM data
+Red1 <- ddply(compareRed, c("Nutrition"), summarise,
+                N    = length(Red[!is.na(Red)]),
+                mean = mean(Red, na.rm=TRUE),
+                sd   = sd(Red, na.rm=TRUE),
+                se   = sd / sqrt(N)
+); Red1
+
+#symbiont fluorescence as measured by LSCM Red
+RedConfocal_plot<-ggplot(Red1, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
+  geom_bar(position=position_dodge(), stat="identity", color="black") +
+  scale_fill_manual(name="Nutrition",
+                    values=c("orange", "purple"),
+                    labels=c("Fed", "Unfed"))+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=.2,             
+                position=position_dodge(.9))+
+  theme_classic()+
+  ylim(0,45)+
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.position = "none")+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  ylab(expression(bold(paste("Symbiodiniaceae Fluorescence (% RI)"))));RedConfocal_plot
+```
+
+Plot symbiont cell density values from measurement by hemocytometer.      
+
+```{r}
+#subset only by dissecting microscope  
+Cells1 <- ddply(compareRed, c("Nutrition"), summarise,
+                N    = length(Density[!is.na(Density)]),
+                mean = mean(Density, na.rm=TRUE),
+                sd   = sd(Density, na.rm=TRUE),
+                se   = sd / sqrt(N), 
+                min = min(Density, na.rm=TRUE),
+                max = max(Density, na.rm=TRUE)
+); Cells1
+
+
+Cells_plot<-ggplot(Cells1, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
+  geom_bar(position=position_dodge(), stat="identity", color="black") +
+  scale_fill_manual(name="Nutrition",
+                    values=c("orange", "purple"),
+                    labels=c("Fed", "Unfed"))+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
+                width=.2,             
+                position=position_dodge(.9))+
+  theme_classic()+
+  ylim(0,3500000)+
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.position = "none")+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  ylab(expression(bold(paste("Symbiodiniaceae Cells cm"^-2))));Cells_plot
+```
+
+#### Analysis  
+
+Analyze the effect of nutrition for each method of measurement to determine whether they produce the same result.  
+
+Hemocytometer cell density method:  
+```{r}
+summary(aov(Density~Nutrition, data=compareRed))
+```
+
+Confocal method:  
+```{r}
+summary(aov(Red~Nutrition, data=compareRed))
+```
+
+Both methods produce a significant effect of nutrition and plots show that both methods indicate symbiont metrics are greater in fed than unfed corals.  
+
+#### Correlation of methods  
+
+Next, test for a correlation between methods.  
+```{r}
+##correlation between lsm and reticle measurements for thickness
+cor.test(compareRed$Density, compareRed$Red, method=c("pearson"))
+```
+
+There is a significant correlation between the two methods, but there appears to be high variability.      
+
+Plot this relationship.   
+```{r}
+RedCorr<-ggplot(compareRed, aes(x=Density, y=Red, color=Nutrition)) + 
+  geom_point(size=3) +
+  scale_color_manual(name="Nutrition",
+                    values=c("orange", "purple"),
+                    labels=c("Fed", "Unfed"))+
+  theme_classic()+
+  theme(text = element_text(size = 18))+
+  theme(axis.text = element_text(size = 18, color="black"))+
+  theme(axis.title = element_text(size = 18, face="bold"))+
+  theme(legend.title = element_text(size = 18, face="bold"))+
+  theme(legend.text = element_text(size = 18, color="black"))+
+  xlab(expression(bold(paste("Symbiodiniaceae Cells cm"^-2)))) +
+  ylab(expression(bold(paste("Symbiodiniaceae Fluorescence (% RI)")))); RedCorr
+```
+
+Compare the coefficient of variance between the two methods. Variation is much higher for cell density measurements (59%) than for confocal measurements (18%). This is likely contributing to the poor correlation.    
+```{r}
+#calculate coefficient of variance between samples 
+sd(compareRed$Red)/mean(compareRed$Red)
+#for confocal method, 18% CV
+
+sd(compareRed$Density)/mean(compareRed$Density)
+#for cell counts, 60% CV
+```
+
+## Produce figure  
+
+```{r}
+methodsfig<-plot_grid(ThickConfocal_plot, ThickScope_plot, ThickCorr, RedConfocal_plot, Cells_plot, RedCorr, labels = c("A", "B", "C", "D", "E", "F"), ncol=3, nrow=2, rel_heights= c(1,1,1, 1, 1, 1), rel_widths = c(1,1,1.5, 1, 1,1.5), label_size = 20, label_y=1, align="h");methodsfig
+
+ggsave(filename="Figures/Methods_SuppFig.png", plot=methodsfig, dpi=500, width=16, height=12, units="in")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
