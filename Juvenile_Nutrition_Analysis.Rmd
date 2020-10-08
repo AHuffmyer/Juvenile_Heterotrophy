@@ -1099,7 +1099,7 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
  #scale_y_continuous(breaks=c(0,0.2,0.4,0.6,0.8,1))+
   scale_colour_manual(name=expression(bold(atop("Rearing         ", paste("Temperature")))),
                         breaks=c("Ambient", "Cool"),
-                        labels=c("Ambient", "Cool"), 
+                        labels=c("Ambient (27.4°C)", "Cool (30.1°C)"), 
                         values=cols)+
   scale_linetype_manual(name=expression(bold("Nutrition")),
                           breaks=c("Heterotrophy", "No Heterotrophy"),
