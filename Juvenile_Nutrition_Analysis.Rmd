@@ -60,7 +60,7 @@ Author contributions: A Huffmyer designed study, conducted experiment, collected
 
 *Methodology overview*  
 
-Juvenile corals were exposed to rearing treatment conditions for 30 days in Ambient and Cool treatments and then exposed to a high temperature simulated stress. Ambient conditions were selected based on average temperatures in summer (June) in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions was selected based on average temperatures in spring (March) in Kaneohe Bay. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay or were not supplied with a heterotrophic food source. Three tank replicates were in each treatment: **Ambient-Heterotrophy (AH), Ambient-No Heterotrophy (AN), Cool-Heterotrophy (CH), and Cool-No Heterotrophy (CN)**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these treatments for 30 days. Over the course of the rearing period, we measured survivorship and growth and measured physiological parameters (tissue thickness and Symbiodiniaceae fluorescence) at the end of the rearing period.  We then exposed juvenile corals of each rearing temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship as a measure of thermal tolerance.    
+Juvenile corals were exposed to rearing treatment conditions for 30 days in Ambient and Cool treatments and then exposed to a high temperature simulated stress. Ambient conditions were selected based on average temperatures in summer (June) in Kaneoehe Bay during the timeframe in which this experiment was conducted. The Cool treatment conditions was selected based on average temperatures in spring (March) in Kaneohe Bay. Within these treatments, juveniles were either supplied with fresh plankton from Kaneohe Bay (fed) or were not supplied with this food source (unfed). Three tank replicates were in each treatment: **Ambient-Fed, Ambient-Unfed, Cool-Fed, and Cool-Unfed**. Tanks were 40L in volume and were equipped with a heater, pump, and Ecotech Marine LED aquarium lighting, peaking at ~250 PAR on a 12:12 light:dark cycle. Juveniles were settled and reared in these treatments for 30 days. Over the course of the rearing period, we measured survivorship and growth and measured physiological parameters (tissue thickness and Symbiodiniaceae fluorescence) at the end of the rearing period.We then exposed juvenile corals of each rearing temperature, continuing their respective nutrition treatment, to a one-month stress period at either ambient or high temperature and measured survivorship as a measure of thermal tolerance.    
 
 *See manuscript for detailed methodology and treatment information*  
 
@@ -420,7 +420,7 @@ surv1<-arrange_ggsurvplots(splots, print=TRUE, ncol=1, nrow=1)
 fitKM4 <- survfit(Surv(Days, Censor) ~ Nutrition, type = "kaplan-meier", conf.type="log", data = KM, na.action=na.omit)
 
 #plot survivorship curves for nutrition
-survplotKM4<- ggsurvplot(fitKM4, conf.int=TRUE,  pval = FALSE, pval.size=8, test.for.trend = FALSE, xlab = "Time (Days)", ylab = "Survival Probability", palette = c("orange", "purple"), title="", legend="top", legend.title=" ", surv.scale="percent", font.x=c(20,"bold"), font.tickslab=c(20), font.y=c(20,"bold"), font.title=c(20,"bold"), ylim=c(0,1), font.legend=c(20), font.axis=c(20), legend.lab=c("Heterotrophy", "No Heterotrophy"), margin=c(0.1,0.1,1,0.1))
+survplotKM4<- ggsurvplot(fitKM4, conf.int=TRUE,  pval = FALSE, pval.size=8, test.for.trend = FALSE, xlab = "Time (Days)", ylab = "Survival Probability", palette = c("orange", "purple"), title="", legend="top", legend.title=" ", surv.scale="percent", font.x=c(20,"bold"), font.tickslab=c(20), font.y=c(20,"bold"), font.title=c(20,"bold"), ylim=c(0,1), font.legend=c(20), font.axis=c(20), legend.lab=c("Fed", "Unfed"), margin=c(0.1,0.1,1,0.1))
 
 survplotKM4$plot <- survplotKM4$plot+ 
               ggplot2::annotate("text", 
@@ -903,13 +903,14 @@ knitr::kable(RedTable)
 View interaction plot.  
 ```{r, results=TRUE}
 Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
+  scale_colour_manual(values=c("purple", "orange"), labels=c("Unfed", "Fed"))+
   scale_colour_manual(values=c("purple", "orange"), labels=c("Fed", "Unfed"))+
   geom_line(position=position_dodge(0.03), size=1.3, aes(group=Nutrition)) +
   geom_point(size=3, position=position_dodge(0.03)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
-  geom_text(x=1.5, y=21, label="p(Nutrition)=0.001", size=6, color="black") + 
-  geom_text(x=1.5, y=19, label="p(Temperature)=0.70", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=17, label="p(Interaction)=0.006", size=6, color="black") + 
+  geom_text(x=1.5, y=21, label="p(Nutrition)<0.001", size=6, color="black") + 
+  geom_text(x=1.5, y=19, label="p(Temperature)=0.85", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=17, label="p(Interaction)=0.005", size=6, color="black") + 
   theme_classic()+
   ylim(15,45)+
   theme(text = element_text(size = 18, color="black"))+
@@ -1132,3 +1133,4 @@ detach(final)
 
 1. There was a positive effect of heterotrophic feeding on juvenile survival during high temperature stress.  
 2. Juveniles reared at cool temperature with access to heterotrophy had higher survival both at ambient and high temperature conditions.  
+ 

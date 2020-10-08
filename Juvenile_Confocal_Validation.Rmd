@@ -1,5 +1,5 @@
 ---
-title: "Juvenile Confocal Methods Validation"
+title: Juvenile Confocal Methods Validation
 author: "AS Huffmyer, CJ Johnson, AM Epps, JD Lemus, RD Gates"
 date: '2020'
 output:
@@ -346,12 +346,16 @@ sd(compareRed$Density)/mean(compareRed$Density)
 
 ## Produce figure  
 
+Produce final figure.  
 ```{r}
-methodsfig<-plot_grid(ThickConfocal_plot, ThickScope_plot, ThickCorr, RedConfocal_plot, Cells_plot, RedCorr, labels = c("A", "B", "C", "D", "E", "F"), ncol=3, nrow=2, rel_heights= c(1,1,1, 1, 1, 1), rel_widths = c(1,1,1.5, 1, 1,1.5), label_size = 20, label_y=1, align="h");methodsfig
+methodsfig<-plot_grid(ThickConfocal_plot, ThickScope_plot, ThickCorr, RedConfocal_plot, Cells_plot, RedCorr, labels = c("A", "B", "C", "D", "E", "F"), ncol=3, nrow=2, rel_heights= c(1,1,1, 1, 1, 1), rel_widths = c(1,1,1.5, 1, 1,1.5), label_size = 20, label_y=1, align="h")
 
 ggsave(filename="Figures/Methods_SuppFig.png", plot=methodsfig, dpi=500, width=16, height=12, units="in")
 ```
 
+
+
+![Confocal method validation metrics](Figures/Methods_SuppFig.png)   
 
 
 
