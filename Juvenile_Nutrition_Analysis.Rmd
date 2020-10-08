@@ -372,7 +372,12 @@ KM<-read.csv("Data/Rearing_Survivorship.csv", header=TRUE, sep=",", na.strings="
 print(levels(KM$Temperature))  ##Levels are ambient, then cool - which is correct
 print(levels(KM$Nutrition)) ##Needs to be reordered with No Heterotrophy first
 
-KM$Nutrition <- relevel(KM$Nutrition, ref = "No Heterotrophy")
+#change variable names to reflect "fed" and "unfed"  
+KM$Nutrition<-plyr::revalue(KM$Nutrition, c("Heterotrophy"="Fed", "No Heterotrophy"="Unfed"))
+print(levels(KM$Nutrition))
+
+#set reference level
+KM$Nutrition <- relevel(KM$Nutrition, ref = "Unfed")
 print(levels(KM$Nutrition))
 ```
  
@@ -487,10 +492,13 @@ growth$Colony.ID<-as.factor(growth$Colony.ID)
 growth$Cohort<-as.factor(growth$Cohort)
 
 print(levels(growth$Temperature))  ##Levels are ambient, then cool - which is correct
-print(levels(growth$Nutrition)) ##Needs to be reordered with No Heterotrophy first
 
-##reorder the levels
-growth$Nutrition <- relevel(growth$Nutrition, ref = "No Heterotrophy")
+#change variable names to reflect "fed" and "unfed"  
+growth$Nutrition<-plyr::revalue(growth$Nutrition, c("Heterotrophy"="Fed", "No Heterotrophy"="Unfed"))
+print(levels(growth$Nutrition))
+
+#set reference level
+growth$Nutrition <- relevel(growth$Nutrition, ref = "Unfed")
 print(levels(growth$Nutrition))
 
 #check for incomplete rows
@@ -729,9 +737,14 @@ Using the "Master_Confocal" data frame, we first analyze tissue thickness measur
 print(levels(colony$Temperature))  ##Levels are ambient, then cool - which is correct
 print(levels(colony$Nutrition)) ##Needs to be reordered with No Heterotrophy first
 
-##reorder the levels
-colony$Nutrition <- relevel(colony$Nutrition, ref = "No Heterotrophy")
+#change variable names to reflect "fed" and "unfed"  
+colony$Nutrition<-plyr::revalue(colony$Nutrition, c("Heterotrophy"="Fed", "No Heterotrophy"="Unfed"))
 print(levels(colony$Nutrition))
+
+#set reference level
+colony$Nutrition <- relevel(colony$Nutrition, ref = "Unfed")
+print(levels(colony$Nutrition))
+
 ```
 
 Examine data for normality, using data collected as averaged over each juvenile colony.  
@@ -902,9 +915,10 @@ knitr::kable(RedTable)
 
 View interaction plot.  
 ```{r, results=TRUE}
+RedTable$Nutrition <- factor(RedTable$Nutrition, levels = c("Fed", "Unfed"))
+
 Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
-  scale_colour_manual(values=c("purple", "orange"), labels=c("Unfed", "Fed"))+
-  scale_colour_manual(values=c("purple", "orange"), labels=c("Fed", "Unfed"))+
+  scale_colour_manual(values=c("orange", "purple"), labels=c("Fed", "Unfed"))+
   geom_line(position=position_dodge(0.03), size=1.3, aes(group=Nutrition)) +
   geom_point(size=3, position=position_dodge(0.03)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
@@ -923,7 +937,7 @@ Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
   theme(axis.title = element_text(size = 18, color="black", face="bold"))+
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
   theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
-  ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
+  ylab(expression(bold(paste("Symbiodiniaceae Fluorescence (% RI)")))) +
   xlab("Temperature")
 
 ggsave("Figures/Fluorescence_Figure.pdf", plot=Red2, height=8, width=8, units = c("in"), dpi=300) #output figure
@@ -942,20 +956,22 @@ cor.test(colony$Red, colony$Thickness, method=c("pearson"))
 Plot relationship between tissue thickness and Symbiodiniaceae fluorescence.  
  
 ```{r, results=TRUE, warning=FALSE}
+colony$Nutrition <- factor(colony$Nutrition, levels = c("Fed", "Unfed"))
+
 Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) + 
   geom_point(aes(color=Nutrition, shape=Temperature), size=6) +
    scale_color_manual(name="Nutrition",
-                    values=c("purple", "orange"), 
-                    labels=c("Unfed", "Fed"))+
+                    values=c("orange", "purple"), 
+                    labels=c("Fed", "Unfed"))+
   scale_shape_manual(values = c("circle", "triangle"))+
   theme_classic()+
-  geom_text(x=800, y=20, label="r=0.50, p<0.001", size=6, color="black") +
+  geom_text(x=800, y=20, label="r=0.50, p<0.001", size=9, color="black") +
   theme(text = element_text(size = 20))+
   theme(axis.text = element_text(size = 20, color="black"))+
   theme(axis.title = element_text(size = 20, face="bold"))+
   theme(legend.title = element_text(size = 20, face="bold"))+
   theme(legend.text = element_text(size = 20, color="black"))+
-  ylab(expression(bold(paste("Symbiont Fluorescence (RI colony" ^-1, ")")))) +
+  ylab(expression(bold(paste("Symbiodiniaceae Fluorescence (% RI)")))) +
   xlab(expression(bold(paste("Tissue Thickness ("*mu*"m)"))))
 
 ggsave("Figures/Correlation_Physiology_Figure.png", plot=Cor1, height=10, width=12, units = c("in"), dpi=300) #output figure
@@ -967,6 +983,8 @@ ggsave("Figures/Correlation_Physiology_Figure.png", plot=Cor1, height=10, width=
 Conduct a model analysis to determine whether temperatures have different slopes in the relationship between tissue thickness and symbiont fluorescence.  
 
 ```{r, results=TRUE, warning=FALSE, message=FALSE}
+colony$Nutrition <- factor(colony$Nutrition, levels = c("Unfed", "Fed"))
+
 corrModel<-lmer(Red~Thickness * Temperature * Nutrition + (1|Tank) + (1|Cohort), data=colony)
 summary(corrModel)
 anova(corrModel, type=2)
@@ -1023,13 +1041,13 @@ final<-thermal[which(thermal$Day == "31"),] #subset final timepoint
 
 Analyze with a binomial vector of successes and failures. Successes is the number of living juveniles ("Juveniles") and failure is the number of juveniles that have died from the initial timepoint (Initial juveniles - Juveniles at timepoint) called "Failures".  
  
-Summary of total survivorship at the end of the thermal stress test.   
+Summary of total survivorship at the end of the thermal stress test. Display survival as percentages (%).     
 
 ```{r, results=TRUE}
 Stress.Summary <- ddply(final, c("Stress.Temp", "Rear.Temp", "Nutrition"), summarise,
                         N    = length(Surv[!is.na(Surv)]),
-                        mean = mean(Surv, na.rm=TRUE),
-                        sd   = sd(Surv, na.rm=TRUE),
+                        mean = mean(Surv, na.rm=TRUE)*100,
+                        sd   = sd(Surv, na.rm=TRUE)*100,
                         se   = sd / sqrt(N)
 )
 
@@ -1067,17 +1085,15 @@ dispersion_glmer(stressFINALmod) #no evidence of overdispersion
 Plot total survivorship in high and ambient treatment at the end of the stress period.  
  
 ```{r, results=TRUE}
-
 cols <- c("Ambient" = "#606060","Cool" = "#0099FF")
-          
           
 FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, group=interaction(Rear.Temp, Nutrition), colour=Rear.Temp, linetype=Nutrition)) + 
   geom_line(position=position_dodge(0.03), size=1.3) +
   geom_point(size=3, position=position_dodge(0.03)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
   xlab(expression(bold("Temperature"))) +
-  ylab(expression(bold("Survivorship"))) +
-  ylim(-0.1,1) + 
+  ylab(expression(bold("Survivorship (%)"))) +
+  ylim(-10,100) + 
   ggtitle("")+
   theme_classic() +
  #scale_y_continuous(breaks=c(0,0.2,0.4,0.6,0.8,1))+
@@ -1089,19 +1105,19 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
                           breaks=c("Heterotrophy", "No Heterotrophy"),
                           labels=c("Fed", "Unfed"), 
                           values=c("solid", "dotted")) +
-  annotate("text", x = .45, y = .15, 
+  annotate("text", x = .45, y = 15, 
            label = "p(Stress Temp.)<0.001", size = 5, color="black", hjust=0)+
-   annotate("text", x = .45, y = .11, 
+   annotate("text", x = .45, y = 11, 
            label = "p(Rearing Temp.)<0.001", size = 5, color="black", hjust=0)+
-   annotate("text", x = .45, y = .07, 
+   annotate("text", x = .45, y = 07, 
            label = "p(Nutrition)<0.001", size = 5, color="black", hjust=0)+
-   annotate("text", x = .45, y = .03, 
+   annotate("text", x = .45, y = 03, 
            label = "p(Stress Temp. x Rearing Temp.)=0.66", size = 5, color="darkgray", hjust=0)+
-   annotate("text", x = .45, y = -.01, 
+   annotate("text", x = .45, y = -01, 
            label = "p(Stress Temp. x Nutrition)=0.008", size = 5, color="black", hjust=0)+
-   annotate("text", x = .45, y = -.05, 
+   annotate("text", x = .45, y = -05, 
            label = "p(Rearing Temp. x Nutrition)=0.004", size = 5, color="black", hjust=0)+
-   annotate("text", x = .45, y = -.09, 
+   annotate("text", x = .45, y = -09, 
            label = "p(Three-way Interaction)=0.74", size = 5, color="darkgray", hjust=0)+
   theme(panel.background = element_blank()) +
   theme(text = element_text(size=20),
