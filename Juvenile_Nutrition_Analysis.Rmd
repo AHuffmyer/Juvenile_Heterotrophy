@@ -1091,6 +1091,7 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
   geom_line(position=position_dodge(0.03), size=1.3) +
   geom_point(size=3, position=position_dodge(0.03)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
+  scale_x_discrete(labels=c("Ambient" = "Ambient (27.4°C)", "High" = "High (30.1°C)"))+
   xlab(expression(bold("Temperature"))) +
   ylab(expression(bold("Survivorship (%)"))) +
   ylim(-10,100) + 
@@ -1099,7 +1100,7 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
  #scale_y_continuous(breaks=c(0,0.2,0.4,0.6,0.8,1))+
   scale_colour_manual(name=expression(bold(atop("Rearing         ", paste("Temperature")))),
                         breaks=c("Ambient", "Cool"),
-                        labels=c("Ambient (27.4°C)", "Cool (30.1°C)"), 
+                        labels=c("Ambient", "Cool"), 
                         values=cols)+
   scale_linetype_manual(name=expression(bold("Nutrition")),
                           breaks=c("Heterotrophy", "No Heterotrophy"),
