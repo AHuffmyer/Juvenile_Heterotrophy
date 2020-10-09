@@ -525,7 +525,7 @@ qqPlot(growth_ind$tPlanar)
 ```
 
 Growth rate is analyzed using lmer mixed effects model.  
-Fixed Effects: Nutrition and temperature  
+Fixed Effects: Nutrition and temperature   
 Random Effects: Tank, cohort 
 
 Significance determined using Type II ANOVA function.  

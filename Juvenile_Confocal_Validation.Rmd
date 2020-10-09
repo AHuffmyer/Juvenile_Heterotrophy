@@ -108,7 +108,7 @@ For each metric, analyze by:
 
 ### Tissue thickness  
 
-#### Plotting  
+#### Plotting   
 
 Plot confocal tissue thickness data.  
 ```{r}
@@ -129,6 +129,7 @@ ThickConfocal_plot<-ggplot(Thick1, aes(x=Nutrition, y=mean, fill=Nutrition)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
                 width=.2,             
                 position=position_dodge(.9))+
+  geom_text(x=1.5, y=800, label="p<0.01", size=6, color="black") + 
   theme_classic()+
   ylim(0,800)+
   theme(text = element_text(size = 18))+
@@ -158,6 +159,7 @@ ThickScope_plot<-ggplot(Thick2, aes(x=Nutrition, y=mean, fill=Nutrition)) +
   scale_fill_manual(name="Nutrition",
                     values=c("orange", "purple"),
                     labels=c("Fed", "Unfed"))+
+  geom_text(x=1.5, y=800, label="p<0.01", size=6, color="black") +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
                 width=.2,             
                 position=position_dodge(.9))+
@@ -208,6 +210,7 @@ ThickCorr<-ggplot(compareThick, aes(x=Thickness, y=Zstack, color=Nutrition)) +
                     labels=c("Fed", "Unfed"))+
   theme_classic()+
   theme(text = element_text(size = 18))+
+  geom_text(x=650, y=350, label="r=0.58, p<0.01", size=6, color="black") +
   theme(axis.text = element_text(size = 18, color="black"))+
   theme(axis.title = element_text(size = 18, face="bold"))+
   theme(legend.title = element_text(size = 18, face="bold"))+
@@ -249,6 +252,7 @@ RedConfocal_plot<-ggplot(Red1, aes(x=Nutrition, y=mean, fill=Nutrition)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
                 width=.2,             
                 position=position_dodge(.9))+
+  geom_text(x=1.5, y=44, label="p<0.01", size=6, color="black") +
   theme_classic()+
   ylim(0,45)+
   theme(text = element_text(size = 18))+
@@ -281,8 +285,9 @@ Cells_plot<-ggplot(Cells1, aes(x=Nutrition, y=mean, fill=Nutrition)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
                 width=.2,             
                 position=position_dodge(.9))+
+  geom_text(x=1.5, y=3200000, label="p=0.04", size=6, color="black") +
   theme_classic()+
-  ylim(0,3500000)+
+  ylim(0,3200000)+
   theme(text = element_text(size = 18))+
   theme(axis.text = element_text(size = 18, color="black"))+
   theme(axis.title = element_text(size = 18, face="bold"))+
@@ -326,6 +331,7 @@ RedCorr<-ggplot(compareRed, aes(x=Density, y=Red, color=Nutrition)) +
                     labels=c("Fed", "Unfed"))+
   theme_classic()+
   theme(text = element_text(size = 18))+
+  geom_text(x=3500000, y=22, label="r=0.43, p=0.045", size=6, color="black") +
   theme(axis.text = element_text(size = 18, color="black"))+
   theme(axis.title = element_text(size = 18, face="bold"))+
   theme(legend.title = element_text(size = 18, face="bold"))+
