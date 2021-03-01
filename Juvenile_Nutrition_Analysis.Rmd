@@ -10,6 +10,8 @@ output:
     toc_float: yes
   pdf_document:
     keep_tex: yes
+editor_options: 
+  chunk_output_type: console
 ---
 ## Setup   
 
@@ -963,7 +965,7 @@ Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) +
    scale_color_manual(name="Nutrition",
                     values=c("orange", "purple"), 
                     labels=c("Fed", "Unfed"))+
-  scale_shape_manual(values = c("circle", "triangle"))+
+  scale_shape_manual(values = c(19,21))+
   theme_classic()+
   geom_text(x=800, y=20, label="r=0.50, p<0.001", size=9, color="black") +
   theme(text = element_text(size = 20))+
