@@ -305,7 +305,7 @@ sum(DHD$Diff)
 
 ## 2. Larval settlement  
 
-Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.    
+Settlement trials were conducted to measure settlement rate in Ambient and Cool temperature treatments to check assumption that starting juveniles were approximatley equal in each temperature. Settlement data is recorded as "Successes", which indicates the number of settlers after 24 hours, and "Failures", which indicates the number of swimming larvae that did not settle. Cohort indicates the day larvae were released from the parent colony. Settlement data are loaded and examined using binomial mixed models.     
 
 ```{r, restults=FALSE}
 settle<-read.csv("Data/Larval_Settlement.csv", header=T, na.strings="NA")
@@ -325,7 +325,7 @@ Determine significance of treatment using Type II Anova analysis. Display ANOVA 
 
 ```{r, results=TRUE}
 #mixed model with tank and cohort as random effects
-setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial, REML=F)
+setmod<-glmer(y~Treatment + (1|Tank/Plug.ID) + (1|Cohort), family=binomial)
 Anova(setmod, type="II") #non sign at p=0.5719
 ```
 
@@ -383,7 +383,7 @@ KM$Nutrition <- relevel(KM$Nutrition, ref = "Unfed")
 print(levels(KM$Nutrition))
 ```
  
-Survivorship data is analyzed using a Cox Proportional Hazards model:  
+Survivorship data is analyzed using a Cox Proportional Hazards model:   
 
 `cox1<-coxph(Surv(Days,Censor)~Nutrition*Temperature, data=KM)`  
 
@@ -432,10 +432,10 @@ survplotKM4<- ggsurvplot(fitKM4, conf.int=TRUE,  pval = FALSE, pval.size=8, test
 survplotKM4$plot <- survplotKM4$plot+ 
               ggplot2::annotate("text", 
                                 x = 15, y = .35, # x and y coordinates of the text
-                                label = "p(Nutrition)=0.47", size = 7, color="darkgray")+
+                                label = "p(Nutrition)=0.473", size = 7, color="darkgray")+
               ggplot2::annotate("text", 
                                 x = 15, y = .25, # x and y coordinates of the text
-                                label = "p(Nutrition x Temperature)=0.09", size = 7, color="darkgray")
+                                label = "p(Nutrition x Temperature)=0.086", size = 7, color="darkgray")
 survplotKM4
 
 splots<-list()
@@ -484,7 +484,7 @@ Growth rate is calculated as the change in planar surface area normalized to sta
 
 Data set is loaded and we remove any individuals with "NA" at the final timepoint due to mortality. As many individuals in this study either started as fused aggregates with other juveniles or fused with multiple other colonies during the rearing period, we will analyze only the individuals Future work should investigate growth, survivorship, and physiology of fused juvenile colonies.  
 
-As growth is measured by photographs, this is the only dataset in which we can verify fusion status. Confocal data was collected on randomly selected plugs, which did not have photograph records from the start of the experiment to determine colony origin as fused or individual.   
+As growth is measured by photographs, this is the only dataset in which we can verify fusion status. Confocal data was collected on randomly selected plugs, which did not have photograph records from the start of the experiment to determine colony origin as fused or individual.    
 
 ```{r, results=FALSE}
 #load data
@@ -590,9 +590,9 @@ Growth1a<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, colour=Nutrition)
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
   theme(axis.title.x = element_text(margin = margin(t = 7, r = 0, b = 0, l = 0))) +
   xlab("Temperature") +
-  geom_text(x=1.5, y=0.9, label="p(Nutrition)=0.03", size=6, color="black") + 
-  geom_text(x=1.5, y=0.6, label="p(Temperature)=0.82", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=0.3, label="p(Interaction)=0.59", size=6, color="darkgray")
+  geom_text(x=1.5, y=0.9, label="p(Nutrition)=0.035", size=6, color="black") + 
+  geom_text(x=1.5, y=0.6, label="p(Temperature)=0.824", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=0.3, label="p(Interaction)=0.591", size=6, color="darkgray")
 
 growthfig<-plot_grid(Growth1a, labels = c(""), ncol=1, nrow=1, rel_heights= c(1), rel_widths = c(1), label_size = 20, label_y=1, align="h")
 
@@ -611,7 +611,7 @@ ggsave("Figures/Growth_Figure.pdf", plot=growthfig, height=8, width=10, units = 
 
 Tissue thickness and symbiont densities are measured using Laser Scanning Confocal Microscopy as described in Huffmyer et al. (2020). Data were collected at the end of the rearing period.    
 
-Raw data sets are inputted and manipulated to calculate the following based on the average intensity of Channel 2 (Red) = symbiont fluorescence intensity per juvenile 
+Raw data sets are inputted and manipulated to calculate the following based on the average intensity of Channel 2 (Red) = symbiont fluorescence intensity per juvenile  
 
 ```{r, results=FALSE}
 #load data set for fluorescence (symbionts)
@@ -748,7 +748,7 @@ colony$Nutrition <- relevel(colony$Nutrition, ref = "Unfed")
 print(levels(colony$Nutrition))
 
 ```
-
+ 
 Examine data for normality, using data collected as averaged over each juvenile colony.  
 
 ```{r, results=TRUE}
@@ -840,8 +840,8 @@ Thick2<-ggplot(data=ThickTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
   xlab("Temperature") +
   scale_x_discrete(limits=c("Cool", "Ambient"))+
   geom_text(x=1.5, y=410, label="p(Nutrition)<0.001", size=6, color="black") + 
-  geom_text(x=1.5, y=375, label="p(Temperature)=0.06", size=6, color="darkgray") + 
-  geom_text(x=1.5, y=340, label="p(Interaction)=0.03", size=6, color="black")
+  geom_text(x=1.5, y=375, label="p(Temperature)=0.060", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=340, label="p(Interaction)=0.037", size=6, color="black")
 
 ggsave("Figures/Thickness_Figure.pdf", plot=Thick2, height=8, width=6, units = c("in"), dpi=300) #output figure
 ```
@@ -925,7 +925,7 @@ Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
   geom_point(size=3, position=position_dodge(0.03)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
   geom_text(x=1.5, y=21, label="p(Nutrition)<0.001", size=6, color="black") + 
-  geom_text(x=1.5, y=19, label="p(Temperature)=0.85", size=6, color="darkgray") + 
+  geom_text(x=1.5, y=19, label="p(Temperature)=0.858", size=6, color="darkgray") + 
   geom_text(x=1.5, y=17, label="p(Interaction)=0.005", size=6, color="black") + 
   theme_classic()+
   ylim(15,45)+
@@ -1026,7 +1026,7 @@ ggsave(filename="Figures/Physiology_Figure.png", plot=confocalfinal, dpi=300, wi
 
 Survivorship was measured as the number of inidividual colonies alive on each plug at the beginning and end of the stress test, which occured for 30 days after the end of the rearing period. 
 
-Load in survivorship data, examine structure, and create binomial vector of Success/Failure.   
+Load in survivorship data, examine structure, and create binomial vector of Success/Failure.    
 
 ```{r, results=TRUE}
 thermal<-read.csv("Data/Stress_Survival.csv", header=T)
@@ -1115,13 +1115,13 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
    annotate("text", x = .45, y = 07, 
            label = "p(Nutrition)<0.001", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = 03, 
-           label = "p(Stress Temp. x Rearing Temp.)=0.66", size = 5, color="darkgray", hjust=0)+
+           label = "p(Stress Temp. x Rearing Temp.)=0.658", size = 5, color="darkgray", hjust=0)+
    annotate("text", x = .45, y = -01, 
-           label = "p(Stress Temp. x Nutrition)=0.008", size = 5, color="black", hjust=0)+
+           label = "p(Stress Temp. x Nutrition)=0.005", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = -05, 
-           label = "p(Rearing Temp. x Nutrition)=0.004", size = 5, color="black", hjust=0)+
+           label = "p(Rearing Temp. x Nutrition)=0.009", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = -09, 
-           label = "p(Three-way Interaction)=0.74", size = 5, color="darkgray", hjust=0)+
+           label = "p(Three-way Interaction)=0.736", size = 5, color="darkgray", hjust=0)+
   theme(panel.background = element_blank()) +
   theme(text = element_text(size=20),
         panel.border = element_blank(), 
