@@ -121,7 +121,7 @@ Load temperature data from temperature logger files and generate figure with:
 2. 24-hour cycle of temperatures by summarizing the mean temp at each 15-minute interval per day during the rearing period and the stress period. 
 
 Plot 24-hour cycle of temperatures by summarizing the mean temp at each time of day for during the stress period. This includes only high temperature days, not ramping days.  
-
+ 
 ```{r, results=TRUE, message=FALSE, warning=FALSE}
 physical<-read.csv("Data/Temperature.csv", header=T, na.strings="NA")
 physical$DateTime <- as.POSIXct(physical$DateTime, format="%m/%d/%y %H:%M")
@@ -198,7 +198,7 @@ RearingDay<-ggplot(Rearing1, aes(x = Minutes, y = mean, color=Treatment, fill=Tr
   theme(legend.position="none")+
   theme(legend.title = element_text(face="bold"))+
   theme(text = element_text(size = 16, color="black"))+
-  theme(plot.margin = unit(c(1, 0.1, 0.1, 1), "cm")) + #t, r, b, l
+  theme(plot.margin = unit(c(1, 0.5, 0.1, 1), "cm")) + #t, r, b, l
   theme(axis.title = element_text(size = 16, color="black", face="bold"))+
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
   theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
@@ -245,7 +245,7 @@ StressDay<-ggplot(Stress1, aes(x = Minutes, y = mean, color=Treatment, fill=Trea
   theme(legend.title = element_text(face="bold"))+
   theme(text = element_text(size = 16, color="black"))+
   theme(axis.title = element_text(size = 16, color="black", face="bold"))+
-  theme(plot.margin = unit(c(1, 0.1, 0.1, 1), "cm")) + #t, r, b, l
+  theme(plot.margin = unit(c(1, 0.5, 0.1, 1), "cm")) + #t, r, b, l
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 5, b = 0, l = 0))) +
   theme(axis.title.x = element_text(margin = margin(t = 5, r = 0, b = 0, l = 0))) +
   theme(axis.text = element_text(size=16, color="black"))
@@ -253,7 +253,7 @@ StressDay<-ggplot(Stress1, aes(x = Minutes, y = mean, color=Treatment, fill=Trea
 right_row <- plot_grid(RearingDay, StressDay, labels = c('B', 'C'), nrow=2, ncol=1, label_size = 20)
 tempplots<-plot_grid(TimeSeries, right_row, labels = c("A", ""), ncol=2, nrow=1, rel_widths = c(2.6, 1), label_size = 20)
 
-ggsave(filename="Figures/TemperatureFigure.pdf", plot=tempplots, dpi=300, width=13, height=6, units="in")
+ggsave(filename="Figures/TemperatureFigure.png", plot=tempplots, dpi=300, width=13, height=6, units="in")
 ```
 
 ![Temperature Treatments over A) experiment timeseries; B) average daily cycle during rearing period; C) average daily cycle during stress period.](Figures/TemperatureFigure.pdf)  
@@ -432,10 +432,10 @@ survplotKM4<- ggsurvplot(fitKM4, conf.int=TRUE,  pval = FALSE, pval.size=8, test
 survplotKM4$plot <- survplotKM4$plot+ 
               ggplot2::annotate("text", 
                                 x = 15, y = .35, # x and y coordinates of the text
-                                label = "p(Nutrition)=0.473", size = 7, color="darkgray")+
+                                label = "p(Feeding)=0.473", size = 7, color="darkgray")+
               ggplot2::annotate("text", 
                                 x = 15, y = .25, # x and y coordinates of the text
-                                label = "p(Nutrition x Temperature)=0.086", size = 7, color="darkgray")
+                                label = "p(Feeding x Temperature)=0.086", size = 7, color="darkgray")
 survplotKM4
 
 splots<-list()
@@ -590,7 +590,7 @@ Growth1a<-ggplot(data=GrowthPlanar, aes(x=Temperature, y=mean, colour=Nutrition)
   theme(axis.title.y = element_text(margin = margin(t = 0, r = 7, b = 0, l = 1))) +
   theme(axis.title.x = element_text(margin = margin(t = 7, r = 0, b = 0, l = 0))) +
   xlab("Temperature") +
-  geom_text(x=1.5, y=0.9, label="p(Nutrition)=0.035", size=6, color="black") + 
+  geom_text(x=1.5, y=0.9, label="p(Feeding)=0.035", size=6, color="black") + 
   geom_text(x=1.5, y=0.6, label="p(Temperature)=0.824", size=6, color="darkgray") + 
   geom_text(x=1.5, y=0.3, label="p(Interaction)=0.591", size=6, color="darkgray")
 
@@ -839,7 +839,7 @@ Thick2<-ggplot(data=ThickTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
   theme(axis.title.x = element_text(margin = margin(t = 8, r = 0, b = 0, l = 0))) +
   xlab("Temperature") +
   scale_x_discrete(limits=c("Cool", "Ambient"))+
-  geom_text(x=1.5, y=410, label="p(Nutrition)<0.001", size=6, color="black") + 
+  geom_text(x=1.5, y=410, label="p(Feeding)<0.001", size=6, color="black") + 
   geom_text(x=1.5, y=375, label="p(Temperature)=0.060", size=6, color="darkgray") + 
   geom_text(x=1.5, y=340, label="p(Interaction)=0.037", size=6, color="black")
 
@@ -920,11 +920,11 @@ View interaction plot.
 RedTable$Nutrition <- factor(RedTable$Nutrition, levels = c("Fed", "Unfed"))
 
 Red2<-ggplot(data=RedTable, aes(x=Temperature, y=mean, colour=Nutrition)) +
-  scale_colour_manual(values=c("orange", "purple"), labels=c("Fed", "Unfed"))+
+  scale_colour_manual(name="Feeding",values=c("orange", "purple"), labels=c("Fed", "Unfed"))+
   geom_line(position=position_dodge(0.03), size=1.3, aes(group=Nutrition)) +
   geom_point(size=3, position=position_dodge(0.03)) +
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
-  geom_text(x=1.5, y=21, label="p(Nutrition)<0.001", size=6, color="black") + 
+  geom_text(x=1.5, y=21, label="p(Feeding)<0.001", size=6, color="black") + 
   geom_text(x=1.5, y=19, label="p(Temperature)=0.858", size=6, color="darkgray") + 
   geom_text(x=1.5, y=17, label="p(Interaction)=0.005", size=6, color="black") + 
   theme_classic()+
@@ -962,7 +962,7 @@ colony$Nutrition <- factor(colony$Nutrition, levels = c("Fed", "Unfed"))
 
 Cor1<-ggplot(colony, aes(x=Thickness, y=Red)) + 
   geom_point(aes(color=Nutrition, shape=Temperature), size=6) +
-   scale_color_manual(name="Nutrition",
+   scale_color_manual(name="Feeding",
                     values=c("orange", "purple"), 
                     labels=c("Fed", "Unfed"))+
   scale_shape_manual(values = c(19,21))+
@@ -1104,7 +1104,7 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
                         breaks=c("Ambient", "Cool"),
                         labels=c("Ambient", "Cool"), 
                         values=cols)+
-  scale_linetype_manual(name=expression(bold("Nutrition")),
+  scale_linetype_manual(name=expression(bold("Feeding")),
                           breaks=c("Heterotrophy", "No Heterotrophy"),
                           labels=c("Fed", "Unfed"), 
                           values=c("solid", "dotted")) +
@@ -1113,13 +1113,69 @@ FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, 
    annotate("text", x = .45, y = 11, 
            label = "p(Rearing Temp.)<0.001", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = 07, 
-           label = "p(Nutrition)<0.001", size = 5, color="black", hjust=0)+
+           label = "p(Feeding)<0.001", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = 03, 
            label = "p(Stress Temp. x Rearing Temp.)=0.658", size = 5, color="darkgray", hjust=0)+
    annotate("text", x = .45, y = -01, 
-           label = "p(Stress Temp. x Nutrition)=0.005", size = 5, color="black", hjust=0)+
+           label = "p(Stress Temp. x Feeding)=0.005", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = -05, 
-           label = "p(Rearing Temp. x Nutrition)=0.009", size = 5, color="black", hjust=0)+
+           label = "p(Rearing Temp. x Feeding)=0.009", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = -09, 
+           label = "p(Three-way Interaction)=0.736", size = 5, color="darkgray", hjust=0)+
+  theme(panel.background = element_blank()) +
+  theme(text = element_text(size=20),
+        panel.border = element_blank(), 
+        plot.background =element_blank(),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        axis.line = element_line(colour = "black"),
+        axis.text = element_text(size=18, colour="black"),
+        legend.title=element_text(),
+        legend.position=("right"),
+        plot.title=element_text(), #Justify the title to the top left
+        legend.text = element_text(size = 20),
+        axis.title.y=element_text(margin=margin(0,7,0,0)), 
+        axis.title.x=element_text(margin=margin(7,0,0,0)))
+
+#ggsave(filename="Figures/Stress_Survival_Total.png", plot=FigSurvStress, dpi=300, width=10, height=8, units="in")
+```
+
+Plot total survivorship in high and ambient treatment at the end of the stress period with nutrition color scheme.    
+ 
+```{r, results=TRUE}
+#cols <- c("Ambient" = "#606060","Cool" = "#0099FF")
+          
+FigSurvStress <- ggplot(data=Stress.Summary, aes(x=factor(Stress.Temp), y=mean, group=interaction(Rear.Temp, Nutrition), colour=Nutrition, linetype=Rear.Temp)) + 
+  geom_line(position=position_dodge(0.03), size=1.3) +
+  geom_point(size=3, position=position_dodge(0.03)) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=0, linetype="solid", position=position_dodge(0.03), size=1.3) +
+  scale_x_discrete(labels=c("Ambient" = "Ambient (27.4°C)", "High" = "High (30.1°C)"))+
+  xlab(expression(bold("Temperature"))) +
+  ylab(expression(bold("Survivorship (%)"))) +
+  ylim(-10,100) + 
+  ggtitle("")+
+  theme_classic() +
+ #scale_y_continuous(breaks=c(0,0.2,0.4,0.6,0.8,1))+
+  scale_linetype_manual(name=expression(bold(atop("Rearing         ", paste("Temperature")))),
+                        breaks=c("Ambient", "Cool"),
+                        labels=c("Ambient", "Cool"), 
+                        values=c("solid", "dotted"))+
+  scale_color_manual(name=expression(bold("Feeding")),
+                          breaks=c("Heterotrophy", "No Heterotrophy"),
+                          labels=c("Fed", "Unfed"), 
+                          values=c("orange", "purple")) +
+  annotate("text", x = .45, y = 15, 
+           label = "p(Stress Temp.)<0.001", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = 11, 
+           label = "p(Rearing Temp.)<0.001", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = 07, 
+           label = "p(Feeding)<0.001", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = 03, 
+           label = "p(Stress Temp. x Rearing Temp.)=0.658", size = 5, color="darkgray", hjust=0)+
+   annotate("text", x = .45, y = -01, 
+           label = "p(Stress Temp. x Feeding)=0.005", size = 5, color="black", hjust=0)+
+   annotate("text", x = .45, y = -05, 
+           label = "p(Rearing Temp. x Feeding)=0.009", size = 5, color="black", hjust=0)+
    annotate("text", x = .45, y = -09, 
            label = "p(Three-way Interaction)=0.736", size = 5, color="darkgray", hjust=0)+
   theme(panel.background = element_blank()) +

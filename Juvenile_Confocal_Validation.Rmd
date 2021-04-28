@@ -156,7 +156,7 @@ Thick2 <- ddply(compareThick, c("Nutrition"), summarise,
 
 ThickScope_plot<-ggplot(Thick2, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
   geom_bar(position=position_dodge(), stat="identity", color="black") +
-  scale_fill_manual(name="Nutrition",
+  scale_fill_manual(name="Feeding",
                     values=c("orange", "purple"),
                     labels=c("Fed", "Unfed"))+
   geom_text(x=1.5, y=800, label="p=0.002", size=6, color="black") +
@@ -205,7 +205,7 @@ Plot this relationship.
 ```{r}
 ThickCorr<-ggplot(compareThick, aes(x=Thickness, y=Zstack, color=Nutrition)) + 
   geom_point(size=3) +
-  scale_color_manual(name="Nutrition",
+  scale_color_manual(name="Feeding",
                     values=c("orange", "purple"),
                     labels=c("Fed", "Unfed"))+
   theme_classic()+
@@ -246,7 +246,7 @@ Red1 <- ddply(compareRed, c("Nutrition"), summarise,
 #symbiont fluorescence as measured by LSCM Red
 RedConfocal_plot<-ggplot(Red1, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
   geom_bar(position=position_dodge(), stat="identity", color="black") +
-  scale_fill_manual(name="Nutrition",
+  scale_fill_manual(name="Feeding",
                     values=c("orange", "purple"),
                     labels=c("Fed", "Unfed"))+
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
@@ -279,7 +279,7 @@ Cells1 <- ddply(compareRed, c("Nutrition"), summarise,
 
 Cells_plot<-ggplot(Cells1, aes(x=Nutrition, y=mean, fill=Nutrition)) + 
   geom_bar(position=position_dodge(), stat="identity", color="black") +
-  scale_fill_manual(name="Nutrition",
+  scale_fill_manual(name="Feeding",
                     values=c("orange", "purple"),
                     labels=c("Fed", "Unfed"))+
   geom_errorbar(aes(ymin=mean-se, ymax=mean+se),
@@ -326,7 +326,7 @@ Plot this relationship.
 ```{r}
 RedCorr<-ggplot(compareRed, aes(x=Density, y=Red, color=Nutrition)) + 
   geom_point(size=3) +
-  scale_color_manual(name="Nutrition",
+  scale_color_manual(name="Feeding",
                     values=c("orange", "purple"),
                     labels=c("Fed", "Unfed"))+
   theme_classic()+
